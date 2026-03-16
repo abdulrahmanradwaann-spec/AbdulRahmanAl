@@ -78,6 +78,38 @@
             }
         }
 
+        /* الوضع المخصص (يتم التحكم به عبر جافاسكريبت) */
+        body.dark-mode {
+            --primary: #3b82f6;
+            --primary-light: #60a5fa;
+            --primary-dark: #2563eb;
+            --bg-light: #030712;
+            --bg-dark: #111827;
+            --surface-light: rgba(17, 24, 39, 0.8);
+            --surface-dark: rgba(3, 7, 18, 0.9);
+            --text-light: #f3f4f6;
+            --text-dark: #111827;
+            --text-muted-light: #9ca3af;
+            --text-muted-dark: #4b5563;
+            --border-light: rgba(255, 255, 255, 0.08);
+            --border-dark: rgba(0, 0, 0, 0.08);
+        }
+        body.light-mode {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --bg-light: #f9fafb;
+            --bg-dark: #030712;
+            --surface-light: rgba(255, 255, 255, 0.8);
+            --surface-dark: rgba(17, 24, 39, 0.8);
+            --text-light: #111827;
+            --text-dark: #f3f4f6;
+            --text-muted-light: #4b5563;
+            --text-muted-dark: #9ca3af;
+            --border-light: rgba(0, 0, 0, 0.08);
+            --border-dark: rgba(255, 255, 255, 0.08);
+        }
+
         /* إعادة تعيين متقدم */
         *,
         *::before,
@@ -104,24 +136,58 @@
             overflow-x: hidden;
         }
 
-        /* خلفية متحركة ديناميكية */
-        body::before {
-            content: '';
+        /* شريط تقدم القراءة */
+        .progress-bar {
             position: fixed;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 0% 0%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 100% 0%, rgba(124, 58, 237, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(219, 39, 119, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 0% 100%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-            animation: backgroundShift 30s ease-in-out infinite alternate;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            z-index: 1000;
+            transition: width 0.1s;
+            box-shadow: 0 0 10px var(--primary);
         }
 
-        @keyframes backgroundShift {
-            0% { opacity: 0.5; transform: scale(1); }
-            100% { opacity: 1; transform: scale(1.1); }
+        /* زر تبديل الوضع - الآن في الأعلى */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-bounce);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            z-index: 999;
+            animation: pulse 3s infinite;
+        }
+        .theme-toggle:hover {
+            transform: scale(1.2) rotate(180deg);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            box-shadow: 0 20px 30px -10px var(--secondary);
+        }
+        .theme-toggle i {
+            font-size: 1.5rem;
+        }
+
+        /* خلفية متحركة بالجسيمات */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.4;
         }
 
         /* تحسين الحاوية */
@@ -213,11 +279,35 @@
             50% { opacity: 0; }
         }
 
+        /* مسار التنقل (Breadcrumbs) */
+        .breadcrumbs {
+            margin: 1rem 0 2rem;
+            font-size: var(--font-sm);
+            color: var(--text-muted-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumbs a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumbs .separator {
+            color: var(--text-muted-light);
+            margin: 0 0.25rem;
+        }
+
         /* ========== شريط البحث المتطور ========== */
         .search-section {
-            margin: 3rem 0 4rem;
+            margin: 1rem 0 3rem;
             display: flex;
             justify-content: center;
+            position: relative;
         }
 
         .search-wrapper {
@@ -268,6 +358,66 @@
             transform: translateY(-50%) rotate(10deg) scale(1.1);
         }
 
+        /* زر مسح البحث */
+        .clear-search {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--text-muted-light);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: none;
+        }
+        .clear-search:hover {
+            color: var(--primary);
+            transform: translateY(-50%) scale(1.2);
+        }
+        .search-wrapper input:not(:placeholder-shown) ~ .clear-search {
+            display: block;
+        }
+
+        /* اقتراحات البحث */
+        .autocomplete-box {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-light);
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 100;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        .autocomplete-box.show {
+            display: block;
+        }
+        .autocomplete-item {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            transition: background var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .autocomplete-item:last-child {
+            border-bottom: none;
+        }
+        .autocomplete-item:hover,
+        .autocomplete-item.selected {
+            background: rgba(37, 99, 235, 0.1);
+        }
+        .autocomplete-item i {
+            width: 1.5rem;
+            color: var(--primary);
+        }
+
         /* ========== بطاقات الأقسام الرئيسية ========== */
         .categories-grid {
             display: grid;
@@ -298,6 +448,8 @@
             animation-delay: calc(0.05s * var(--card-index, 1));
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .category-card::before {
@@ -314,7 +466,7 @@
         }
 
         .category-card:hover {
-            transform: translateY(-8px) scale(1.02);
+            transform: translateY(-8px) scale(1.02) rotateX(2deg);
             box-shadow: var(--shadow-hover);
             border-color: var(--primary);
             background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
@@ -332,10 +484,11 @@
             color: white;
             transition: all var(--transition-bounce);
             box-shadow: 0 10px 20px -5px var(--primary);
+            transform: translateZ(20px);
         }
 
         .category-card:hover .category-card-icon {
-            transform: rotate(6deg) scale(1.1);
+            transform: rotate(6deg) scale(1.1) translateZ(30px);
             box-shadow: 0 20px 30px -8px var(--primary);
         }
 
@@ -354,6 +507,26 @@
             line-height: 1.6;
             max-width: 250px;
             margin: 0 auto;
+        }
+
+        /* عداد الأدوات في البطاقة مع تأثير متحرك */
+        .tool-count {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.35rem 1rem;
+            border-radius: 50px;
+            font-size: var(--font-xs);
+            font-weight: 600;
+            color: var(--primary);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            transition: all var(--transition-fast);
+        }
+        .category-card:hover .tool-count {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
         }
 
         /* ========== رأس القسم الفرعي ========== */
@@ -598,7 +771,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========== زر العودة للأعلى ========== */
+        /* ========== زر العودة للأعلى (يبقى في الأسفل) ========== */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -653,6 +826,40 @@
             margin-bottom: 0.5rem;
         }
 
+        /* ========== مؤشرات التحميل (Skeleton) ========== */
+        .skeleton-card {
+            background: var(--surface-light);
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .skeleton-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1.2rem;
+            background: linear-gradient(90deg, rgba(128,128,128,0.1) 25%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        .skeleton-line {
+            height: 1rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(90deg, rgba(128,128,128,0.1) 25%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        .skeleton-line.short {
+            width: 60%;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
         /* ========== تحسينات الوضع الداكن ========== */
         @media (prefers-color-scheme: dark) {
             .category-card p,
@@ -677,6 +884,12 @@
                 font-size: 1.2rem;
             }
             
+            .theme-toggle {
+                top: 1rem;
+                left: 1rem;
+                width: 3rem;
+                height: 3rem;
+            }
             .back-to-top {
                 bottom: 1rem;
                 right: 1rem;
@@ -684,7 +897,7 @@
                 height: 3rem;
             }
             
-            .back-to-top i {
+            .back-to-top i, .theme-toggle i {
                 font-size: 1.2rem;
             }
         }
@@ -723,6 +936,17 @@
     </style>
 </head>
 <body>
+    <!-- شريط تقدم القراءة -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- زر تبديل الوضع (الآن في الأعلى) -->
+    <div class="theme-toggle" id="themeToggle" title="تبديل الوضع">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- خلفية متحركة بالجسيمات -->
+    <canvas id="particle-canvas"></canvas>
+
     <div class="container">
         <header class="header">
             <h1>عبد الرحمن تكنولوجيا</h1>
@@ -732,11 +956,18 @@
             </div>
         </header>
 
+        <!-- مسار التنقل (Breadcrumbs) -->
+        <div class="breadcrumbs" id="breadcrumbs">
+            <a href="/">الرئيسية</a>
+        </div>
+
         <!-- شريط البحث (يظهر في كلا الوضعين) -->
         <div class="search-section" id="searchSection">
             <div class="search-wrapper">
-                <input type="text" id="searchInput" placeholder="ابحث عن أداة ذكاء اصطناعي...">
+                <input type="text" id="searchInput" placeholder="ابحث عن أداة ذكاء اصطناعي..." autocomplete="off">
                 <i class="fas fa-search"></i>
+                <i class="fas fa-times clear-search" id="clearSearch"></i>
+                <div class="autocomplete-box" id="autocompleteBox"></div>
             </div>
         </div>
 
@@ -759,7 +990,7 @@
 
     <script>
         // ------------------------------------------------------------
-        // نسخة منقحة بالكامل من الأدوات - تمت إزالة التكرارات وإصلاح الأيقونات والروابط
+        // نسخة منقحة بالكامل من الأدوات - تم دمج أدوات Designs.ai في الأقسام المناسبة
         // ------------------------------------------------------------
         const categories = [
             {
@@ -781,7 +1012,9 @@
                     { name: "Ora", desc: "تشغيل وتجربة نماذج الذكاء الاصطناعي.", url: "https://ora.ai", icon: "fa-solid fa-o" },
                     { name: "Forefront AI", desc: "منصة نماذج ذكاء اصطناعي متعددة.", url: "https://forefront.ai", icon: "fa-solid fa-f" },
                     { name: "LLaMA", desc: "نموذج ذكاء اصطناعي مفتوح المصدر من Meta.", url: "https://ai.meta.com/llama", icon: "fa-brands fa-meta" },
-                    { name: "Chatsonic", desc: "روبوت محادثة متقدم من Writesonic.", url: "https://writesonic.com/chatsonic", icon: "fa-solid fa-headphones" }
+                    { name: "Chatsonic", desc: "روبوت محادثة متقدم من Writesonic.", url: "https://writesonic.com/chatsonic", icon: "fa-solid fa-headphones" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Chat", desc: "محادثة ذكاء اصطناعي للمساعدة في الأفكار والبحث", url: "https://designs.ai", icon: "fa-solid fa-comments" }
                 ]
             },
             {
@@ -868,7 +1101,61 @@
                     { name: "PhotoRoom", desc: "إزالة خلفيات الصور بسرعة واحترافية.", url: "https://www.photoroom.com", icon: "fa-solid fa-crop-alt" },
                     { name: "Designs AI", desc: "أدوات تصميم وشعارات احترافية.", url: "https://designs.ai", icon: "fa-solid fa-pen-ruler" },
                     { name: "Brandmark", desc: "مولد شعارات AI.", url: "https://brandmark.io", icon: "fa-solid fa-trademark" },
-                    { name: "LogoAI", desc: "تصميم شعارات سريع واحترافي.", url: "https://logoai.com", icon: "fa-solid fa-tag" }
+                    { name: "LogoAI", desc: "تصميم شعارات سريع واحترافي.", url: "https://logoai.com", icon: "fa-solid fa-tag" },
+                    // أدوات Designs.ai المضافة
+                    { name: "Image Maker", desc: "توليد الصور بالذكاء الاصطناعي", url: "https://designs.ai", icon: "fa-solid fa-image" },
+                    { name: "Logo Maker", desc: "إنشاء شعارات احترافية", url: "https://designs.ai", icon: "fa-solid fa-star" },
+                    { name: "Design Maker", desc: "إنشاء تصاميم للسوشيال ميديا", url: "https://designs.ai", icon: "fa-solid fa-paintbrush" },
+                    { name: "Face Swapper", desc: "تبديل الوجوه في الصور", url: "https://designs.ai", icon: "fa-solid fa-face-smile" },
+                    { name: "AI Draw", desc: "تحويل الرسومات إلى صور احترافية", url: "https://designs.ai", icon: "fa-solid fa-pencil" },
+                    { name: "Image to Text", desc: "استخراج النص من الصور", url: "https://designs.ai", icon: "fa-solid fa-font" },
+                    { name: "Color Matcher", desc: "اختيار ألوان متناسقة", url: "https://designs.ai", icon: "fa-solid fa-palette" },
+                    { name: "Graphic Maker", desc: "إنشاء رسومات SVG", url: "https://designs.ai", icon: "fa-solid fa-shapes" },
+                    { name: "Font Pairer", desc: "اختيار تنسيق الخطوط", url: "https://designs.ai", icon: "fa-solid fa-text-height" },
+                    { name: "AI Design Generator", desc: "إنشاء تصاميم تلقائياً", url: "https://designs.ai", icon: "fa-solid fa-wand-magic" },
+                    { name: "AI Background Remover", desc: "حذف خلفية الصور", url: "https://designs.ai", icon: "fa-solid fa-eraser" },
+                    { name: "AI Image Upscaler", desc: "رفع جودة الصور", url: "https://designs.ai", icon: "fa-solid fa-magnifying-glass-plus" },
+                    { name: "AI Poster Generator", desc: "إنشاء بوسترات", url: "https://designs.ai", icon: "fa-solid fa-image" },
+                    { name: "AI Banner Generator", desc: "إنشاء بانرات", url: "https://designs.ai", icon: "fa-solid fa-rectangle-ad" },
+                    { name: "AI Thumbnail Maker", desc: "إنشاء صور مصغرة لليوتيوب", url: "https://designs.ai", icon: "fa-brands fa-youtube" },
+                    { name: "AI Social Post Generator", desc: "إنشاء منشورات سوشيال", url: "https://designs.ai", icon: "fa-solid fa-hashtag" },
+                    { name: "AI Brand Kit Generator", desc: "إنشاء هوية بصرية", url: "https://designs.ai", icon: "fa-solid fa-brush" },
+                    { name: "AI Color Palette Generator", desc: "إنشاء لوحات ألوان", url: "https://designs.ai", icon: "fa-solid fa-palette" },
+                    { name: "AI Typography Generator", desc: "توليد تنسيق الخطوط", url: "https://designs.ai", icon: "fa-solid fa-text-height" },
+                    { name: "AI Mockup Generator", desc: "إنشاء موك أب للمنتجات", url: "https://designs.ai", icon: "fa-solid fa-cube" },
+                    { name: "AI T-Shirt Design", desc: "تصميم قمصان", url: "https://designs.ai", icon: "fa-solid fa-shirt" },
+                    { name: "AI Business Card Maker", desc: "تصميم بطاقات أعمال", url: "https://designs.ai", icon: "fa-solid fa-id-card" },
+                    { name: "AI Flyer Generator", desc: "إنشاء فلاير", url: "https://designs.ai", icon: "fa-solid fa-file" },
+                    { name: "AI Invitation Maker", desc: "تصميم دعوات", url: "https://designs.ai", icon: "fa-solid fa-envelope" },
+                    { name: "AI Album Cover Generator", desc: "تصميم أغلفة ألبومات", url: "https://designs.ai", icon: "fa-solid fa-compact-disc" },
+                    { name: "AI Book Cover Maker", desc: "تصميم أغلفة الكتب", url: "https://designs.ai", icon: "fa-solid fa-book" },
+                    { name: "AI Avatar Generator", desc: "إنشاء أفاتار", url: "https://designs.ai", icon: "fa-solid fa-user-astronaut" },
+                    { name: "AI Character Creator", desc: "إنشاء شخصيات", url: "https://designs.ai", icon: "fa-solid fa-user" },
+                    { name: "AI Cartoon Generator", desc: "تحويل الصور إلى كرتون", url: "https://designs.ai", icon: "fa-solid fa-face-smile" },
+                    { name: "AI Sketch Generator", desc: "تحويل الصور إلى رسم", url: "https://designs.ai", icon: "fa-solid fa-pencil" },
+                    { name: "AI Art Generator", desc: "إنشاء لوحات فنية", url: "https://designs.ai", icon: "fa-solid fa-palette" },
+                    { name: "AI Style Transfer", desc: "تغيير نمط الصورة", url: "https://designs.ai", icon: "fa-solid fa-paint-roller" },
+                    { name: "AI Photo Enhancer", desc: "تحسين الصور", url: "https://designs.ai", icon: "fa-solid fa-camera-retro" },
+                    { name: "AI Object Remover", desc: "إزالة عناصر من الصورة", url: "https://designs.ai", icon: "fa-solid fa-eraser" },
+                    { name: "AI Image Expander", desc: "توسيع الصور", url: "https://designs.ai", icon: "fa-solid fa-expand" },
+                    { name: "AI Image Cropper", desc: "قص الصور", url: "https://designs.ai", icon: "fa-solid fa-crop" },
+                    { name: "AI Image Filter", desc: "إضافة فلاتر", url: "https://designs.ai", icon: "fa-solid fa-filter" },
+                    { name: "AI Lighting Adjuster", desc: "تعديل الإضاءة", url: "https://designs.ai", icon: "fa-solid fa-sun" },
+                    { name: "AI Color Correction", desc: "تصحيح الألوان", url: "https://designs.ai", icon: "fa-solid fa-fill-drip" },
+                    { name: "AI HDR Generator", desc: "تحسين ديناميكية الصورة", url: "https://designs.ai", icon: "fa-solid fa-image" },
+                    { name: "AI Photo Retouch", desc: "تعديل الصور", url: "https://designs.ai", icon: "fa-solid fa-wand-magic" },
+                    { name: "AI Portrait Enhancer", desc: "تحسين الصور الشخصية", url: "https://designs.ai", icon: "fa-solid fa-portrait" },
+                    { name: "AI Landscape Generator", desc: "إنشاء صور طبيعة", url: "https://designs.ai", icon: "fa-solid fa-mountain" },
+                    { name: "AI Product Photo Generator", desc: "إنشاء صور منتجات", url: "https://designs.ai", icon: "fa-solid fa-camera" },
+                    { name: "AI Background Generator", desc: "إنشاء خلفيات", url: "https://designs.ai", icon: "fa-solid fa-image" },
+                    { name: "AI Texture Generator", desc: "إنشاء خامات", url: "https://designs.ai", icon: "fa-solid fa-border-all" },
+                    { name: "AI Pattern Generator", desc: "إنشاء أنماط", url: "https://designs.ai", icon: "fa-solid fa-border-all" },
+                    { name: "AI Icon Generator", desc: "إنشاء أيقونات", url: "https://designs.ai", icon: "fa-solid fa-icons" },
+                    { name: "AI Sticker Generator", desc: "إنشاء ملصقات", url: "https://designs.ai", icon: "fa-solid fa-face-smile" },
+                    { name: "AI Logo Animation", desc: "تحريك الشعار", url: "https://designs.ai", icon: "fa-solid fa-star" },
+                    { name: "AI Brand Guidelines", desc: "إنشاء دليل العلامة", url: "https://designs.ai", icon: "fa-solid fa-book" },
+                    { name: "AI GIF Generator", desc: "إنشاء صور GIF", url: "https://designs.ai", icon: "fa-solid fa-image" },
+                    { name: "AI Meme Generator", desc: "إنشاء ميمات", url: "https://designs.ai", icon: "fa-solid fa-face-grin" }
                 ]
             },
             {
@@ -890,7 +1177,14 @@
                     { name: "Elai.io", desc: "إنشاء فيديوهات تعليمية ومحتوى.", url: "https://elai.io", icon: "fa-solid fa-graduation-cap" },
                     { name: "Wisecut", desc: "تحرير الفيديو تلقائيًا وإزالة الصمت.", url: "https://www.wisecut.video", icon: "fa-solid fa-cut" },
                     { name: "Veed.io AI", desc: "تحسين الفيديوهات وإضافة ترجمات تلقائية.", url: "https://www.veed.io", icon: "fa-solid fa-closed-captioning" },
-                    { name: "Pika Labs", desc: "توليد فيديو قصير من النص.", url: "https://pika.art", icon: "fa-solid fa-video" }
+                    { name: "Pika Labs", desc: "توليد فيديو قصير من النص.", url: "https://pika.art", icon: "fa-solid fa-video" },
+                    // أدوات Designs.ai المضافة
+                    { name: "Video Maker", desc: "إنشاء فيديو من النصوص تلقائياً", url: "https://designs.ai", icon: "fa-solid fa-video" },
+                    { name: "AI Video Scene Generator", desc: "إنشاء مشاهد فيديو", url: "https://designs.ai", icon: "fa-solid fa-video" },
+                    { name: "AI Video Subtitle Maker", desc: "إضافة ترجمة للفيديو", url: "https://designs.ai", icon: "fa-solid fa-closed-captioning" },
+                    { name: "AI Video Template Maker", desc: "إنشاء قوالب فيديو", url: "https://designs.ai", icon: "fa-solid fa-video" },
+                    { name: "AI Animation Generator", desc: "إنشاء أنيميشن", url: "https://designs.ai", icon: "fa-solid fa-film" },
+                    { name: "AI Motion Graphics", desc: "إنشاء موشن جرافيك", url: "https://designs.ai", icon: "fa-solid fa-film" }
                 ]
             },
             {
@@ -916,7 +1210,15 @@
                     { name: "Synthesys AI", desc: "توليد فيديو وصوت احترافي.", url: "https://synthesys.io", icon: "fa-solid fa-headphones" },
                     { name: "Altered Studio", desc: "تغيير الصوت والمحادثات التفاعلية.", url: "https://www.altered.ai", icon: "fa-solid fa-exchange-alt" },
                     { name: "Audiio AI", desc: "موسيقى وتأثيرات صوتية ذكية.", url: "https://www.audiio.com", icon: "fa-solid fa-music" },
-                    { name: "Typecast AI", desc: "تحويل النصوص إلى أصوات متعددة.", url: "https://typecast.ai", icon: "fa-solid fa-font" }
+                    { name: "Typecast AI", desc: "تحويل النصوص إلى أصوات متعددة.", url: "https://typecast.ai", icon: "fa-solid fa-font" },
+                    // أدوات Designs.ai المضافة
+                    { name: "Speech Maker", desc: "تحويل النص إلى صوت", url: "https://designs.ai", icon: "fa-solid fa-microphone" },
+                    { name: "AI Audio", desc: "إنشاء أو تعديل الصوت", url: "https://designs.ai", icon: "fa-solid fa-headphones" },
+                    { name: "AI Voice Cloning", desc: "استنساخ الصوت", url: "https://designs.ai", icon: "fa-solid fa-microphone-alt" },
+                    { name: "AI Voice Over", desc: "إنشاء تعليق صوتي", url: "https://designs.ai", icon: "fa-solid fa-microphone" },
+                    { name: "AI Podcast Generator", desc: "إنشاء بودكاست", url: "https://designs.ai", icon: "fa-solid fa-podcast" },
+                    { name: "AI Music Generator", desc: "توليد موسيقى", url: "https://designs.ai", icon: "fa-solid fa-music" },
+                    { name: "AI Sound Effect Generator", desc: "إنشاء مؤثرات صوتية", url: "https://designs.ai", icon: "fa-solid fa-waveform" }
                 ]
             },
             {
@@ -959,7 +1261,20 @@
                     { name: "LongShot AI", desc: "كتابة مقالات طويلة بجودة عالية.", url: "https://longshot.ai", icon: "fa-solid fa-file-lines" },
                     { name: "Bertha AI", desc: "مساعد كتابة لمستخدمي ووردبريس.", url: "https://bertha.ai", icon: "fa-brands fa-wordpress" },
                     { name: "CopyMonkey", desc: "وصف المنتجات لمواقع التجارة الإلكترونية.", url: "https://copymonkey.ai", icon: "fa-brands fa-amazon" },
-                    { name: "Quillbot", desc: "إعادة صياغة النصوص.", url: "https://quillbot.com", icon: "fa-solid fa-pen" }
+                    { name: "Quillbot", desc: "إعادة صياغة النصوص.", url: "https://quillbot.com", icon: "fa-solid fa-pen" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Writer", desc: "كتابة المقالات والنصوص التسويقية", url: "https://designs.ai", icon: "fa-solid fa-pen" },
+                    { name: "AI Caption Generator", desc: "إنشاء وصف للصور", url: "https://designs.ai", icon: "fa-solid fa-closed-captioning" },
+                    { name: "Video Script Generator", desc: "إنشاء سكربت للفيديو", url: "https://designs.ai", icon: "fa-solid fa-scroll" },
+                    { name: "AI Script Generator", desc: "كتابة سكربت", url: "https://designs.ai", icon: "fa-solid fa-scroll" },
+                    { name: "AI Blog Generator", desc: "كتابة مقالات", url: "https://designs.ai", icon: "fa-solid fa-blog" },
+                    { name: "AI SEO Writer", desc: "كتابة محتوى SEO", url: "https://designs.ai", icon: "fa-solid fa-magnifying-glass" },
+                    { name: "AI Tagline Generator", desc: "إنشاء شعارات دعائية", url: "https://designs.ai", icon: "fa-solid fa-quote-right" },
+                    { name: "AI Slogan Generator", desc: "توليد شعارات تسويقية", url: "https://designs.ai", icon: "fa-solid fa-quote-left" },
+                    { name: "AI Brand Name Generator", desc: "توليد أسماء شركات", url: "https://designs.ai", icon: "fa-solid fa-trademark" },
+                    { name: "AI Domain Name Generator", desc: "اقتراح أسماء نطاق", url: "https://designs.ai", icon: "fa-solid fa-globe" },
+                    { name: "AI Product Description", desc: "كتابة وصف المنتجات", url: "https://designs.ai", icon: "fa-solid fa-tag" },
+                    { name: "AI Marketing Copy", desc: "كتابة محتوى تسويقي", url: "https://designs.ai", icon: "fa-solid fa-chart-line" }
                 ]
             },
             {
@@ -983,7 +1298,10 @@
                     { name: "Genially", desc: "عروض تفاعلية.", url: "https://genial.ly", icon: "fa-solid fa-hand-pointer" },
                     { name: "Haiku Deck", desc: "عروض بسيطة وأنيقة.", url: "https://www.haikudeck.com", icon: "fa-solid fa-leaf" },
                     { name: "Google Slides", desc: "إنشاء عروض مشتركة.", url: "https://slides.google.com", icon: "fa-brands fa-google" },
-                    { name: "Storydoc", desc: "عروض مبيعات تفاعلية.", url: "https://www.storydoc.com", icon: "fa-solid fa-book-open" }
+                    { name: "Storydoc", desc: "عروض مبيعات تفاعلية.", url: "https://www.storydoc.com", icon: "fa-solid fa-book-open" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Presentation Maker", desc: "إنشاء عروض تقديمية", url: "https://designs.ai", icon: "fa-solid fa-chart-pie" },
+                    { name: "AI Infographic Maker", desc: "إنشاء إنفوجرافيك", url: "https://designs.ai", icon: "fa-solid fa-chart-simple" }
                 ]
             },
             {
@@ -1070,7 +1388,19 @@
                     { name: "Yesware", desc: "تتبع رسائل البريد للمبيعات.", url: "https://www.yesware.com", icon: "fa-solid fa-check" },
                     { name: "Reply", desc: "إرسال رسائل مبيعات تلقائيًا.", url: "https://reply.io", icon: "fa-solid fa-reply" },
                     { name: "Leadfeeder", desc: "معرفة من يزور موقعك.", url: "https://www.leadfeeder.com", icon: "fa-solid fa-chart-pie" },
-                    { name: "Gong", desc: "تحليل مكالمات المبيعات.", url: "https://www.gong.io", icon: "fa-solid fa-gong" }
+                    { name: "Gong", desc: "تحليل مكالمات المبيعات.", url: "https://www.gong.io", icon: "fa-solid fa-gong" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Ad Generator", desc: "إنشاء إعلانات", url: "https://designs.ai", icon: "fa-solid fa-bullhorn" },
+                    { name: "AI Campaign Generator", desc: "إنشاء حملات تسويق", url: "https://designs.ai", icon: "fa-solid fa-bullhorn" },
+                    { name: "AI Social Media Planner", desc: "تخطيط المحتوى", url: "https://designs.ai", icon: "fa-solid fa-calendar" },
+                    { name: "AI Content Calendar", desc: "جدول نشر المحتوى", url: "https://designs.ai", icon: "fa-solid fa-calendar-alt" },
+                    { name: "AI Audience Analyzer", desc: "تحليل الجمهور", url: "https://designs.ai", icon: "fa-solid fa-chart-pie" },
+                    { name: "AI Trend Analyzer", desc: "تحليل الترند", url: "https://designs.ai", icon: "fa-solid fa-chart-line" },
+                    { name: "AI Ad Performance Analyzer", desc: "تحليل أداء الإعلانات", url: "https://designs.ai", icon: "fa-solid fa-chart-bar" },
+                    { name: "AI Marketing Strategy", desc: "اقتراح استراتيجية تسويق", url: "https://designs.ai", icon: "fa-solid fa-chess" },
+                    { name: "AI Keyword Generator", desc: "توليد كلمات مفتاحية", url: "https://designs.ai", icon: "fa-solid fa-key" },
+                    { name: "AI Hashtag Generator", desc: "إنشاء هاشتاقات", url: "https://designs.ai", icon: "fa-solid fa-hashtag" },
+                    { name: "AI Content Idea Generator", desc: "توليد أفكار محتوى", url: "https://designs.ai", icon: "fa-solid fa-lightbulb" }
                 ]
             },
             {
@@ -1091,7 +1421,9 @@
                     { name: "Zoho Social", desc: "إدارة منصات التواصل مع تحليلات.", url: "https://www.zoho.com/social", icon: "fa-solid fa-chart-bar" },
                     { name: "Sprout Social", desc: "تحليل الجمهور والأداء.", url: "https://sproutsocial.com", icon: "fa-brands fa-sprout-social" },
                     { name: "Sendible", desc: "أتمتة نشر المحتوى.", url: "https://www.sendible.com", icon: "fa-solid fa-share-alt" },
-                    { name: "Vista Social", desc: "إدارة كاملة للسوشيال ميديا.", url: "https://www.vistasocial.com", icon: "fa-solid fa-globe" }
+                    { name: "Vista Social", desc: "إدارة كاملة للسوشيال ميديا.", url: "https://www.vistasocial.com", icon: "fa-solid fa-globe" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Social Post Generator", desc: "إنشاء منشورات سوشيال", url: "https://designs.ai", icon: "fa-solid fa-hashtag" }
                 ]
             },
             {
@@ -1111,7 +1443,9 @@
                     { name: "Drip", desc: "أتمتة مبيعات البريد الإلكتروني.", url: "https://www.drip.com", icon: "fa-solid fa-droplet" },
                     { name: "Omnisend", desc: "رسائل تسويقية متعددة القنوات.", url: "https://www.omnisend.com", icon: "fa-solid fa-bullhorn" },
                     { name: "Benchmark Email", desc: "إنشاء حملات بريدية بسهولة.", url: "https://www.benchmarkemail.com", icon: "fa-solid fa-check" },
-                    { name: "Mailjet", desc: "إرسال رسائل بريد احترافية.", url: "https://www.mailjet.com", icon: "fa-solid fa-paper-plane" }
+                    { name: "Mailjet", desc: "إرسال رسائل بريد احترافية.", url: "https://www.mailjet.com", icon: "fa-solid fa-paper-plane" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Email Template Maker", desc: "إنشاء قوالب بريد", url: "https://designs.ai", icon: "fa-solid fa-envelope" }
                 ]
             },
             {
@@ -1131,7 +1465,9 @@
                 tools: [
                     { name: "Kickresume", desc: "إنشاء السيرة الذاتية ورسائل التوظيف.", url: "https://kickresume.com", icon: "fa-solid fa-file-lines" },
                     { name: "Teal", desc: "تحسين السيرة الذاتية للتوظيف.", url: "https://www.tealhq.com", icon: "fa-solid fa-briefcase" },
-                    { name: "AI Resume Builders", desc: "بناء السيرة الذاتية تلقائي.", url: "https://www.resumebuilder.com", icon: "fa-solid fa-file" }
+                    { name: "AI Resume Builders", desc: "بناء السيرة الذاتية تلقائي.", url: "https://www.resumebuilder.com", icon: "fa-solid fa-file" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Resume Maker", desc: "تصميم سيرة ذاتية", url: "https://designs.ai", icon: "fa-solid fa-file-lines" }
                 ]
             },
             {
@@ -1235,7 +1571,10 @@
                     { name: "Preply", desc: "دروس مع مدرسين خصوصيين.", url: "https://preply.com", icon: "fa-solid fa-chalkboard-user" },
                     { name: "Busuu", desc: "تعلم اللغات مع مجتمع عالمي.", url: "https://www.busuu.com", icon: "fa-brands fa-busuu" },
                     { name: "Babbel", desc: "تحسين المحادثة اللغوية.", url: "https://www.babbel.com", icon: "fa-brands fa-babbel" },
-                    { name: "Memrise", desc: "تعلم كلمات اللغات بالصور والصوت.", url: "https://www.memrise.com", icon: "fa-solid fa-m" }
+                    { name: "Memrise", desc: "تعلم كلمات اللغات بالصور والصوت.", url: "https://www.memrise.com", icon: "fa-solid fa-m" },
+                    // أدوات Designs.ai المضافة
+                    { name: "AI Course Content Generator", desc: "إنشاء محتوى تعليمي", url: "https://designs.ai", icon: "fa-solid fa-graduation-cap" },
+                    { name: "AI Ebook Generator", desc: "إنشاء كتب إلكترونية", url: "https://designs.ai", icon: "fa-solid fa-book" }
                 ]
             },
             {
@@ -1266,7 +1605,18 @@
                     { name: "Patterned AI", desc: "إنشاء أنماط وجرافيك مخصص.", url: "https://patterned.ai", icon: "fa-solid fa-shapes" },
                     { name: "LogoAI", desc: "تصميم شعارات سريع واحترافي.", url: "https://logoai.com", icon: "fa-solid fa-tag" },
                     { name: "DoodleAI", desc: "تحويل الرسومات اليدوية إلى أعمال رقمية.", url: "https://doodleai.com", icon: "fa-solid fa-pencil" },
-                    { name: "Map AI", desc: "إنشاء خرائط وتخطيطات ذكية.", url: "https://mapai.com", icon: "fa-solid fa-map" }
+                    { name: "Map AI", desc: "إنشاء خرائط وتخطيطات ذكية.", url: "https://mapai.com", icon: "fa-solid fa-map" },
+                    // أدوات Designs.ai المضافة (بعضها قد تكرر في التصميم ولكننا نضيفها هنا لتكتمل المجموعة)
+                    { name: "AI Mockup Generator", desc: "إنشاء موك أب للمنتجات", url: "https://designs.ai", icon: "fa-solid fa-cube" },
+                    { name: "AI T-Shirt Design", desc: "تصميم قمصان", url: "https://designs.ai", icon: "fa-solid fa-shirt" },
+                    { name: "AI Business Card Maker", desc: "تصميم بطاقات أعمال", url: "https://designs.ai", icon: "fa-solid fa-id-card" },
+                    { name: "AI Flyer Generator", desc: "إنشاء فلاير", url: "https://designs.ai", icon: "fa-solid fa-file" },
+                    { name: "AI Invitation Maker", desc: "تصميم دعوات", url: "https://designs.ai", icon: "fa-solid fa-envelope" },
+                    { name: "AI Album Cover Generator", desc: "تصميم أغلفة ألبومات", url: "https://designs.ai", icon: "fa-solid fa-compact-disc" },
+                    { name: "AI Book Cover Maker", desc: "تصميم أغلفة الكتب", url: "https://designs.ai", icon: "fa-solid fa-book" },
+                    { name: "AI Icon Generator", desc: "إنشاء أيقونات", url: "https://designs.ai", icon: "fa-solid fa-icons" },
+                    { name: "AI Sticker Generator", desc: "إنشاء ملصقات", url: "https://designs.ai", icon: "fa-solid fa-face-smile" },
+                    { name: "AI Logo Animation", desc: "تحريك الشعار", url: "https://designs.ai", icon: "fa-solid fa-star" }
                 ]
             }
         ];
@@ -1329,6 +1679,7 @@
             document.getElementById('noResults').style.display = 'none';
             document.getElementById('searchInput').value = '';
             document.getElementById('searchInput').placeholder = 'ابحث عن أداة ذكاء اصطناعي...';
+            updateBreadcrumbs();
         }
 
         // عرض أدوات قسم معين
@@ -1366,6 +1717,17 @@
             document.getElementById('searchInput').placeholder = `ابحث في ${cat.name}...`;
             document.getElementById('searchInput').value = '';
             document.getElementById('noResults').style.display = 'none';
+            updateBreadcrumbs(cat.name);
+        }
+
+        // تحديث مسار التنقل
+        function updateBreadcrumbs(categoryName = null) {
+            const bread = document.getElementById('breadcrumbs');
+            if (categoryName) {
+                bread.innerHTML = `<a href="/">الرئيسية</a> <span class="separator">/</span> <span>${categoryName}</span>`;
+            } else {
+                bread.innerHTML = `<a href="/">الرئيسية</a>`;
+            }
         }
 
         // البحث مع debounce لتحسين الأداء
@@ -1456,6 +1818,185 @@
         }
 
         // ------------------------------------------------------------
+        // اقتراحات البحث (Autocomplete)
+        // ------------------------------------------------------------
+        function setupAutocomplete() {
+            const searchInput = document.getElementById('searchInput');
+            const autocompleteBox = document.getElementById('autocompleteBox');
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                if (query.length < 2) {
+                    autocompleteBox.classList.remove('show');
+                    return;
+                }
+
+                // جمع كل أسماء الأدوات من جميع الأقسام
+                let suggestions = [];
+                categories.forEach(cat => {
+                    cat.tools.forEach(tool => {
+                        if (tool.name.toLowerCase().includes(query) && !suggestions.includes(tool.name)) {
+                            suggestions.push(tool.name);
+                        }
+                    });
+                });
+                suggestions = suggestions.slice(0, 8); // حد أقصى 8 اقتراحات
+
+                if (suggestions.length === 0) {
+                    autocompleteBox.classList.remove('show');
+                    return;
+                }
+
+                autocompleteBox.innerHTML = suggestions.map(s => `
+                    <div class="autocomplete-item" data-value="${s}">
+                        <i class="fas fa-search"></i> ${s}
+                    </div>
+                `).join('');
+                autocompleteBox.classList.add('show');
+            });
+
+            // التعامل مع النقر على الاقتراح
+            autocompleteBox.addEventListener('click', function(e) {
+                const item = e.target.closest('.autocomplete-item');
+                if (item) {
+                    searchInput.value = item.dataset.value;
+                    autocompleteBox.classList.remove('show');
+                    filterTools(); // تنفيذ البحث مباشرة
+                }
+            });
+
+            // إخفاء الاقتراحات عند فقدان التركيز
+            document.addEventListener('click', function(e) {
+                if (!searchInput.contains(e.target) && !autocompleteBox.contains(e.target)) {
+                    autocompleteBox.classList.remove('show');
+                }
+            });
+        }
+
+        // ------------------------------------------------------------
+        // شريط تقدم القراءة
+        // ------------------------------------------------------------
+        function updateProgressBar() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+        window.addEventListener('scroll', updateProgressBar);
+
+        // ------------------------------------------------------------
+        // تبديل الوضع (داكن/فاتح) مع التخزين المحلي
+        // ------------------------------------------------------------
+        function initTheme() {
+            const themeToggle = document.getElementById('themeToggle');
+            const icon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('theme');
+
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                document.body.classList.remove('dark-mode');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            } else {
+                // حسب تفضيل النظام
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.body.classList.add('dark-mode');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    document.body.classList.add('light-mode');
+                }
+            }
+
+            themeToggle.addEventListener('click', () => {
+                if (document.body.classList.contains('dark-mode')) {
+                    document.body.classList.remove('dark-mode');
+                    document.body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                } else {
+                    document.body.classList.remove('light-mode');
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            });
+        }
+
+        // ------------------------------------------------------------
+        // خلفية متحركة بالجسيمات (Particles)
+        // ------------------------------------------------------------
+        function initParticles() {
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let width, height;
+            let particles = [];
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            const particleCount = 50;
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 2 + 1,
+                    dx: (Math.random() - 0.5) * 0.5,
+                    dy: (Math.random() - 0.5) * 0.5,
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                
+                // تحديد اللون حسب الثيم
+                const isDark = document.body.classList.contains('dark-mode');
+                ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
+
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    p.x += p.dx;
+                    p.y += p.dy;
+
+                    if (p.x < 0 || p.x > width) p.dx *= -1;
+                    if (p.y < 0 || p.y > height) p.dy *= -1;
+                });
+
+                requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // ------------------------------------------------------------
+        // زر مسح البحث
+        // ------------------------------------------------------------
+        function setupClearSearch() {
+            const clearBtn = document.getElementById('clearSearch');
+            const searchInput = document.getElementById('searchInput');
+            clearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                searchInput.focus();
+                filterTools();
+            });
+        }
+
+        // ------------------------------------------------------------
         // التهيئة عند تحميل الصفحة
         // ------------------------------------------------------------
         window.onload = function() {
@@ -1471,6 +2012,11 @@
 
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', debounceFilter);
+
+            setupAutocomplete();
+            setupClearSearch();
+            initTheme();
+            initParticles();
         };
 
         // منع النسخ وأدوات المطور (اختياري - يمكن إزالته إذا أردت)
