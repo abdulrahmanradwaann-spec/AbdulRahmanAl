@@ -2241,6 +2241,11 @@
             <ul class="new-favorites" id="newFavoritesList"></ul>
         </div>
         <div class="new-section">
+            <h4><i class="fas fa-lock"></i> اشتراك مميز</h4>
+            <button class="new-subscribe-btn" id="newSubscribeBtn"><i class="fas fa-key"></i> افتح 3 مواقع حصرية</button>
+            <p class="new-subscribe-desc">أدخل الرمز للحصول على مواقع حصرية</p>
+        </div>
+        <div class="new-section">
             <h4><i class="fas fa-chart-pie"></i> توزيع الأدوات</h4>
             <div class="new-chart-container">
                 <canvas id="newCategoryChart" width="200" height="200"></canvas>
@@ -2249,6 +2254,22 @@
         <div class="new-section">
             <button class="new-share-btn" id="newShareSiteBtn"><i class="fas fa-share-alt"></i> مشاركة الموقع</button>
             <a href="mailto:?subject=اقتراح أداة جديدة&body=أود اقتراح إضافة أداة جديدة إلى الدليل:" class="new-suggest-btn"><i class="fas fa-plus-circle"></i> اقتراح أداة</a>
+        </div>
+    </div>
+</div>
+
+<!-- نافذة الاشتراك (إدخال الرمز) -->
+<div class="new-modal" id="newSubscribeModal">
+    <div class="new-modal-content">
+        <div class="new-modal-header">
+            <i class="fas fa-times" id="newSubscribeClose"></i>
+        </div>
+        <div class="new-modal-body">
+            <div class="new-modal-icon"><i class="fas fa-lock-open"></i></div>
+            <h3>فتح المواقع الحصرية</h3>
+            <p>أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة</p>
+            <input type="password" id="newSubscribeCode" placeholder="****" maxlength="4" style="width:100%; padding:1rem; text-align:center; font-size:2rem; border-radius:2rem; border:2px solid var(--primary); background:var(--surface-light); color:inherit; margin:1rem 0;">
+            <button id="newSubscribeConfirm" class="new-modal-btn" style="width:100%; justify-content:center;">تأكيد</button>
         </div>
     </div>
 </div>
@@ -2431,6 +2452,28 @@
 }
 .new-fav-remove:hover {
     transform: scale(1.2);
+}
+.new-subscribe-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 0.5rem;
+}
+.new-subscribe-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px -8px var(--accent);
+}
+.new-subscribe-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted-light);
+    text-align: center;
 }
 .new-share-btn, .new-suggest-btn {
     display: block;
@@ -2700,6 +2743,15 @@
     // التخزين المحلي للمفضلة والإحصائيات
     let favorites = JSON.parse(localStorage.getItem('new_favorites')) || [];
     let clickStats = JSON.parse(localStorage.getItem('new_clickStats')) || {};
+
+    // الرمز السري للمواقع الحصرية
+    const SECRET_CODE = "9080";
+    // قائمة المواقع الحصرية
+    const EXCLUSIVE_SITES = [
+        "https://daleelai.org/",
+        "https://theresanaiforthat.com/",
+        "https://www.rankmyai.com/"
+    ];
 
     // الحصول على جميع الأدوات بصيغة مسطحة للتعامل معها
     function getAllTools() {
@@ -2988,6 +3040,36 @@
         const toggle = document.getElementById('newSidebarToggle');
         if (!sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
             sidebar.classList.remove('open');
+        }
+    });
+
+    // فتح نافذة الاشتراك
+    document.getElementById('newSubscribeBtn').addEventListener('click', () => {
+        document.getElementById('newSubscribeModal').classList.add('show');
+    });
+
+    // إغلاق نافذة الاشتراك
+    document.getElementById('newSubscribeClose').addEventListener('click', () => {
+        document.getElementById('newSubscribeModal').classList.remove('show');
+    });
+    document.getElementById('newSubscribeModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('newSubscribeModal')) {
+            document.getElementById('newSubscribeModal').classList.remove('show');
+        }
+    });
+
+    // التحقق من الرمز
+    document.getElementById('newSubscribeConfirm').addEventListener('click', () => {
+        const code = document.getElementById('newSubscribeCode').value.trim();
+        if (code === SECRET_CODE) {
+            showToast('✅ تم فتح المواقع بنجاح!', 'success');
+            // فتح المواقع الثلاثة في تبويبات جديدة
+            EXCLUSIVE_SITES.forEach(site => window.open(site, '_blank'));
+            document.getElementById('newSubscribeModal').classList.remove('show');
+            // تخزين أنه تم الاشتراك (اختياري)
+            localStorage.setItem('exclusive_unlocked', 'true');
+        } else {
+            showToast('❌ رمز خاطئ، حاول مرة أخرى', 'error');
         }
     });
 
