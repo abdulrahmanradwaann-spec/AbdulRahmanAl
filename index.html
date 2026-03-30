@@ -4,50 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي</title>
-    <!-- Font Awesome 6 (أحدث إصدار) -->
+
+    <!-- Preconnect & DNS Prefetch لتحسين الأداء -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <!-- Google Fonts مع خطوط متغيرة لتحسين الأداء -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400..700&family=Plus+Jakarta+Sans:wght@300..800&display=swap">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400..700&family=Plus+Jakarta+Sans:wght@300..800&family=Tajawal:wght@400;500;700;800&family=Readex+Pro:wght@400;600;700&display=swap">
+
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026. اكتشف أفضل الأدوات في مجالات متعددة مثل الكتابة، التصميم، البرمجة، الفيديو، الصوت، والأتمتة.">
+    <meta name="keywords" content="الذكاء الاصطناعي, أدوات AI, ChatGPT, دليل أدوات الذكاء الاصطناعي, تصميم AI, برمجة AI">
+    <meta name="author" content="Abdulrahman Radwan">
+    <meta property="og:title" content="عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي">
+    <meta property="og:description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026. اكتشف أفضل الأدوات في مجالات متعددة.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي">
+    <meta name="twitter:description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026.">
+
+    <!-- إعدادات الأمان والإحالة -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
     <style>
-        /* ========== المتغيرات المحسنة ونظام الألوان الجديد ========== */
+        /* ============================================ */
+        /* 1. المتغيرات العالمية ونظام الألوان          */
+        /* ============================================ */
         :root {
-            /* ألوان عصرية متناسقة (نيلي، سماوي، وردي) */
-            --primary: #6366f1;        /* نيلي ناعم */
-            --primary-light: #818cf8;   /* نيلي فاتح */
-            --primary-dark: #4f46e5;    /* نيلي داكن */
-            --secondary: #06b6d4;       /* سماوي (تم تغييره من بنفسجي) */
-            --accent: #ec4899;           /* وردي */
+            /* الألوان الأساسية */
+            --primary: #6366f1;
+            --primary-light: #818cf8;
+            --primary-dark: #4f46e5;
+            --secondary: #06b6d4;
+            --accent: #ec4899;
             --success: #10b981;
             --warning: #f59e0b;
-            
-            /* خلفيات وأسطح محسنة */
+
+            /* الخلفيات */
             --bg-light: #f9fafb;
             --bg-dark: #030712;
             --surface-light: rgba(255, 255, 255, 0.8);
             --surface-dark: rgba(17, 24, 39, 0.8);
-            
-            /* النصوص بتباين أفضل */
+
+            /* النصوص */
             --text-light: #111827;
             --text-dark: #f3f4f6;
             --text-muted-light: #4b5563;
             --text-muted-dark: #9ca3af;
-            
+
             /* الحدود والظلال */
             --border-light: rgba(0, 0, 0, 0.08);
             --border-dark: rgba(255, 255, 255, 0.08);
             --shadow-sm: 0 4px 6px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-md: 0 20px 25px -8px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
             --shadow-lg: 0 30px 40px -15px rgba(0, 0, 0, 0.2);
-            --shadow-hover: 0 40px 60px -20px rgba(99, 102, 241, 0.5); /* يتناسب مع النيلي */
+            --shadow-hover: 0 40px 60px -20px rgba(99, 102, 241, 0.5);
             --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-            
-            /* التحولات والحركات */
+
+            /* التحولات */
             --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-bounce: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            
-            /* تحجيم متجاوب للخطوط باستخدام clamp */
+
+            /* الخطوط المتجاوبة */
             --font-xs: clamp(0.75rem, 2vw, 0.875rem);
             --font-sm: clamp(0.875rem, 2.5vw, 1rem);
             --font-base: clamp(1rem, 3vw, 1.125rem);
@@ -57,16 +86,20 @@
             --font-3xl: clamp(1.875rem, 6vw, 2.25rem);
             --font-4xl: clamp(2.25rem, 7vw, 3rem);
             --font-5xl: clamp(3rem, 8vw, 3.75rem);
+
+            /* إضافات فاخرة */
+            --glow-color: rgba(99, 102, 241, 0.8);
+            --glow-spread: 20px;
         }
 
-        /* الوضع الداكن التلقائي */
+        /* الوضع الداكن حسب تفضيل النظام */
         @media (prefers-color-scheme: dark) {
             :root {
-                --primary: #818cf8;      /* نيلي فاتح في الداكن */
+                --primary: #818cf8;
                 --primary-light: #a5b4fc;
                 --primary-dark: #6366f1;
-                --secondary: #22d3ee;     /* سماوي فاتح (تم تغييره من بنفسجي) */
-                --accent: #f472b6;         /* وردي فاتح */
+                --secondary: #22d3ee;
+                --accent: #f472b6;
                 --bg-light: #030712;
                 --bg-dark: #111827;
                 --surface-light: rgba(17, 24, 39, 0.8);
@@ -80,7 +113,7 @@
             }
         }
 
-        /* الوضع المخصص (يتم التحكم به عبر جافاسكريبت) */
+        /* الوضع المخصص عبر JavaScript */
         body.dark-mode {
             --primary: #818cf8;
             --primary-light: #a5b4fc;
@@ -98,6 +131,7 @@
             --border-light: rgba(255, 255, 255, 0.08);
             --border-dark: rgba(0, 0, 0, 0.08);
         }
+
         body.light-mode {
             --primary: #6366f1;
             --primary-light: #818cf8;
@@ -116,7 +150,9 @@
             --border-dark: rgba(255, 255, 255, 0.08);
         }
 
-        /* إعادة تعيين متقدم */
+        /* ============================================ */
+        /* 2. إعادة التعيين والأنماط الأساسية            */
+        /* ============================================ */
         *,
         *::before,
         *::after {
@@ -132,7 +168,7 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', 'Cairo', sans-serif;
+            font-family: 'Tajawal', 'Readex Pro', 'Plus Jakarta Sans', 'Cairo', sans-serif;
             background: var(--bg-light);
             color: var(--text-light);
             min-height: 100vh;
@@ -140,6 +176,23 @@
             transition: background-color 0.3s, color 0.3s;
             position: relative;
             overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: white;
+            text-shadow: none;
+        }
+
+        /* ============================================ */
+        /* 3. المكونات العامة والمساعدات                */
+        /* ============================================ */
+        .container {
+            width: min(1440px, 100% - 2rem);
+            margin-inline: auto;
+            padding: 1rem;
+            position: relative;
+            z-index: 10;
         }
 
         /* شريط تقدم القراءة */
@@ -155,7 +208,7 @@
             box-shadow: 0 0 10px var(--primary);
         }
 
-        /* زر تبديل الوضع - الآن في الأعلى */
+        /* زر تبديل الوضع */
         .theme-toggle {
             position: fixed;
             top: 2rem;
@@ -175,16 +228,18 @@
             z-index: 999;
             animation: pulse 3s infinite;
         }
+
         .theme-toggle:hover {
             transform: scale(1.2) rotate(180deg);
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             box-shadow: 0 20px 30px -10px var(--secondary);
         }
+
         .theme-toggle i {
             font-size: 1.5rem;
         }
 
-        /* خلفية متحركة بالجسيمات */
+        /* خلفية الجسيمات */
         #particle-canvas {
             position: fixed;
             top: 0;
@@ -196,16 +251,46 @@
             opacity: 0.4;
         }
 
-        /* تحسين الحاوية */
-        .container {
-            width: min(1440px, 100% - 2rem);
-            margin-inline: auto;
-            padding: 1rem;
-            position: relative;
-            z-index: 10;
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--secondary);
+            transition: all var(--transition-bounce);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            z-index: 99;
+            animation: pulse 3s infinite;
         }
 
-        /* ========== الهيدر المحسن ========== */
+        .back-to-top:hover {
+            transform: scale(1.2) rotate(360deg);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            box-shadow: 0 20px 30px -10px var(--secondary);
+        }
+
+        .back-to-top i {
+            font-size: 1.5rem;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+        }
+
+        /* ============================================ */
+        /* 4. الهيدر والكتابة المتحركة                  */
+        /* ============================================ */
         .header {
             padding: clamp(2rem, 5vw, 4rem) 0;
             text-align: center;
@@ -234,7 +319,7 @@
             color: transparent;
             margin-bottom: 0.5em;
             animation: gradientFlow 8s ease infinite, float 6s ease-in-out infinite;
-            text-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
         }
 
         @keyframes gradientFlow {
@@ -248,18 +333,21 @@
             50% { transform: translateY(-10px); }
         }
 
-        /* حاوية الكتابة */
+        @keyframes glowPulse {
+            from { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary); }
+            to { text-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary), 0 0 60px var(--accent); }
+        }
+
         .typing-container {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             background: var(--surface-light);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--border-light);
+            border: 1px solid rgba(99, 102, 241, 0.5);
             border-radius: 100px;
             padding: 0.75rem 2rem;
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 0 15px var(--primary);
             font-size: var(--font-lg);
             color: var(--primary);
             font-weight: 500;
@@ -295,20 +383,25 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
+
         .breadcrumbs a {
             color: var(--primary);
             text-decoration: none;
             transition: color var(--transition-fast);
         }
+
         .breadcrumbs a:hover {
             text-decoration: underline;
         }
+
         .breadcrumbs .separator {
             color: var(--text-muted-light);
             margin: 0 0.25rem;
         }
 
-        /* ========== شريط البحث المتطور ========== */
+        /* ============================================ */
+        /* 5. البحث والاقتراحات                         */
+        /* ============================================ */
         .search-section {
             margin: 1rem 0 3rem;
             display: flex;
@@ -333,19 +426,17 @@
             border-radius: 100px;
             background: var(--surface-light);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             font-size: var(--font-base);
             font-family: inherit;
             color: inherit;
             box-shadow: var(--shadow-md);
             transition: all var(--transition-base);
-            user-select: text;
         }
 
         .search-wrapper input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), var(--shadow-lg);
+            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--secondary);
             background: var(--surface-light);
         }
 
@@ -364,7 +455,6 @@
             transform: translateY(-50%) rotate(10deg) scale(1.1);
         }
 
-        /* زر مسح البحث */
         .clear-search {
             position: absolute;
             right: 1.5rem;
@@ -376,15 +466,16 @@
             transition: all var(--transition-fast);
             display: none;
         }
+
         .clear-search:hover {
             color: var(--primary);
             transform: translateY(-50%) scale(1.2);
         }
-        .search-wrapper input:not(:placeholder-shown) ~ .clear-search {
+
+        .search-wrapper input:not(:placeholder-shown)~.clear-search {
             display: block;
         }
 
-        /* اقتراحات البحث */
         .autocomplete-box {
             position: absolute;
             top: calc(100% + 0.5rem);
@@ -400,9 +491,11 @@
             overflow-y: auto;
             display: none;
         }
+
         .autocomplete-box.show {
             display: block;
         }
+
         .autocomplete-item {
             padding: 0.75rem 1.5rem;
             cursor: pointer;
@@ -412,19 +505,24 @@
             gap: 0.75rem;
             border-bottom: 1px solid var(--border-light);
         }
+
         .autocomplete-item:last-child {
             border-bottom: none;
         }
+
         .autocomplete-item:hover,
         .autocomplete-item.selected {
             background: rgba(99, 102, 241, 0.1);
         }
+
         .autocomplete-item i {
             width: 1.5rem;
             color: var(--primary);
         }
 
-        /* ========== بطاقات الأقسام الرئيسية ========== */
+        /* ============================================ */
+        /* 6. بطاقات الأقسام والأدوات                    */
+        /* ============================================ */
         .categories-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
@@ -435,11 +533,10 @@
         .category-card {
             background: var(--surface-light);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border-radius: 2rem;
             padding: 2rem 1.5rem;
             border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 0 5px var(--primary), 0 0 15px rgba(99, 102, 241, 0.3);
             transition: all var(--transition-bounce);
             text-align: center;
             cursor: pointer;
@@ -471,10 +568,36 @@
             transform: translateX(100%);
         }
 
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+            background-size: 300% 300%;
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            animation: borderGlow 3s ease infinite;
+        }
+
+        .category-card:hover::after {
+            opacity: 0.5;
+        }
+
+        @keyframes borderGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .category-card:hover {
             transform: translateY(-8px) scale(1.02) rotateX(2deg);
-            box-shadow: var(--shadow-hover);
-            border-color: var(--primary);
+            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary), 0 0 60px var(--accent);
+            border-color: transparent;
             background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
         }
 
@@ -491,6 +614,7 @@
             transition: all var(--transition-bounce);
             box-shadow: 0 10px 20px -5px var(--primary);
             transform: translateZ(20px);
+            filter: drop-shadow(0 0 5px var(--primary));
         }
 
         .category-card:hover .category-card-icon {
@@ -515,7 +639,6 @@
             margin: 0 auto;
         }
 
-        /* عداد الأدوات في البطاقة مع تأثير متحرك */
         .tool-count {
             display: inline-flex;
             align-items: center;
@@ -529,13 +652,14 @@
             border: 1px solid rgba(99, 102, 241, 0.2);
             transition: all var(--transition-fast);
         }
+
         .category-card:hover .tool-count {
             background: var(--primary);
             color: white;
             border-color: transparent;
         }
 
-        /* ========== رأس القسم الفرعي ========== */
+        /* رأس القسم الفرعي */
         .category-header {
             display: inline-flex;
             align-items: center;
@@ -544,7 +668,6 @@
             padding: 0.75rem 2rem 0.75rem 1.5rem;
             background: var(--surface-light);
             backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border-radius: 100px;
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-md);
@@ -585,7 +708,7 @@
             color: transparent;
         }
 
-        /* ========== شبكة الأدوات ========== */
+        /* شبكة الأدوات */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
@@ -595,11 +718,10 @@
         .tool-card {
             background: var(--surface-light);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             border-radius: 2rem;
             padding: 1.8rem 1.5rem;
             border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 0 5px var(--primary), 0 0 15px rgba(99, 102, 241, 0.3);
             transition: all var(--transition-bounce);
             display: flex;
             flex-direction: column;
@@ -635,9 +757,29 @@
             transform-origin: left;
         }
 
+        .tool-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+            background-size: 300% 300%;
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            animation: borderGlow 3s ease infinite;
+        }
+
+        .tool-card:hover::after {
+            opacity: 0.5;
+        }
+
         .tool-card:hover {
             transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary), 0 0 60px var(--accent);
             border-color: transparent;
             background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
         }
@@ -655,6 +797,7 @@
             margin-bottom: 1.2rem;
             transition: all var(--transition-bounce);
             box-shadow: var(--shadow-inner);
+            filter: drop-shadow(0 0 5px var(--primary));
         }
 
         .tool-card:hover .card-icon {
@@ -670,6 +813,7 @@
             margin-bottom: 0.5rem;
             line-height: 1.3;
             transition: color var(--transition-fast);
+            text-shadow: 0 0 5px currentColor;
         }
 
         .tool-card:hover .tool-name {
@@ -702,6 +846,7 @@
             margin-top: 0.5rem;
             width: 100%;
             max-width: 140px;
+            backdrop-filter: blur(5px);
         }
 
         .tool-link:hover {
@@ -722,7 +867,7 @@
             transform: translateX(-5px);
         }
 
-        /* ========== روابط العودة ========== */
+        /* روابط العودة */
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -731,7 +876,6 @@
             padding: 0.75rem 1.8rem;
             background: var(--surface-light);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-radius: 50px;
             border: 1px solid var(--border-light);
             color: inherit;
@@ -750,7 +894,7 @@
             transform: translateX(5px);
         }
 
-        /* ========== رسالة عدم وجود نتائج ========== */
+        /* رسالة عدم وجود نتائج */
         #noResults {
             text-align: center;
             padding: 4rem 1rem;
@@ -760,7 +904,6 @@
             animation: fadeIn 0.5s;
             background: var(--surface-light);
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
             border-radius: 3rem;
             margin: 3rem 0;
             border: 1px solid var(--border-light);
@@ -773,14 +916,177 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* ========== زر العودة للأعلى (يبقى في الأسفل) ========== */
-        .back-to-top {
+        /* ============================================ */
+        /* 7. الفوتر                                    */
+        /* ============================================ */
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border-light);
+            backdrop-filter: blur(10px);
+            background: var(--surface-light);
+            font-size: var(--font-sm);
+        }
+
+        .footer .copyright {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================ */
+        /* 8. مؤشرات التحميل (Skeleton)                 */
+        /* ============================================ */
+        .skeleton-card {
+            background: var(--surface-light);
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .skeleton-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1.2rem;
+            background: linear-gradient(90deg, rgba(128, 128, 128, 0.1) 25%, rgba(128, 128, 128, 0.2) 50%, rgba(128, 128, 128, 0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        .skeleton-line {
+            height: 1rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(90deg, rgba(128, 128, 128, 0.1) 25%, rgba(128, 128, 128, 0.2) 50%, rgba(128, 128, 128, 0.1) 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+
+        .skeleton-line.short {
+            width: 60%;
+        }
+
+        @keyframes skeleton-loading {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* ============================================ */
+        /* 9. الشريط المتحرك الفاخر (Luxury Marquee)    */
+        /* ============================================ */
+        .luxury-marquee-container {
+            width: 100%;
+            background: linear-gradient(95deg, #1e1b4b 0%, #2d2b6e 25%, #4c1d95 50%, #2d2b6e 75%, #1e1b4b 100%);
+            background-size: 200% auto;
+            animation: luxuryGradientShift 8s ease infinite;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 50;
+            overflow: hidden;
+            backdrop-filter: blur(2px);
+        }
+
+        @keyframes luxuryGradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .luxury-marquee-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: repeating-linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0px, rgba(255, 215, 0, 0.15) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+        }
+
+        .luxury-marquee-track {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0.9rem 0;
+            position: relative;
+        }
+
+        .luxury-marquee-content {
+            display: inline-block;
+            animation: luxuryScroll 28s linear infinite;
+            will-change: transform;
+        }
+
+        .marquee-text {
+            display: inline-block;
+            margin: 0 2.5rem;
+            font-size: clamp(1rem, 4vw, 1.35rem);
+            font-weight: 800;
+            font-family: 'Tajawal', 'Readex Pro', 'Cairo', sans-serif;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #FFF9C4, #FFE55C, #FFD966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+            backdrop-filter: blur(2px);
+            transition: all 0.3s ease;
+        }
+
+        .marquee-text i {
+            margin: 0 0.6rem;
+            font-size: 0.9em;
+            color: #FFD966;
+            text-shadow: 0 0 4px #ffb347;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            color: #FFD966;
+        }
+
+        @keyframes luxuryScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .luxury-marquee-container:hover .luxury-marquee-content {
+            animation-play-state: paused;
+        }
+
+        /* ============================================ */
+        /* 10. الإضافات الجديدة (الشريط الجانبي، المودالات، الإشعارات) */
+        /* ============================================ */
+        .new-sidebar-toggle {
             position: fixed;
-            bottom: 2rem;
+            top: 2rem;
             right: 2rem;
             width: 3.5rem;
             height: 3.5rem;
@@ -794,117 +1100,567 @@
             box-shadow: var(--shadow-lg);
             transition: all var(--transition-bounce);
             border: 2px solid rgba(255, 255, 255, 0.3);
-            z-index: 99;
-            animation: pulse 3s infinite;
+            z-index: 1000;
+            animation: new-pulse 3s infinite;
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-        }
-
-        .back-to-top:hover {
-            transform: scale(1.2) rotate(360deg);
-            background: linear-gradient(135deg, var(--secondary), var(--accent));
-            box-shadow: 0 20px 30px -10px var(--secondary);
-        }
-
-        .back-to-top i {
-            font-size: 1.5rem;
-        }
-
-        /* ========== الفوتر المحسن ========== */
-        .footer {
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border-light);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            background: var(--surface-light);
-            font-size: var(--font-sm);
-        }
-
-        .footer .copyright {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* ========== مؤشرات التحميل (Skeleton) ========== */
-        .skeleton-card {
-            background: var(--surface-light);
-            border-radius: 2rem;
-            padding: 1.8rem 1.5rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .skeleton-icon {
-            width: 4rem;
-            height: 4rem;
-            border-radius: 1.2rem;
-            background: linear-gradient(90deg, rgba(128,128,128,0.1) 25%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.1) 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-        .skeleton-line {
-            height: 1rem;
-            border-radius: 0.5rem;
-            background: linear-gradient(90deg, rgba(128,128,128,0.1) 25%, rgba(128,128,128,0.2) 50%, rgba(128,128,128,0.1) 75%);
-            background-size: 200% 100%;
-            animation: skeleton-loading 1.5s infinite;
-        }
-        .skeleton-line.short {
-            width: 60%;
-        }
-        @keyframes skeleton-loading {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        /* ========== تحسينات الوضع الداكن ========== */
-        @media (prefers-color-scheme: dark) {
-            .category-card p,
-            .tool-desc {
-                color: var(--text-muted-dark);
+        @keyframes new-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(99, 102, 241, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
             }
         }
 
-        /* ========== تحسينات التجاوب ========== */
+        .new-sidebar-toggle:hover {
+            transform: scale(1.2) rotate(90deg);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+
+        .new-sidebar {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 300px;
+            height: 100vh;
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border-left: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-light);
+        }
+
+        .new-sidebar.open {
+            right: 0;
+        }
+
+        .new-sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .new-sidebar-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .new-sidebar-header i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .new-sidebar-header i:hover {
+            transform: scale(1.2);
+            color: var(--primary);
+        }
+
+        .new-sidebar-content {
+            padding: 1.5rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .new-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .new-stat-item {
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.75rem;
+            border-radius: 1rem;
+            text-align: center;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: transform 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .new-stat-item:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .new-stat-item i {
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .new-stat-item span {
+            display: block;
+            font-weight: 700;
+        }
+
+        .new-section {
+            margin-bottom: 2rem;
+        }
+
+        .new-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 0.5rem;
+        }
+
+        .new-top-tools,
+        .new-favorites {
+            list-style: none;
+            padding: 0;
+        }
+
+        .new-top-tools li,
+        .new-favorites li {
+            padding: 0.5rem;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .new-top-tools li:hover,
+        .new-favorites li:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .new-fav-remove {
+            color: var(--accent);
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: transform 0.3s;
+        }
+
+        .new-fav-remove:hover {
+            transform: scale(1.2);
+        }
+
+        .new-subscribe-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+        }
+
+        .new-subscribe-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px -8px var(--accent);
+        }
+
+        .new-subscribe-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted-light);
+            text-align: center;
+        }
+
+        .new-share-btn,
+        .new-suggest-btn {
+            display: block;
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            text-align: center;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 2rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .new-share-btn:hover,
+        .new-suggest-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -8px var(--secondary);
+        }
+
+        .new-suggest-btn {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--text-light);
+        }
+
+        .new-suggest-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .new-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .new-modal.show {
+            display: flex;
+        }
+
+        .new-modal-content {
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            width: 90%;
+            max-width: 500px;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            animation: new-modal-appear 0.3s;
+        }
+
+        @keyframes new-modal-appear {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .new-modal-header {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .new-modal-header i {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .new-modal-header i:hover {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+
+        .new-modal-body {
+            text-align: center;
+        }
+
+        .new-modal-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        .new-modal-body h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .new-modal-body p {
+            font-size: 1rem;
+            color: var(--text-muted-light);
+            margin-bottom: 2rem;
+        }
+
+        .new-modal-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .new-modal-btn {
+            padding: 0.75rem 1.2rem;
+            border-radius: 2rem;
+            border: none;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-light);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .new-modal-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -8px var(--primary);
+        }
+
+        .new-visit-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .new-favorite-btn {
+            background: rgba(236, 72, 153, 0.1);
+        }
+
+        .new-favorite-btn:hover {
+            background: var(--accent);
+        }
+
+        .new-share-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg);
+            z-index: 2001;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .new-share-modal.show {
+            display: block;
+        }
+
+        .new-share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .new-share-icons a,
+        .new-share-icons button {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .new-share-icons a:hover,
+        .new-share-icons button:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        #newShareLink {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border-light);
+            background: var(--surface-light);
+            color: inherit;
+            text-align: center;
+        }
+
+        .new-toast-container {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            pointer-events: none;
+        }
+
+        .new-toast {
+            background: var(--surface-light);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: new-toast-in 0.3s, new-toast-out 0.3s 2.7s forwards;
+            max-width: 300px;
+            pointer-events: auto;
+        }
+
+        @keyframes new-toast-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes new-toast-out {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .new-toast.success i {
+            color: var(--success);
+        }
+
+        .new-toast.error i {
+            color: var(--accent);
+        }
+
+        .new-chart-container {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .new-chart-container canvas {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.5rem;
+        }
+
+        /* ============================================ */
+        /* 11. تحسينات إضافية ووسائط الاستجابة          */
+        /* ============================================ */
+        .skip-to-content {
+            position: absolute;
+            top: -100px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            z-index: 9999;
+        }
+
+        .page-transition-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            z-index: 9999;
+            transform-origin: 0%;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            pointer-events: none;
+        }
+
         @media (max-width: 768px) {
             .typing-container {
                 padding: 0.6rem 1.5rem;
             }
-            
+
             .category-header {
                 padding: 0.5rem 1.5rem 0.5rem 1rem;
             }
-            
+
             .category-icon {
                 width: 2.8rem;
                 height: 2.8rem;
                 font-size: 1.2rem;
             }
-            
+
             .theme-toggle {
                 top: 1rem;
                 left: 1rem;
                 width: 3rem;
                 height: 3rem;
             }
+
             .back-to-top {
                 bottom: 1rem;
                 right: 1rem;
                 width: 3rem;
                 height: 3rem;
             }
-            
-            .back-to-top i, .theme-toggle i {
+
+            .back-to-top i,
+            .theme-toggle i {
                 font-size: 1.2rem;
+            }
+
+            .new-sidebar-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 3rem;
+                height: 3rem;
+            }
+
+            .new-sidebar {
+                width: 280px;
+            }
+
+            .new-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .marquee-text {
+                margin: 0 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .luxury-marquee-track {
+                padding: 0.6rem 0;
             }
         }
 
@@ -912,270 +1668,101 @@
             .container {
                 padding: 0.5rem;
             }
-            
+
             .search-wrapper input {
                 padding: 1rem 2.5rem 1rem 1.5rem;
             }
-            
+
             .search-wrapper i {
                 left: 1rem;
                 font-size: 1.2rem;
             }
-            
+
             .category-card-icon {
                 width: 4rem;
                 height: 4rem;
                 font-size: 2rem;
             }
-            
+
             .tool-link {
                 max-width: 100%;
                 justify-content: center;
             }
-        }
 
-        /* منع السحب والنسخ (محسن) */
-        img, a, i {
-            -webkit-user-drag: none;
-            user-drag: none;
-        }
-
-        /* ========== الإضافات الجديدة لتحسين الفخامة واللمعان ========== */
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Readex+Pro:wght@400;600;700&display=swap');
-
-        :root {
-            /* إضافة متغيرات جديدة */
-            --glow-color: rgba(99, 102, 241, 0.8);
-            --glow-spread: 20px;
-        }
-
-        body {
-            /* إضافة الخطوط الفخمة كاحتياطي أساسي */
-            font-family: 'Tajawal', 'Readex Pro', 'Plus Jakarta Sans', 'Cairo', sans-serif;
-        }
-
-        /* تحسين عنوان الهيدر */
-        .header h1 {
-            /* تعزيز اللمعان */
-            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
-            animation: glowPulse 3s infinite alternate;
-        }
-
-        @keyframes glowPulse {
-            from { text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary); }
-            to { text-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary), 0 0 60px var(--accent); }
-        }
-
-        /* إضافة تأثير لمعان للبطاقات */
-        .category-card, .tool-card {
-            box-shadow: 0 0 5px var(--primary), 0 0 15px rgba(99, 102, 241, 0.3);
-            transition: box-shadow var(--transition-base), transform var(--transition-bounce);
-        }
-
-        .category-card:hover, .tool-card:hover {
-            box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary), 0 0 60px var(--accent);
-            border-color: transparent;
-        }
-
-        /* إضافة تأثير وميض لحدود البطاقات */
-        .category-card::after, .tool-card::after {
-            content: '';
-            position: absolute;
-            top: -2px; left: -2px; right: -2px; bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-            background-size: 300% 300%;
-            border-radius: inherit;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity var(--transition-base);
-            animation: borderGlow 3s ease infinite;
-        }
-
-        .category-card:hover::after, .tool-card:hover::after {
-            opacity: 0.5;
-        }
-
-        @keyframes borderGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* تحسين تأثير الكتابة */
-        .typing-container {
-            border: 1px solid rgba(99, 102, 241, 0.5);
-            box-shadow: 0 0 15px var(--primary);
-        }
-
-        /* تحسين الأيقونات */
-        .category-card-icon, .card-icon {
-            filter: drop-shadow(0 0 5px var(--primary));
-        }
-
-        /* إضافة لمعان لشريط التقدم */
-        .progress-bar {
-            box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
-        }
-
-        /* تحسين زر العودة للأعلى */
-        .back-to-top {
-            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--secondary);
-        }
-
-        /* إضافة تأثيرات للوضع الداكن */
-        body.dark-mode .header h1 {
-            text-shadow: 0 0 15px #818cf8, 0 0 30px #22d3ee, 0 0 45px #f472b6;
-        }
-
-        /* إضافة لمسات للخطوط داخل البطاقات */
-        .tool-name {
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 5px currentColor;
-        }
-
-        /* تحسين ظهور الروابط */
-        .tool-link {
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        /* إضافة تأثير متحرك للبحث */
-        .search-wrapper input:focus {
-            box-shadow: 0 0 15px var(--primary), 0 0 30px var(--secondary);
-        }
-
-        /* إضافة خط فخم للعناوين */
-        h1, h2, h3, .category-title, .tool-name {
-            font-family: 'Tajawal', 'Readex Pro', 'Plus Jakarta Sans', 'Cairo', sans-serif;
-            font-weight: 800; /* استخدام الوزن الثقيل للفخامة */
-        }
-
-        /* تحسين التباين */
-        ::selection {
-            background: var(--primary);
-            color: white;
-            text-shadow: none;
-        }
-    </style>
-</head>
-<body>
-    <!-- ========== شريط فاخر متحرك - إضافة جديدة تمامًا بدون تعديل الأصلي ========== -->
-    <div class="luxury-marquee-container">
-        <div class="luxury-marquee-track">
-            <div class="luxury-marquee-content">
-                <span class="marquee-text"><i class="fas fa-crown"></i> عيد مبارك كل عام وانتم بخير <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> عيد مبارك كل عام وانتم بخير <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> عيد مبارك كل عام وانتم بخير <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> عيد مبارك كل عام وانتم بخير <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> عيد مبارك كل عام وانتم بخير <i class="fas fa-star-of-life"></i></span>
-            </div>
-        </div>
-    </div>
-    <style>
-        /* أنماط الشريط المتحرك الفاخر - مستقلة تمامًا ولا تؤثر على الكود الأصلي */
-        .luxury-marquee-container {
-            width: 100%;
-            background: linear-gradient(95deg, #1e1b4b 0%, #2d2b6e 25%, #4c1d95 50%, #2d2b6e 75%, #1e1b4b 100%);
-            background-size: 200% auto;
-            animation: luxuryGradientShift 8s ease infinite;
-            border-bottom: 2px solid rgba(255, 215, 0, 0.5);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
-            position: relative;
-            z-index: 50;
-            overflow: hidden;
-            backdrop-filter: blur(2px);
-        }
-        @keyframes luxuryGradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        .luxury-marquee-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: repeating-linear-gradient(90deg, rgba(255,215,0,0.15) 0px, rgba(255,215,0,0.15) 2px, transparent 2px, transparent 8px);
-            pointer-events: none;
-        }
-        .luxury-marquee-track {
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 0.9rem 0;
-            position: relative;
-        }
-        .luxury-marquee-content {
-            display: inline-block;
-            animation: luxuryScroll 28s linear infinite;
-            will-change: transform;
-        }
-        .marquee-text {
-            display: inline-block;
-            margin: 0 2.5rem;
-            font-size: clamp(1rem, 4vw, 1.35rem);
-            font-weight: 800;
-            font-family: 'Tajawal', 'Readex Pro', 'Cairo', sans-serif;
-            letter-spacing: 1px;
-            background: linear-gradient(135deg, #FFF9C4, #FFE55C, #FFD966);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 8px rgba(255,215,0,0.5);
-            backdrop-filter: blur(2px);
-            transition: all 0.3s ease;
-        }
-        .marquee-text i {
-            margin: 0 0.6rem;
-            font-size: 0.9em;
-            color: #FFD966;
-            text-shadow: 0 0 4px #ffb347;
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-            color: #FFD966;
-        }
-        @keyframes luxuryScroll {
-            0% {
-                transform: translateX(0);
+            .new-modal-actions {
+                flex-direction: column;
             }
-            100% {
-                transform: translateX(-50%);
+
+            .new-modal-btn {
+                width: 100%;
+                justify-content: center;
             }
-        }
-        .luxury-marquette-container:hover .luxury-marquee-content {
-            animation-play-state: paused;
-        }
-        @media (max-width: 768px) {
-            .marquee-text {
-                margin: 0 1.2rem;
-                font-size: 0.95rem;
-            }
-            .luxury-marquee-track {
-                padding: 0.6rem 0;
-            }
-        }
-        @media (max-width: 480px) {
+
             .marquee-text {
                 margin: 0 0.8rem;
                 font-size: 0.85rem;
             }
         }
+
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .progress-bar,
+            .back-to-top,
+            .theme-toggle,
+            .new-sidebar-toggle,
+            .new-sidebar,
+            .page-transition-loader {
+                display: none;
+            }
+
+            .category-card,
+            .tool-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+
+            .tool-link {
+                text-decoration: underline;
+                color: black;
+            }
+
+            a[href]::after {
+                content: " (" attr(href) ")";
+                font-size: 0.8rem;
+                font-weight: normal;
+            }
+        }
     </style>
-    <!-- ========== نهاية الشريط المتحرك الفاخر ========== -->
-    
+</head>
+<body>
     <!-- شريط تقدم القراءة -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- زر تبديل الوضع (الآن في الأعلى) -->
+    <!-- زر تبديل الوضع -->
     <div class="theme-toggle" id="themeToggle" title="تبديل الوضع">
         <i class="fas fa-moon"></i>
     </div>
 
-    <!-- خلفية متحركة بالجسيمات -->
+    <!-- خلفية الجسيمات -->
     <canvas id="particle-canvas"></canvas>
+
+    <!-- الشريط المتحرك الفاخر -->
+    <div class="luxury-marquee-container">
+        <div class="luxury-marquee-track">
+            <div class="luxury-marquee-content">
+                <span class="marquee-text"><i class="fas fa-crown"></i>مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i> تحتوي على أكثر من 600 أداة ذكاء اصطناعي مجانًا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i> مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i> تحتوي على أكثر من 600 أداة ذكاء اصطناعي مجانًا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i> تحديثات يومية <i class="fas fa-star-of-life"></i></span>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <header class="header">
@@ -1186,12 +1773,12 @@
             </div>
         </header>
 
-        <!-- مسار التنقل (Breadcrumbs) -->
+        <!-- مسار التنقل -->
         <div class="breadcrumbs" id="breadcrumbs">
             <a href="/">الرئيسية</a>
         </div>
 
-        <!-- شريط البحث (يظهر في كلا الوضعين) -->
+        <!-- شريط البحث -->
         <div class="search-section" id="searchSection">
             <div class="search-wrapper">
                 <input type="text" id="searchInput" placeholder="ابحث عن أداة ذكاء اصطناعي..." autocomplete="off">
@@ -1201,7 +1788,7 @@
             </div>
         </div>
 
-        <!-- حاوية المحتوى (سيتم ملؤها ديناميكياً) -->
+        <!-- حاوية المحتوى الديناميكي -->
         <div id="contentContainer"></div>
         <div id="noResults">
             <i class="fas fa-exclamation-circle"></i>
@@ -1215,13 +1802,130 @@
 
     <footer class="footer">
         <p class="copyright">© 2026 Abdulrahman Radwan. جميع الحقوق محفوظة.</p>
-        <p>تصميم فاخر بتقنيات 2026 | دليل AI الشامل </p>
+        <p>تصميم فاخر بتقنيات 2026 | دليل AI الشامل</p>
     </footer>
 
+    <!-- الإضافات الجديدة (الشريط الجانبي، المودالات، الإشعارات) -->
+    <div class="new-sidebar-toggle" id="newSidebarToggle" title="فتح الشريط الجانبي">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="new-sidebar" id="newSidebar">
+        <div class="new-sidebar-header">
+            <h3>القائمة الذكية</h3>
+            <i class="fas fa-times" id="newSidebarClose"></i>
+        </div>
+        <div class="new-sidebar-content">
+            <div class="new-stats">
+                <div class="new-stat-item">
+                    <i class="fas fa-folder"></i>
+                    <span id="newStatCategories">0</span>
+                    <span>قسم</span>
+                </div>
+                <div class="new-stat-item">
+                    <i class="fas fa-tools"></i>
+                    <span id="newStatTools">0</span>
+                    <span>أداة</span>
+                </div>
+                <div class="new-stat-item">
+                    <i class="fas fa-eye"></i>
+                    <span id="newTotalClicks">0</span>
+                    <span>زيارة</span>
+                </div>
+                <div class="new-stat-item">
+                    <i class="fas fa-star"></i>
+                    <span id="newFavCount">0</span>
+                    <span>مفضلة</span>
+                </div>
+            </div>
+            <div class="new-section">
+                <h4><i class="fas fa-fire"></i> الأكثر زيارة</h4>
+                <ul class="new-top-tools" id="newTopTools"></ul>
+            </div>
+            <div class="new-section">
+                <h4><i class="fas fa-star"></i> مفضلتي</h4>
+                <ul class="new-favorites" id="newFavoritesList"></ul>
+            </div>
+            <div class="new-section">
+                <h4><i class="fas fa-lock"></i> اشتراك مميز</h4>
+                <button class="new-subscribe-btn" id="newSubscribeBtn"><i class="fas fa-key"></i> افتح 3 مواقع حصرية</button>
+                <p class="new-subscribe-desc">أدخل الرمز للحصول على مواقع حصرية</p>
+            </div>
+            <div class="new-section">
+                <h4><i class="fas fa-chart-pie"></i> توزيع الأدوات</h4>
+                <div class="new-chart-container">
+                    <canvas id="newCategoryChart" width="200" height="200"></canvas>
+                </div>
+            </div>
+            <div class="new-section">
+                <h4><i class="fab fa-telegram"></i> روابط هامة</h4>
+                <a href="https://t.me/io95c" target="_blank" rel="noopener noreferrer" class="new-share-btn" style="background: #0088cc; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+                    <i class="fab fa-telegram"></i> قناة المطور على تيليجرام
+                </a>
+            </div>
+            <div class="new-section">
+                <button class="new-share-btn" id="newShareSiteBtn"><i class="fas fa-share-alt"></i> مشاركة الموقع</button>
+                <a href="mailto:?subject=اقتراح أداة جديدة&body=أود اقتراح إضافة أداة جديدة إلى الدليل:" class="new-suggest-btn"><i class="fas fa-plus-circle"></i> اقتراح أداة</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-modal" id="newSubscribeModal">
+        <div class="new-modal-content">
+            <div class="new-modal-header">
+                <i class="fas fa-times" id="newSubscribeClose"></i>
+            </div>
+            <div class="new-modal-body">
+                <div class="new-modal-icon"><i class="fas fa-lock-open"></i></div>
+                <h3>فتح المواقع الحصرية</h3>
+                <p>أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة</p>
+                <input type="password" id="newSubscribeCode" placeholder="****" maxlength="4" style="width:100%; padding:1rem; text-align:center; font-size:2rem; border-radius:2rem; border:2px solid var(--primary); background:var(--surface-light); color:inherit; margin:1rem 0;">
+                <button id="newSubscribeConfirm" class="new-modal-btn" style="width:100%; justify-content:center;">تأكيد</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-modal" id="newToolModal">
+        <div class="new-modal-content">
+            <div class="new-modal-header">
+                <i class="fas fa-times" id="newModalClose"></i>
+            </div>
+            <div class="new-modal-body">
+                <div class="new-modal-icon" id="newModalIcon"><i class="fas fa-robot"></i></div>
+                <h3 id="newModalTitle">اسم الأداة</h3>
+                <p id="newModalDesc">وصف الأداة</p>
+                <div class="new-modal-actions">
+                    <a href="#" id="newModalVisit" target="_blank" rel="noopener noreferrer" class="new-modal-btn new-visit-btn"><i class="fas fa-external-link-alt"></i> زيارة</a>
+                    <button id="newModalFavorite" class="new-modal-btn new-favorite-btn"><i class="fas fa-star"></i> أضف للمفضلة</button>
+                    <button id="newModalShare" class="new-modal-btn new-share-btn"><i class="fas fa-share"></i> مشاركة</button>
+                    <a href="#" id="newModalReport" class="new-modal-btn new-report-btn"><i class="fas fa-flag"></i> إبلاغ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-share-modal" id="newShareModal">
+        <div class="new-share-content">
+            <h4>مشاركة الأداة</h4>
+            <div class="new-share-icons">
+                <a href="#" target="_blank" id="newShareFacebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" id="newShareTwitter"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" target="_blank" id="newShareWhatsapp"><i class="fab fa-whatsapp"></i></a>
+                <button id="newShareCopy"><i class="fas fa-copy"></i></button>
+            </div>
+            <input type="text" id="newShareLink" readonly>
+        </div>
+    </div>
+
+    <div class="new-toast-container" id="newToastContainer"></div>
+
+    <a href="#contentContainer" class="skip-to-content">تخطي إلى المحتوى</a>
+    <div class="page-transition-loader" id="pageLoader"></div>
+
     <script>
-        // ------------------------------------------------------------
-        // نسخة منقحة بالكامل من الأدوات - تم إزالة التكرارات وإضافة الأدوات الجديدة
-        // ------------------------------------------------------------
+        // =================================================================
+        // 1. البيانات - قائمة الأقسام والأدوات (تم إزالة التكرارات)
+        // =================================================================
         const categories = (function removeDuplicates() {
             const rawCategories = [
                 {
@@ -1875,7 +2579,6 @@
                 }
             ];
 
-            // إزالة التكرارات: لكل قسم، نزيل الأدوات المكررة بناءً على الاسم والرابط
             const seen = new Set();
             const cleaned = rawCategories.map(category => {
                 const uniqueTools = [];
@@ -1891,47 +2594,15 @@
             return cleaned;
         })();
 
-        // ------------------------------------------------------------
-        // المتغيرات العامة
-        // ------------------------------------------------------------
-        const textElement = document.getElementById('typingText');
-        const phrases = ["دليل متكامل لأدوات الذكاء الاصطناعي", "اكتشف المستقبل اليوم", "أحدث تقنيات 2026", "أدوات AI احترافية"];
-        let phraseIndex = 0, charIndex = 0, isDeleting = false;
-        let currentCategoryIndex = null; // null يعني الوضع الرئيسي
-        let searchTimeout; // للتحكم في debounce
+        // =================================================================
+        // 2. المتغيرات العامة
+        // =================================================================
+        let currentCategoryIndex = null;
+        let searchTimeout;
 
-        // ------------------------------------------------------------
-        // تأثير الكتابة
-        // ------------------------------------------------------------
-        function typeEffect() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                textElement.innerHTML = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 400);
-                    return;
-                }
-            } else {
-                textElement.innerHTML = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentPhrase.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2000);
-                    return;
-                }
-            }
-            setTimeout(typeEffect, isDeleting ? 60 : 120);
-        }
-        setTimeout(typeEffect, 1000);
-
-        // ------------------------------------------------------------
-        // دوال العرض
-        // ------------------------------------------------------------
-
-        // عرض الصفحة الرئيسية (قائمة الأقسام)
+        // =================================================================
+        // 3. دوال العرض الأساسية
+        // =================================================================
         function renderMainPage() {
             document.title = "عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي";
             const container = document.getElementById('contentContainer');
@@ -1952,7 +2623,6 @@
             updateBreadcrumbs();
         }
 
-        // عرض أدوات قسم معين
         function renderCategoryPage(index) {
             const cat = categories[index];
             if (!cat) {
@@ -1990,7 +2660,6 @@
             updateBreadcrumbs(cat.name);
         }
 
-        // تحديث مسار التنقل
         function updateBreadcrumbs(categoryName = null) {
             const bread = document.getElementById('breadcrumbs');
             if (categoryName) {
@@ -2000,7 +2669,9 @@
             }
         }
 
-        // البحث مع debounce لتحسين الأداء
+        // =================================================================
+        // 4. البحث والتصفية
+        // =================================================================
         function debounceFilter() {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
@@ -2011,9 +2682,8 @@
         function filterTools() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             const noResults = document.getElementById('noResults');
-            
+
             if (currentCategoryIndex === null) {
-                // الوضع الرئيسي
                 const container = document.getElementById('contentContainer');
                 if (query === '') {
                     renderMainPage();
@@ -2044,11 +2714,10 @@
                     noResults.style.display = 'none';
                 }
             } else {
-                // وضع القسم
                 const cat = categories[currentCategoryIndex];
                 const toolsGrid = document.getElementById('toolsGrid');
                 if (!toolsGrid) return;
-                
+
                 if (query === '') {
                     toolsGrid.innerHTML = cat.tools.map((tool, idx) => `
                         <div class="tool-card" style="--card-index: ${idx + 1};">
@@ -2087,9 +2756,9 @@
             }
         }
 
-        // ------------------------------------------------------------
-        // اقتراحات البحث (Autocomplete)
-        // ------------------------------------------------------------
+        // =================================================================
+        // 5. الاقتراحات (Autocomplete)
+        // =================================================================
         function setupAutocomplete() {
             const searchInput = document.getElementById('searchInput');
             const autocompleteBox = document.getElementById('autocompleteBox');
@@ -2101,7 +2770,6 @@
                     return;
                 }
 
-                // جمع كل أسماء الأدوات من جميع الأقسام
                 let suggestions = [];
                 categories.forEach(cat => {
                     cat.tools.forEach(tool => {
@@ -2110,7 +2778,7 @@
                         }
                     });
                 });
-                suggestions = suggestions.slice(0, 8); // حد أقصى 8 اقتراحات
+                suggestions = suggestions.slice(0, 8);
 
                 if (suggestions.length === 0) {
                     autocompleteBox.classList.remove('show');
@@ -2125,17 +2793,15 @@
                 autocompleteBox.classList.add('show');
             });
 
-            // التعامل مع النقر على الاقتراح
             autocompleteBox.addEventListener('click', function(e) {
                 const item = e.target.closest('.autocomplete-item');
                 if (item) {
                     searchInput.value = item.dataset.value;
                     autocompleteBox.classList.remove('show');
-                    filterTools(); // تنفيذ البحث مباشرة
+                    filterTools();
                 }
             });
 
-            // إخفاء الاقتراحات عند فقدان التركيز
             document.addEventListener('click', function(e) {
                 if (!searchInput.contains(e.target) && !autocompleteBox.contains(e.target)) {
                     autocompleteBox.classList.remove('show');
@@ -2143,20 +2809,49 @@
             });
         }
 
-        // ------------------------------------------------------------
-        // شريط تقدم القراءة
-        // ------------------------------------------------------------
+        // =================================================================
+        // 6. تأثير الكتابة
+        // =================================================================
+        const textElement = document.getElementById('typingText');
+        const phrases = ["دليل متكامل لأدوات الذكاء الاصطناعي", "اكتشف المستقبل اليوم", "أحدث تقنيات 2026", "أدوات AI احترافية"];
+        let phraseIndex = 0, charIndex = 0, isDeleting = false;
+
+        function typeEffect() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                textElement.innerHTML = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeEffect, 400);
+                    return;
+                }
+            } else {
+                textElement.innerHTML = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 2000);
+                    return;
+                }
+            }
+            setTimeout(typeEffect, isDeleting ? 60 : 120);
+        }
+
+        // =================================================================
+        // 7. شريط التقدم
+        // =================================================================
         function updateProgressBar() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('progressBar').style.width = scrolled + '%';
         }
-        window.addEventListener('scroll', updateProgressBar);
 
-        // ------------------------------------------------------------
-        // تبديل الوضع (داكن/فاتح) مع التخزين المحلي
-        // ------------------------------------------------------------
+        // =================================================================
+        // 8. تبديل الوضع (داكن/فاتح)
+        // =================================================================
         function initTheme() {
             const themeToggle = document.getElementById('themeToggle');
             const icon = themeToggle.querySelector('i');
@@ -2173,7 +2868,6 @@
                 icon.classList.remove('fa-sun');
                 icon.classList.add('fa-moon');
             } else {
-                // حسب تفضيل النظام
                 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                     document.body.classList.add('dark-mode');
                     icon.classList.remove('fa-moon');
@@ -2200,9 +2894,9 @@
             });
         }
 
-        // ------------------------------------------------------------
-        // خلفية متحركة بالجسيمات (Particles)
-        // ------------------------------------------------------------
+        // =================================================================
+        // 9. خلفية الجسيمات
+        // =================================================================
         function initParticles() {
             const canvas = document.getElementById('particle-canvas');
             const ctx = canvas.getContext('2d');
@@ -2231,8 +2925,6 @@
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
-                
-                // تحديد اللون حسب الثيم
                 const isDark = document.body.classList.contains('dark-mode');
                 ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
 
@@ -2253,9 +2945,9 @@
             animate();
         }
 
-        // ------------------------------------------------------------
-        // زر مسح البحث
-        // ------------------------------------------------------------
+        // =================================================================
+        // 10. مسح البحث
+        // =================================================================
         function setupClearSearch() {
             const clearBtn = document.getElementById('clearSearch');
             const searchInput = document.getElementById('searchInput');
@@ -2266,13 +2958,355 @@
             });
         }
 
-        // ------------------------------------------------------------
-        // التهيئة عند تحميل الصفحة
-        // ------------------------------------------------------------
+        // =================================================================
+        // 11. الإضافات الجديدة (الشريط الجانبي، المفضلة، الإحصائيات، الاشتراك)
+        // =================================================================
+        (function initNewFeatures() {
+            let favorites = JSON.parse(localStorage.getItem('new_favorites')) || [];
+            let clickStats = JSON.parse(localStorage.getItem('new_clickStats')) || {};
+            const SECRET_CODE = "9080";
+            const EXCLUSIVE_SITES = [
+                "https://daleelai.org/",
+                "https://theresanaiforthat.com/",
+                "https://www.rankmyai.com/"
+            ];
+
+            function getAllTools() {
+                const all = [];
+                categories.forEach(cat => {
+                    cat.tools.forEach(tool => {
+                        all.push({ ...tool, category: cat.name, categoryIcon: cat.icon });
+                    });
+                });
+                return all;
+            }
+
+            function showToast(message, type = 'info') {
+                const container = document.getElementById('newToastContainer');
+                const toast = document.createElement('div');
+                toast.className = `new-toast ${type}`;
+                let icon = 'fa-info-circle';
+                if (type === 'success') icon = 'fa-check-circle';
+                if (type === 'error') icon = 'fa-exclamation-circle';
+                toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+                container.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            }
+
+            function updateSidebarStats() {
+                const totalCategories = categories.length;
+                const totalTools = getAllTools().length;
+                document.getElementById('newStatCategories').textContent = totalCategories;
+                document.getElementById('newStatTools').textContent = totalTools;
+                document.getElementById('newTotalClicks').textContent = Object.values(clickStats).reduce((a, b) => a + b, 0);
+                document.getElementById('newFavCount').textContent = favorites.length;
+            }
+
+            function updateTopTools() {
+                const topToolsList = document.getElementById('newTopTools');
+                const sorted = Object.entries(clickStats)
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 5)
+                    .map(([url, count]) => {
+                        const allTools = getAllTools();
+                        const tool = allTools.find(t => t.url === url);
+                        return tool ? { name: tool.name, url, count } : null;
+                    })
+                    .filter(t => t);
+
+                topToolsList.innerHTML = sorted.length ? sorted.map(t => `
+                    <li>
+                        <span title="${t.url}">${t.name}</span>
+                        <span style="font-size:0.8rem; color:var(--primary);">${t.count}</span>
+                    </li>
+                `).join('') : '<li style="text-align:center;">لا توجد زيارات بعد</li>';
+            }
+
+            function updateFavorites() {
+                const favList = document.getElementById('newFavoritesList');
+                if (favorites.length === 0) {
+                    favList.innerHTML = '<li style="text-align:center;">لا توجد أدوات في المفضلة</li>';
+                    return;
+                }
+                favList.innerHTML = favorites.map(tool => `
+                    <li>
+                        <span>${tool.name}</span>
+                        <i class="fas fa-trash-alt new-fav-remove" data-url="${tool.url}" style="color:var(--accent);"></i>
+                    </li>
+                `).join('');
+                document.querySelectorAll('.new-fav-remove').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const url = btn.dataset.url;
+                        favorites = favorites.filter(f => f.url !== url);
+                        localStorage.setItem('new_favorites', JSON.stringify(favorites));
+                        updateFavorites();
+                        updateSidebarStats();
+                        showToast('تمت الإزالة من المفضلة', 'success');
+                        const modalTitle = document.getElementById('newModalTitle').textContent;
+                        if (modalTitle) {
+                            const allTools = getAllTools();
+                            const currentTool = allTools.find(t => t.name === modalTitle);
+                            if (currentTool) {
+                                const isFav = favorites.some(f => f.url === currentTool.url);
+                                document.getElementById('newModalFavorite').innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
+                            }
+                        }
+                    });
+                });
+            }
+
+            function recordClick(url) {
+                clickStats[url] = (clickStats[url] || 0) + 1;
+                localStorage.setItem('new_clickStats', JSON.stringify(clickStats));
+                updateTopTools();
+                updateSidebarStats();
+            }
+
+            function showToolModal(tool) {
+                document.getElementById('newModalIcon').innerHTML = `<i class="${tool.icon}"></i>`;
+                document.getElementById('newModalTitle').textContent = tool.name;
+                document.getElementById('newModalDesc').textContent = tool.desc;
+                document.getElementById('newModalVisit').href = tool.url;
+
+                const isFav = favorites.some(f => f.url === tool.url);
+                const favBtn = document.getElementById('newModalFavorite');
+                favBtn.innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
+
+                favBtn.replaceWith(favBtn.cloneNode(true));
+                const newFavBtn = document.getElementById('newModalFavorite');
+                newFavBtn.addEventListener('click', () => {
+                    if (favorites.some(f => f.url === tool.url)) {
+                        favorites = favorites.filter(f => f.url !== tool.url);
+                        showToast('تمت الإزالة من المفضلة', 'success');
+                    } else {
+                        favorites.push(tool);
+                        showToast('تمت الإضافة إلى المفضلة', 'success');
+                    }
+                    localStorage.setItem('new_favorites', JSON.stringify(favorites));
+                    updateFavorites();
+                    updateSidebarStats();
+                    showToolModal(tool);
+                });
+
+                document.getElementById('newModalShare').onclick = () => showShareModal(tool.url);
+                document.getElementById('newModalReport').href = `mailto:?subject=الإبلاغ عن رابط معطل&body=الرابط: ${tool.url}`;
+
+                document.getElementById('newToolModal').classList.add('show');
+            }
+
+            function showShareModal(url) {
+                const shareModal = document.getElementById('newShareModal');
+                document.getElementById('newShareLink').value = url;
+                document.getElementById('newShareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                document.getElementById('newShareTwitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+                document.getElementById('newShareWhatsapp').href = `https://wa.me/?text=${encodeURIComponent(url)}`;
+                document.getElementById('newShareCopy').onclick = () => {
+                    navigator.clipboard.writeText(url);
+                    showToast('تم نسخ الرابط', 'success');
+                };
+                shareModal.classList.add('show');
+            }
+
+            function attachNewToolEvents() {
+                document.querySelectorAll('.tool-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const toolCard = link.closest('.tool-card');
+                        if (!toolCard) return;
+                        const name = toolCard.querySelector('.tool-name')?.textContent;
+                        const desc = toolCard.querySelector('.tool-desc')?.textContent;
+                        const iconElem = toolCard.querySelector('.card-icon i');
+                        const icon = iconElem ? iconElem.className : 'fa-solid fa-robot';
+                        const url = link.href;
+
+                        const allTools = getAllTools();
+                        const tool = allTools.find(t => t.name === name && t.url === url);
+                        if (tool) {
+                            showToolModal(tool);
+                            recordClick(url);
+                        } else {
+                            showToolModal({ name, desc, icon, url });
+                            recordClick(url);
+                        }
+                    });
+                });
+
+                document.querySelectorAll('.tool-card').forEach(card => {
+                    if (card.querySelector('.new-fav-star')) return;
+                    const starBtn = document.createElement('i');
+                    starBtn.className = 'fas fa-star new-fav-star';
+                    starBtn.style.position = 'absolute';
+                    starBtn.style.top = '1rem';
+                    starBtn.style.left = '1rem';
+                    starBtn.style.fontSize = '1.2rem';
+                    starBtn.style.color = 'var(--accent)';
+                    starBtn.style.cursor = 'pointer';
+                    starBtn.style.zIndex = '10';
+                    starBtn.style.opacity = '0.7';
+                    starBtn.style.transition = 'all 0.3s';
+                    starBtn.onmouseover = () => { starBtn.style.opacity = '1'; starBtn.style.transform = 'scale(1.2)'; };
+                    starBtn.onmouseout = () => { starBtn.style.opacity = '0.7'; starBtn.style.transform = 'scale(1)'; };
+
+                    const toolName = card.querySelector('.tool-name')?.textContent;
+                    const toolDesc = card.querySelector('.tool-desc')?.textContent;
+                    const toolIconElem = card.querySelector('.card-icon i');
+                    const toolIcon = toolIconElem ? toolIconElem.className : 'fa-solid fa-robot';
+                    const toolLink = card.querySelector('.tool-link');
+                    const toolUrl = toolLink ? toolLink.href : '#';
+
+                    const allTools = getAllTools();
+                    const tool = allTools.find(t => t.name === toolName && t.url === toolUrl) || { name: toolName, desc: toolDesc, icon: toolIcon, url: toolUrl };
+
+                    starBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        if (favorites.some(f => f.url === tool.url)) {
+                            favorites = favorites.filter(f => f.url !== tool.url);
+                            starBtn.style.color = 'var(--accent)';
+                            showToast('تمت الإزالة من المفضلة', 'success');
+                        } else {
+                            favorites.push(tool);
+                            starBtn.style.color = 'gold';
+                            showToast('تمت الإضافة إلى المفضلة', 'success');
+                        }
+                        localStorage.setItem('new_favorites', JSON.stringify(favorites));
+                        updateFavorites();
+                        updateSidebarStats();
+                    });
+
+                    if (favorites.some(f => f.url === tool.url)) {
+                        starBtn.style.color = 'gold';
+                    }
+
+                    card.style.position = 'relative';
+                    card.appendChild(starBtn);
+                });
+            }
+
+            function drawCategoryChart() {
+                const canvas = document.getElementById('newCategoryChart');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const total = categories.reduce((acc, cat) => acc + cat.tools.length, 0);
+                if (total === 0) return;
+
+                let startAngle = 0;
+                const centerX = 100, centerY = 100, radius = 80;
+
+                categories.forEach((cat, index) => {
+                    const percentage = cat.tools.length / total;
+                    const endAngle = startAngle + (percentage * 2 * Math.PI);
+                    const hue = (index * 30) % 360;
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                    ctx.closePath();
+                    ctx.fillStyle = `hsl(${hue}, 70%, 60%)`;
+                    ctx.fill();
+                    startAngle = endAngle;
+                });
+            }
+
+            function refreshNewUI() {
+                updateSidebarStats();
+                updateTopTools();
+                updateFavorites();
+                attachNewToolEvents();
+                drawCategoryChart();
+            }
+
+            // ربط أحداث الشريط الجانبي
+            document.getElementById('newSidebarToggle').addEventListener('click', () => {
+                document.getElementById('newSidebar').classList.add('open');
+            });
+            document.getElementById('newSidebarClose').addEventListener('click', () => {
+                document.getElementById('newSidebar').classList.remove('open');
+            });
+            document.addEventListener('click', (e) => {
+                const sidebar = document.getElementById('newSidebar');
+                const toggle = document.getElementById('newSidebarToggle');
+                if (!sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                }
+            });
+
+            // الاشتراك
+            document.getElementById('newSubscribeBtn').addEventListener('click', () => {
+                document.getElementById('newSubscribeModal').classList.add('show');
+            });
+            document.getElementById('newSubscribeClose').addEventListener('click', () => {
+                document.getElementById('newSubscribeModal').classList.remove('show');
+            });
+            document.getElementById('newSubscribeModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('newSubscribeModal')) {
+                    document.getElementById('newSubscribeModal').classList.remove('show');
+                }
+            });
+            document.getElementById('newSubscribeConfirm').addEventListener('click', () => {
+                const code = document.getElementById('newSubscribeCode').value.trim();
+                if (code === SECRET_CODE) {
+                    showToast('✅ تم فتح المواقع بنجاح!', 'success');
+                    EXCLUSIVE_SITES.forEach(site => window.open(site, '_blank'));
+                    document.getElementById('newSubscribeModal').classList.remove('show');
+                    localStorage.setItem('exclusive_unlocked', 'true');
+                } else {
+                    showToast('❌ رمز خاطئ، حاول مرة أخرى', 'error');
+                }
+            });
+
+            // إغلاق مودال الأداة
+            document.getElementById('newModalClose').addEventListener('click', () => {
+                document.getElementById('newToolModal').classList.remove('show');
+            });
+            document.getElementById('newToolModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('newToolModal')) {
+                    document.getElementById('newToolModal').classList.remove('show');
+                }
+            });
+
+            // إغلاق مودال المشاركة
+            document.getElementById('newShareModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('newShareModal')) {
+                    document.getElementById('newShareModal').classList.remove('show');
+                }
+            });
+
+            // مشاركة الموقع
+            document.getElementById('newShareSiteBtn').addEventListener('click', () => {
+                showShareModal(window.location.href);
+            });
+
+            // تعديل الدوال الأصلية لإعادة ربط الأحداث
+            const originalRenderMainPage = renderMainPage;
+            window.renderMainPage = function() {
+                originalRenderMainPage();
+                refreshNewUI();
+            };
+            const originalRenderCategoryPage = renderCategoryPage;
+            window.renderCategoryPage = function(index) {
+                originalRenderCategoryPage(index);
+                refreshNewUI();
+            };
+            const originalFilterTools = filterTools;
+            window.filterTools = function() {
+                originalFilterTools();
+                refreshNewUI();
+            };
+
+            // تحديث عند التحميل
+            window.addEventListener('load', () => {
+                refreshNewUI();
+            });
+        })();
+
+        // =================================================================
+        // 12. التهيئة عند تحميل الصفحة
+        // =================================================================
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const catIndex = urlParams.get('index');
-            
+
             if (catIndex !== null) {
                 renderCategoryPage(parseInt(catIndex));
             } else {
@@ -2287,9 +3321,11 @@
             setupClearSearch();
             initTheme();
             initParticles();
+            typeEffect();
+            window.addEventListener('scroll', updateProgressBar);
         };
 
-        // منع النسخ وأدوات المطور (اختياري - يمكن إزالته إذا أردت)
+        // منع النسخ وأدوات المطور (اختياري)
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 's' || e.key === 'p')) {
                 e.preventDefault();
@@ -2305,1105 +3341,80 @@
             alert("النقر بالزر الأيمن غير متاح.");
         });
     </script>
-<!-- ========== بداية الإضافات الجديدة (بدون تغيير الأصلي) ========== -->
-<!-- زر فتح الشريط الجانبي (جديد) -->
-<div class="new-sidebar-toggle" id="newSidebarToggle" title="فتح الشريط الجانبي">
-    <i class="fas fa-bars"></i>
-</div>
 
-<!-- الشريط الجانبي الجديد -->
-<div class="new-sidebar" id="newSidebar">
-    <div class="new-sidebar-header">
-        <h3>القائمة الذكية</h3>
-        <i class="fas fa-times" id="newSidebarClose"></i>
-    </div>
-    <div class="new-sidebar-content">
-        <div class="new-stats">
-            <div class="new-stat-item">
-                <i class="fas fa-folder"></i>
-                <span id="newStatCategories">0</span>
-                <span>قسم</span>
-            </div>
-            <div class="new-stat-item">
-                <i class="fas fa-tools"></i>
-                <span id="newStatTools">0</span>
-                <span>أداة</span>
-            </div>
-            <div class="new-stat-item">
-                <i class="fas fa-eye"></i>
-                <span id="newTotalClicks">0</span>
-                <span>زيارة</span>
-            </div>
-            <div class="new-stat-item">
-                <i class="fas fa-star"></i>
-                <span id="newFavCount">0</span>
-                <span>مفضلة</span>
-            </div>
-        </div>
-        <div class="new-section">
-            <h4><i class="fas fa-fire"></i> الأكثر زيارة</h4>
-            <ul class="new-top-tools" id="newTopTools"></ul>
-        </div>
-        <div class="new-section">
-            <h4><i class="fas fa-star"></i> مفضلتي</h4>
-            <ul class="new-favorites" id="newFavoritesList"></ul>
-        </div>
-        <div class="new-section">
-            <h4><i class="fas fa-lock"></i> اشتراك مميز</h4>
-            <button class="new-subscribe-btn" id="newSubscribeBtn"><i class="fas fa-key"></i> افتح 3 مواقع حصرية</button>
-            <p class="new-subscribe-desc">أدخل الرمز للحصول على مواقع حصرية</p>
-        </div>
-        <div class="new-section">
-            <h4><i class="fas fa-chart-pie"></i> توزيع الأدوات</h4>
-            <div class="new-chart-container">
-                <canvas id="newCategoryChart" width="200" height="200"></canvas>
-            </div>
-        </div>
-        <div class="new-section">
-            <h4><i class="fab fa-telegram"></i> روابط هامة</h4>
-            <a href="https://t.me/io95c" target="_blank" rel="noopener noreferrer" class="new-share-btn" style="background: #0088cc; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
-                <i class="fab fa-telegram"></i> قناة المطور على تيليجرام
-            </a>
-        </div>
-        <div class="new-section">
-            <button class="new-share-btn" id="newShareSiteBtn"><i class="fas fa-share-alt"></i> مشاركة الموقع</button>
-            <a href="mailto:?subject=اقتراح أداة جديدة&body=أود اقتراح إضافة أداة جديدة إلى الدليل:" class="new-suggest-btn"><i class="fas fa-plus-circle"></i> اقتراح أداة</a>
-        </div>
-    </div>
-</div>
-
-<!-- نافذة الاشتراك (إدخال الرمز) -->
-<div class="new-modal" id="newSubscribeModal">
-    <div class="new-modal-content">
-        <div class="new-modal-header">
-            <i class="fas fa-times" id="newSubscribeClose"></i>
-        </div>
-        <div class="new-modal-body">
-            <div class="new-modal-icon"><i class="fas fa-lock-open"></i></div>
-            <h3>فتح المواقع الحصرية</h3>
-            <p>أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة</p>
-            <input type="password" id="newSubscribeCode" placeholder="****" maxlength="4" style="width:100%; padding:1rem; text-align:center; font-size:2rem; border-radius:2rem; border:2px solid var(--primary); background:var(--surface-light); color:inherit; margin:1rem 0;">
-            <button id="newSubscribeConfirm" class="new-modal-btn" style="width:100%; justify-content:center;">تأكيد</button>
-        </div>
-    </div>
-</div>
-
-<!-- نافذة تفاصيل الأداة المنبثقة (مودال) -->
-<div class="new-modal" id="newToolModal">
-    <div class="new-modal-content">
-        <div class="new-modal-header">
-            <i class="fas fa-times" id="newModalClose"></i>
-        </div>
-        <div class="new-modal-body">
-            <div class="new-modal-icon" id="newModalIcon"><i class="fas fa-robot"></i></div>
-            <h3 id="newModalTitle">اسم الأداة</h3>
-            <p id="newModalDesc">وصف الأداة</p>
-            <div class="new-modal-actions">
-                <a href="#" id="newModalVisit" target="_blank" rel="noopener noreferrer" class="new-modal-btn new-visit-btn"><i class="fas fa-external-link-alt"></i> زيارة</a>
-                <button id="newModalFavorite" class="new-modal-btn new-favorite-btn"><i class="fas fa-star"></i> أضف للمفضلة</button>
-                <button id="newModalShare" class="new-modal-btn new-share-btn"><i class="fas fa-share"></i> مشاركة</button>
-                <a href="#" id="newModalReport" class="new-modal-btn new-report-btn"><i class="fas fa-flag"></i> إبلاغ</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- نافذة المشاركة المنبثقة -->
-<div class="new-share-modal" id="newShareModal">
-    <div class="new-share-content">
-        <h4>مشاركة الأداة</h4>
-        <div class="new-share-icons">
-            <a href="#" target="_blank" id="newShareFacebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" target="_blank" id="newShareTwitter"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" target="_blank" id="newShareWhatsapp"><i class="fab fa-whatsapp"></i></a>
-            <button id="newShareCopy"><i class="fas fa-copy"></i></button>
-        </div>
-        <input type="text" id="newShareLink" readonly>
-    </div>
-</div>
-
-<!-- إشعارات Toast -->
-<div class="new-toast-container" id="newToastContainer"></div>
-
-<style>
-/* أنماط الإضافات الجديدة - مصممة لتكون فوق الكود الأصلي دون تعارض */
-.new-sidebar-toggle {
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: var(--shadow-lg);
-    transition: all var(--transition-bounce);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    z-index: 1000;
-    animation: new-pulse 3s infinite;
-}
-@keyframes new-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7); }
-    70% { box-shadow: 0 0 0 15px rgba(99, 102, 241, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-}
-.new-sidebar-toggle:hover {
-    transform: scale(1.2) rotate(90deg);
-    background: linear-gradient(135deg, var(--secondary), var(--accent));
-}
-.new-sidebar {
-    position: fixed;
-    top: 0;
-    right: -350px;
-    width: 300px;
-    height: 100vh;
-    background: var(--surface-light);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-left: 1px solid var(--border-light);
-    box-shadow: var(--shadow-lg);
-    z-index: 1001;
-    transition: right 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    color: var(--text-light);
-}
-.new-sidebar.open {
-    right: 0;
-}
-.new-sidebar-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.new-sidebar-header h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-.new-sidebar-header i {
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-.new-sidebar-header i:hover {
-    transform: scale(1.2);
-    color: var(--primary);
-}
-.new-sidebar-content {
-    padding: 1.5rem;
-    overflow-y: auto;
-    flex: 1;
-}
-.new-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 2rem;
-}
-.new-stat-item {
-    background: rgba(99, 102, 241, 0.1);
-    padding: 0.75rem;
-    border-radius: 1rem;
-    text-align: center;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    transition: transform 0.3s;
-    font-size: 0.9rem;
-}
-.new-stat-item:hover {
-    transform: translateY(-3px);
-    background: var(--primary);
-    color: white;
-}
-.new-stat-item i {
-    font-size: 1.2rem;
-    margin-bottom: 0.25rem;
-    display: block;
-}
-.new-stat-item span {
-    display: block;
-    font-weight: 700;
-}
-.new-section {
-    margin-bottom: 2rem;
-}
-.new-section h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary);
-    border-bottom: 1px solid var(--border-light);
-    padding-bottom: 0.5rem;
-}
-.new-top-tools, .new-favorites {
-    list-style: none;
-    padding: 0;
-}
-.new-top-tools li, .new-favorites li {
-    padding: 0.5rem;
-    border-bottom: 1px solid var(--border-light);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.9rem;
-    transition: background 0.3s;
-}
-.new-top-tools li:hover, .new-favorites li:hover {
-    background: rgba(99, 102, 241, 0.1);
-}
-.new-fav-remove {
-    color: var(--accent);
-    cursor: pointer;
-    padding: 0 0.5rem;
-    transition: transform 0.3s;
-}
-.new-fav-remove:hover {
-    transform: scale(1.2);
-}
-.new-subscribe-btn {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background: linear-gradient(135deg, var(--accent), var(--secondary));
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-bottom: 0.5rem;
-}
-.new-subscribe-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px -8px var(--accent);
-}
-.new-subscribe-desc {
-    font-size: 0.8rem;
-    color: var(--text-muted-light);
-    text-align: center;
-}
-.new-share-btn, .new-suggest-btn {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 0.75rem;
-    text-align: center;
-    background: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 2rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.3s;
-    font-weight: 600;
-    border: 1px solid transparent;
-}
-.new-share-btn:hover, .new-suggest-btn:hover {
-    background: var(--secondary);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px -8px var(--secondary);
-}
-.new-suggest-btn {
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--text-light);
-}
-.new-suggest-btn:hover {
-    background: var(--accent);
-    color: white;
-}
-.new-modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(8px);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-}
-.new-modal.show {
-    display: flex;
-}
-.new-modal-content {
-    background: var(--surface-light);
-    backdrop-filter: blur(20px);
-    border-radius: 2rem;
-    width: 90%;
-    max-width: 500px;
-    padding: 2rem;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-lg);
-    animation: new-modal-appear 0.3s;
-}
-@keyframes new-modal-appear {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-.new-modal-header {
-    display: flex;
-    justify-content: flex-end;
-}
-.new-modal-header i {
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-.new-modal-header i:hover {
-    transform: scale(1.2);
-    color: var(--accent);
-}
-.new-modal-body {
-    text-align: center;
-}
-.new-modal-icon {
-    width: 5rem;
-    height: 5rem;
-    background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-    border-radius: 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: white;
-    margin: 0 auto 1rem;
-}
-.new-modal-body h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-.new-modal-body p {
-    font-size: 1rem;
-    color: var(--text-muted-light);
-    margin-bottom: 2rem;
-}
-.new-modal-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-}
-.new-modal-btn {
-    padding: 0.75rem 1.2rem;
-    border-radius: 2rem;
-    border: none;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--text-light);
-    font-weight: 600;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-}
-.new-modal-btn:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px -8px var(--primary);
-}
-.new-visit-btn {
-    background: var(--primary);
-    color: white;
-}
-.new-favorite-btn {
-    background: rgba(236, 72, 153, 0.1);
-}
-.new-favorite-btn:hover {
-    background: var(--accent);
-}
-.new-share-modal {
-    display: none;
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: var(--surface-light);
-    backdrop-filter: blur(20px);
-    border-radius: 2rem;
-    padding: 2rem;
-    border: 1px solid var(--border-light);
-    box-shadow: var(--shadow-lg);
-    z-index: 2001;
-    width: 90%;
-    max-width: 400px;
-    text-align: center;
-}
-.new-share-modal.show {
-    display: block;
-}
-.new-share-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1.5rem 0;
-}
-.new-share-icons a, .new-share-icons button {
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(99, 102, 241, 0.1);
-    color: var(--text-light);
-    font-size: 1.5rem;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-}
-.new-share-icons a:hover, .new-share-icons button:hover {
-    background: var(--primary);
-    color: white;
-    transform: scale(1.1);
-}
-#newShareLink {
-    width: 100%;
-    padding: 0.75rem;
-    border-radius: 2rem;
-    border: 1px solid var(--border-light);
-    background: var(--surface-light);
-    color: inherit;
-    text-align: center;
-}
-.new-toast-container {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    pointer-events: none;
-}
-.new-toast {
-    background: var(--surface-light);
-    backdrop-filter: blur(10px);
-    color: var(--text-light);
-    padding: 0.75rem 1.5rem;
-    border-radius: 50px;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border-light);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    animation: new-toast-in 0.3s, new-toast-out 0.3s 2.7s forwards;
-    max-width: 300px;
-    pointer-events: auto;
-}
-@keyframes new-toast-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes new-toast-out {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(20px); }
-}
-.new-toast.success i { color: var(--success); }
-.new-toast.error i { color: var(--accent); }
-
-.new-chart-container {
-    margin-top: 1rem;
-    text-align: center;
-}
-.new-chart-container canvas {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    background: rgba(99,102,241,0.1);
-    padding: 0.5rem;
-}
-
-/* تحسينات للأجهزة الصغيرة */
-@media (max-width: 768px) {
-    .new-sidebar-toggle {
-        top: 1rem;
-        right: 1rem;
-        width: 3rem;
-        height: 3rem;
-    }
-    .new-sidebar {
-        width: 280px;
-    }
-    .new-stats {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-@media (max-width: 480px) {
-    .new-modal-actions {
-        flex-direction: column;
-    }
-    .new-modal-btn {
-        width: 100%;
-        justify-content: center;
-    }
-}
-</style>
-
-<script>
-// ========== كود الإضافات الجديدة (يعمل فوق الأصلي) ==========
-(function() {
-    // التخزين المحلي للمفضلة والإحصائيات
-    let favorites = JSON.parse(localStorage.getItem('new_favorites')) || [];
-    let clickStats = JSON.parse(localStorage.getItem('new_clickStats')) || {};
-
-    // الرمز السري للمواقع الحصرية
-    const SECRET_CODE = "9080";
-    // قائمة المواقع الحصرية
-    const EXCLUSIVE_SITES = [
-        "https://daleelai.org/",
-        "https://theresanaiforthat.com/",
-        "https://www.rankmyai.com/"
-    ];
-
-    // الحصول على جميع الأدوات بصيغة مسطحة للتعامل معها
-    function getAllTools() {
-        const all = [];
-        categories.forEach(cat => {
-            cat.tools.forEach(tool => {
-                all.push({
-                    ...tool,
-                    category: cat.name,
-                    categoryIcon: cat.icon
-                });
-            });
-        });
-        return all;
-    }
-
-    // دالة عرض الإشعارات
-    function showToast(message, type = 'info') {
-        const container = document.getElementById('newToastContainer');
-        const toast = document.createElement('div');
-        toast.className = `new-toast ${type}`;
-        let icon = 'fa-info-circle';
-        if (type === 'success') icon = 'fa-check-circle';
-        if (type === 'error') icon = 'fa-exclamation-circle';
-        toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-        container.appendChild(toast);
-        setTimeout(() => {
-            toast.remove();
-        }, 3000);
-    }
-
-    // تحديث إحصائيات الشريط الجانبي
-    function updateSidebarStats() {
-        const totalCategories = categories.length;
-        const totalTools = getAllTools().length;
-        document.getElementById('newStatCategories').textContent = totalCategories;
-        document.getElementById('newStatTools').textContent = totalTools;
-        document.getElementById('newTotalClicks').textContent = Object.values(clickStats).reduce((a, b) => a + b, 0);
-        document.getElementById('newFavCount').textContent = favorites.length;
-    }
-
-    // تحديث قائمة الأكثر زيارة
-    function updateTopTools() {
-        const topToolsList = document.getElementById('newTopTools');
-        const sorted = Object.entries(clickStats)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 5)
-            .map(([url, count]) => {
-                const allTools = getAllTools();
-                const tool = allTools.find(t => t.url === url);
-                return tool ? { name: tool.name, url, count } : null;
-            })
-            .filter(t => t);
-        
-        topToolsList.innerHTML = sorted.length ? sorted.map(t => `
-            <li>
-                <span title="${t.url}">${t.name}</span>
-                <span style="font-size:0.8rem; color:var(--primary);">${t.count}</span>
-            </li>
-        `).join('') : '<li style="text-align:center;">لا توجد زيارات بعد</li>';
-    }
-
-    // تحديث قائمة المفضلة
-    function updateFavorites() {
-        const favList = document.getElementById('newFavoritesList');
-        if (favorites.length === 0) {
-            favList.innerHTML = '<li style="text-align:center;">لا توجد أدوات في المفضلة</li>';
-            return;
+    <!-- تسجيل Service Worker (اختياري) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(err => console.log('ServiceWorker registration failed: ', err));
         }
-        favList.innerHTML = favorites.map(tool => `
-            <li>
-                <span>${tool.name}</span>
-                <i class="fas fa-trash-alt new-fav-remove" data-url="${tool.url}" style="color:var(--accent);"></i>
-            </li>
-        `).join('');
-        // إضافة حدث الحذف
-        document.querySelectorAll('.new-fav-remove').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const url = btn.dataset.url;
-                favorites = favorites.filter(f => f.url !== url);
-                localStorage.setItem('new_favorites', JSON.stringify(favorites));
-                updateFavorites();
-                updateSidebarStats();
-                showToast('تمت الإزالة من المفضلة', 'success');
-                // تحديث حالة زر المفضلة في المودال إن كان مفتوحاً
-                const modalTitle = document.getElementById('newModalTitle').textContent;
-                if (modalTitle) {
-                    const allTools = getAllTools();
-                    const currentTool = allTools.find(t => t.name === modalTitle);
-                    if (currentTool) {
-                        const isFav = favorites.some(f => f.url === currentTool.url);
-                        document.getElementById('newModalFavorite').innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
-                    }
-                }
-            });
+    </script>
+
+    <!-- مراقبة الاتصال بالإنترنت -->
+    <script>
+        window.addEventListener('online', () => {
+            if (typeof showToast === 'function') showToast('تم استعادة الاتصال بالإنترنت', 'success');
         });
-    }
+        window.addEventListener('offline', () => {
+            if (typeof showToast === 'function') showToast('فقد الاتصال بالإنترنت. بعض الميزات قد لا تعمل.', 'error');
+        });
+    </script>
 
-    // تسجيل نقرة على أداة
-    function recordClick(url) {
-        clickStats[url] = (clickStats[url] || 0) + 1;
-        localStorage.setItem('new_clickStats', JSON.stringify(clickStats));
-        updateTopTools();
-        updateSidebarStats();
-    }
-
-    // عرض المودال مع بيانات الأداة
-    function showToolModal(tool) {
-        document.getElementById('newModalIcon').innerHTML = `<i class="${tool.icon}"></i>`;
-        document.getElementById('newModalTitle').textContent = tool.name;
-        document.getElementById('newModalDesc').textContent = tool.desc;
-        document.getElementById('newModalVisit').href = tool.url;
-        
-        const isFav = favorites.some(f => f.url === tool.url);
-        const favBtn = document.getElementById('newModalFavorite');
-        favBtn.innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
-        
-        // إزالة المستمع القديم لتجنب التكرار
-        favBtn.replaceWith(favBtn.cloneNode(true));
-        const newFavBtn = document.getElementById('newModalFavorite');
-        newFavBtn.addEventListener('click', () => {
-            if (favorites.some(f => f.url === tool.url)) {
-                favorites = favorites.filter(f => f.url !== tool.url);
-                showToast('تمت الإزالة من المفضلة', 'success');
-            } else {
-                favorites.push(tool);
-                showToast('تمت الإضافة إلى المفضلة', 'success');
+    <!-- مؤشر التحميل عند الانتقال بين الصفحات -->
+    <script>
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link && link.href && link.href.startsWith(window.location.origin) && !link.hasAttribute('target') && link.href !== window.location.href) {
+                const loader = document.getElementById('pageLoader');
+                loader.style.transform = 'scaleX(1)';
+                setTimeout(() => {
+                    loader.style.transform = 'scaleX(0)';
+                }, 500);
             }
-            localStorage.setItem('new_favorites', JSON.stringify(favorites));
-            updateFavorites();
-            updateSidebarStats();
-            showToolModal(tool); // تحديث الزر
         });
-
-        document.getElementById('newModalShare').onclick = () => showShareModal(tool.url);
-        document.getElementById('newModalReport').href = `mailto:?subject=الإبلاغ عن رابط معطل&body=الرابط: ${tool.url}`;
-
-        document.getElementById('newToolModal').classList.add('show');
-    }
-
-    // عرض نافذة المشاركة
-    function showShareModal(url) {
-        const shareModal = document.getElementById('newShareModal');
-        document.getElementById('newShareLink').value = url;
-        document.getElementById('newShareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-        document.getElementById('newShareTwitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
-        document.getElementById('newShareWhatsapp').href = `https://wa.me/?text=${encodeURIComponent(url)}`;
-        document.getElementById('newShareCopy').onclick = () => {
-            navigator.clipboard.writeText(url);
-            showToast('تم نسخ الرابط', 'success');
-        };
-        shareModal.classList.add('show');
-    }
-
-    // إرفاق الأحداث ببطاقات الأدوات (يتم استدعاؤها بعد كل تحديث للمحتوى)
-    function attachNewToolEvents() {
-        // روابط الزيارة الأصلية - نمنع الانتقال ونعرض المودال بدلاً من ذلك
-        document.querySelectorAll('.tool-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const toolCard = link.closest('.tool-card');
-                if (!toolCard) return;
-                const name = toolCard.querySelector('.tool-name')?.textContent;
-                const desc = toolCard.querySelector('.tool-desc')?.textContent;
-                const iconElem = toolCard.querySelector('.card-icon i');
-                const icon = iconElem ? iconElem.className : 'fa-solid fa-robot';
-                const url = link.href;
-                
-                // البحث عن الأداة في القائمة للحصول على بيانات كاملة
-                const allTools = getAllTools();
-                const tool = allTools.find(t => t.name === name && t.url === url);
-                if (tool) {
-                    showToolModal(tool);
-                    recordClick(url);
-                } else {
-                    // إذا لم نجد (احتمال ضعيف) نعرض بيانات تقريبية
-                    showToolModal({ name, desc, icon, url });
-                    recordClick(url);
-                }
-            });
-        });
-
-        // إضافة زر النجمة للمفضلة في كل بطاقة (اختياري)
-        document.querySelectorAll('.tool-card').forEach(card => {
-            // إذا كان الزر موجوداً مسبقاً لا نضيفه
-            if (card.querySelector('.new-fav-star')) return;
-            const starBtn = document.createElement('i');
-            starBtn.className = 'fas fa-star new-fav-star';
-            starBtn.style.position = 'absolute';
-            starBtn.style.top = '1rem';
-            starBtn.style.left = '1rem';
-            starBtn.style.fontSize = '1.2rem';
-            starBtn.style.color = 'var(--accent)';
-            starBtn.style.cursor = 'pointer';
-            starBtn.style.zIndex = '10';
-            starBtn.style.opacity = '0.7';
-            starBtn.style.transition = 'all 0.3s';
-            starBtn.onmouseover = () => { starBtn.style.opacity = '1'; starBtn.style.transform = 'scale(1.2)'; };
-            starBtn.onmouseout = () => { starBtn.style.opacity = '0.7'; starBtn.style.transform = 'scale(1)'; };
-            
-            const toolName = card.querySelector('.tool-name')?.textContent;
-            const toolDesc = card.querySelector('.tool-desc')?.textContent;
-            const toolIconElem = card.querySelector('.card-icon i');
-            const toolIcon = toolIconElem ? toolIconElem.className : 'fa-solid fa-robot';
-            const toolLink = card.querySelector('.tool-link');
-            const toolUrl = toolLink ? toolLink.href : '#';
-            
-            const allTools = getAllTools();
-            const tool = allTools.find(t => t.name === toolName && t.url === toolUrl) || { name: toolName, desc: toolDesc, icon: toolIcon, url: toolUrl };
-            
-            starBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                if (favorites.some(f => f.url === tool.url)) {
-                    favorites = favorites.filter(f => f.url !== tool.url);
-                    starBtn.style.color = 'var(--accent)';
-                    showToast('تمت الإزالة من المفضلة', 'success');
-                } else {
-                    favorites.push(tool);
-                    starBtn.style.color = 'gold';
-                    showToast('تمت الإضافة إلى المفضلة', 'success');
-                }
-                localStorage.setItem('new_favorites', JSON.stringify(favorites));
-                updateFavorites();
-                updateSidebarStats();
-            });
-            
-            // تعيين اللون حسب الحالة
-            if (favorites.some(f => f.url === tool.url)) {
-                starBtn.style.color = 'gold';
-            }
-            
-            card.style.position = 'relative';
-            card.appendChild(starBtn);
-        });
-    }
-
-    // رسم مخطط توزيع الفئات
-    function drawCategoryChart() {
-        const canvas = document.getElementById('newCategoryChart');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        const total = categories.reduce((acc, cat) => acc + cat.tools.length, 0);
-        if (total === 0) return;
-        
-        let startAngle = 0;
-        const centerX = 100, centerY = 100, radius = 80;
-        
-        categories.forEach((cat, index) => {
-            const percentage = cat.tools.length / total;
-            const endAngle = startAngle + (percentage * 2 * Math.PI);
-            
-            const hue = (index * 30) % 360;
-            ctx.beginPath();
-            ctx.moveTo(centerX, centerY);
-            ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-            ctx.closePath();
-            ctx.fillStyle = `hsl(${hue}, 70%, 60%)`;
-            ctx.fill();
-            
-            startAngle = endAngle;
-        });
-    }
-
-    // تحديث جميع العناصر بعد تغيير المحتوى
-    function refreshNewUI() {
-        updateSidebarStats();
-        updateTopTools();
-        updateFavorites();
-        attachNewToolEvents();
-        drawCategoryChart();
-    }
-
-    // التحكم في الشريط الجانبي
-    document.getElementById('newSidebarToggle').addEventListener('click', () => {
-        document.getElementById('newSidebar').classList.add('open');
-    });
-    document.getElementById('newSidebarClose').addEventListener('click', () => {
-        document.getElementById('newSidebar').classList.remove('open');
-    });
-
-    // إغلاق الشريط عند النقر خارجه
-    document.addEventListener('click', (e) => {
-        const sidebar = document.getElementById('newSidebar');
-        const toggle = document.getElementById('newSidebarToggle');
-        if (!sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-        }
-    });
-
-    // فتح نافذة الاشتراك
-    document.getElementById('newSubscribeBtn').addEventListener('click', () => {
-        document.getElementById('newSubscribeModal').classList.add('show');
-    });
-
-    // إغلاق نافذة الاشتراك
-    document.getElementById('newSubscribeClose').addEventListener('click', () => {
-        document.getElementById('newSubscribeModal').classList.remove('show');
-    });
-    document.getElementById('newSubscribeModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('newSubscribeModal')) {
-            document.getElementById('newSubscribeModal').classList.remove('show');
-        }
-    });
-
-    // التحقق من الرمز
-    document.getElementById('newSubscribeConfirm').addEventListener('click', () => {
-        const code = document.getElementById('newSubscribeCode').value.trim();
-        if (code === SECRET_CODE) {
-            showToast('✅ تم فتح المواقع بنجاح!', 'success');
-            // فتح المواقع الثلاثة في تبويبات جديدة
-            EXCLUSIVE_SITES.forEach(site => window.open(site, '_blank'));
-            document.getElementById('newSubscribeModal').classList.remove('show');
-            // تخزين أنه تم الاشتراك (اختياري)
-            localStorage.setItem('exclusive_unlocked', 'true');
-        } else {
-            showToast('❌ رمز خاطئ، حاول مرة أخرى', 'error');
-        }
-    });
-
-    // إغلاق المودال
-    document.getElementById('newModalClose').addEventListener('click', () => {
-        document.getElementById('newToolModal').classList.remove('show');
-    });
-    document.getElementById('newToolModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('newToolModal')) {
-            document.getElementById('newToolModal').classList.remove('show');
-        }
-    });
-
-    // إغلاق نافذة المشاركة
-    document.getElementById('newShareModal').addEventListener('click', (e) => {
-        if (e.target === document.getElementById('newShareModal')) {
-            document.getElementById('newShareModal').classList.remove('show');
-        }
-    });
-
-    // مشاركة الموقع
-    document.getElementById('newShareSiteBtn').addEventListener('click', () => {
-        showShareModal(window.location.href);
-    });
-
-    // تعديل دوال العرض الأصلية لإعادة ربط الأحداث بعد كل تحديث
-    const originalRenderMainPage = renderMainPage;
-    renderMainPage = function() {
-        originalRenderMainPage();
-        refreshNewUI();
-    };
-    const originalRenderCategoryPage = renderCategoryPage;
-    renderCategoryPage = function(index) {
-        originalRenderCategoryPage(index);
-        refreshNewUI();
-    };
-    const originalFilterTools = filterTools;
-    filterTools = function() {
-        originalFilterTools();
-        refreshNewUI();
-    };
-
-    // تحديث بعد التحميل الأول
-    window.addEventListener('load', () => {
-        refreshNewUI();
-    });
-})();
-</script>
-<!-- ========== نهاية الإضافات الجديدة ========== -->
-
-<!-- ========== بداية التحسينات الإضافية (بدون تغيير الأصلي) ========== -->
-<!-- إضافة preconnect و dns-prefetch لتسريع تحميل الخطوط والأيقونات -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com">
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
-<!-- إضافة meta tags لتحسين SEO و Open Graph -->
-<meta name="description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026. اكتشف أفضل الأدوات في مجالات متعددة مثل الكتابة، التصميم، البرمجة، الفيديو، الصوت، والأتمتة.">
-<meta name="keywords" content="الذكاء الاصطناعي, أدوات AI, ChatGPT, دليل أدوات الذكاء الاصطناعي, تصميم AI, برمجة AI">
-<meta name="author" content="Abdulrahman Radwan">
-<meta property="og:title" content="عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي">
-<meta property="og:description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026. اكتشف أفضل الأدوات في مجالات متعددة.">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ar_AR">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي">
-<meta name="twitter:description" content="دليل شامل لأحدث أدوات الذكاء الاصطناعي لعام 2026.">
-
-<!-- إضافة سياسة إحالة وأمان إضافية -->
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-
-<!-- إضافة service worker للتخزين المؤقت (اختياري، سجل فقط إذا كان المتصفح يدعم) -->
-<script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').catch(err => console.log('ServiceWorker registration failed: ', err));
-    }
-</script>
-
-<!-- تحسين أداء الرسوم المتحركة (استخدام will-change للعناصر المتحركة) -->
-<style>
-    .category-card, .tool-card, .back-to-top, .theme-toggle, .new-sidebar-toggle {
-        will-change: transform, box-shadow;
-    }
-    .header h1 {
-        will-change: transform;
-    }
-</style>
-
-<!-- كشف الاتصال بالإنترنت وإظهار إشعار عند فقدان الاتصال -->
-<script>
-    window.addEventListener('online', () => {
-        if (typeof showToast === 'function') showToast('تم استعادة الاتصال بالإنترنت', 'success');
-    });
-    window.addEventListener('offline', () => {
-        if (typeof showToast === 'function') showToast('فقد الاتصال بالإنترنت. بعض الميزات قد لا تعمل.', 'error');
-    });
-</script>
-
-<!-- تحسين تجربة المستخدم: إضافة مؤشر تحميل عند الانتقال بين الصفحات (اختياري) -->
-<style>
-    .page-transition-loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-        z-index: 9999;
-        transform-origin: 0%;
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
-        pointer-events: none;
-    }
-</style>
-<div class="page-transition-loader" id="pageLoader"></div>
-<script>
-    // إظهار شريط التقدم عند النقر على أي رابط داخلي (غير خارجي)
-    document.addEventListener('click', (e) => {
-        const link = e.target.closest('a');
-        if (link && link.href && link.href.startsWith(window.location.origin) && !link.hasAttribute('target') && link.href !== window.location.href) {
+        window.addEventListener('load', () => {
             const loader = document.getElementById('pageLoader');
-            loader.style.transform = 'scaleX(1)';
-            setTimeout(() => {
-                loader.style.transform = 'scaleX(0)';
-            }, 500);
-        }
-    });
-    window.addEventListener('load', () => {
-        const loader = document.getElementById('pageLoader');
-        loader.style.transform = 'scaleX(0)';
-    });
-</script>
+            loader.style.transform = 'scaleX(0)';
+        });
+    </script>
 
-<!-- تحسين الطباعة (print styles) -->
-<style media="print">
-    body {
-        background: white;
-        color: black;
-    }
-    .progress-bar, .back-to-top, .theme-toggle, .new-sidebar-toggle, .new-sidebar, .page-transition-loader {
-        display: none;
-    }
-    .category-card, .tool-card {
-        break-inside: avoid;
-        box-shadow: none;
-        border: 1px solid #ddd;
-    }
-    .tool-link {
-        text-decoration: underline;
-        color: black;
-    }
-    a[href]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.8rem;
-        font-weight: normal;
-    }
-</style>
-
-<!-- إضافة تتبع تحليلات بسيط (اختياري، لا يتم إرسال بيانات حساسة) -->
-<script>
-    // تجميع إحصائيات بسيطة (عدد الزيارات، لا يتم إرسالها خارجياً إلا إذا أردت)
-    // نستخدم localStorage فقط
-    if (!localStorage.getItem('visitCount')) {
-        localStorage.setItem('visitCount', '1');
-    } else {
-        let count = parseInt(localStorage.getItem('visitCount')) + 1;
-        localStorage.setItem('visitCount', count);
-    }
-    // يمكن إرسال إحصاءات مجهولة إلى خادم تحليلات ذاتي إذا رغبت
-    // console.log('زيارات الموقع: ', localStorage.getItem('visitCount'));
-</script>
-
-<!-- إضافة دعم للوضع الداكن وفق تفضيل النظام مع تحديث فوري -->
-<script>
-    // مراقبة تغيير تفضيل الوضع الداكن في النظام وتحديث الوضع تلقائياً
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        const savedTheme = localStorage.getItem('theme');
-        if (!savedTheme) {
-            if (e.matches) {
-                document.body.classList.add('dark-mode');
-                document.body.classList.remove('light-mode');
-                const icon = document.querySelector('#themeToggle i');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                document.body.classList.add('light-mode');
-                document.body.classList.remove('dark-mode');
-                const icon = document.querySelector('#themeToggle i');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+    <!-- مراقبة تفضيل الوضع الداكن في النظام -->
+    <script>
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            const savedTheme = localStorage.getItem('theme');
+            if (!savedTheme) {
+                if (e.matches) {
+                    document.body.classList.add('dark-mode');
+                    document.body.classList.remove('light-mode');
+                    const icon = document.querySelector('#themeToggle i');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    document.body.classList.add('light-mode');
+                    document.body.classList.remove('dark-mode');
+                    const icon = document.querySelector('#themeToggle i');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 
-<!-- إضافة "تخطي إلى المحتوى" لتحسين إمكانية الوصول -->
-<a href="#contentContainer" class="skip-to-content" style="position: absolute; top: -100px; left: 0; background: var(--primary); color: white; padding: 0.5rem 1rem; z-index: 9999;">تخطي إلى المحتوى</a>
-<script>
-    document.querySelector('.skip-to-content')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('contentContainer').scrollIntoView({ behavior: 'smooth' });
-    });
-</script>
+    <!-- تخطي إلى المحتوى -->
+    <script>
+        document.querySelector('.skip-to-content')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('contentContainer').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
 
-<!-- تحسين أداء الرسوم المتحركة: إيقاف الرسوم المتحركة عند تقليل الرؤية (Page Visibility API) -->
-<script>
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            // يمكن إيقاف الرسوم المتحركة الثقيلة هنا
-            // مثال: إيقاف المؤقتات أو تقليل معدل الإطارات
+    <!-- إحصائيات بسيطة (زيارات) -->
+    <script>
+        if (!localStorage.getItem('visitCount')) {
+            localStorage.setItem('visitCount', '1');
         } else {
-            // استئناف
+            let count = parseInt(localStorage.getItem('visitCount')) + 1;
+            localStorage.setItem('visitCount', count);
         }
-    });
-</script>
-<!-- ========== نهاية التحسينات الإضافية ========== -->
+    </script>
 </body>
 </html>
