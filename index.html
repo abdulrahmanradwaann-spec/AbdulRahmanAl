@@ -1756,10 +1756,10 @@
         <div class="luxury-marquee-track">
             <div class="luxury-marquee-content">
                 <span class="marquee-text"><i class="fas fa-crown"></i>مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> تحتوي على أكثر من 600 أداة ذكاء اصطناعي مجانًا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i>مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
                 <span class="marquee-text"><i class="fas fa-crown"></i> مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> تحتوي على أكثر من 600 أداة ذكاء اصطناعي مجانًا <i class="fas fa-star-of-life"></i></span>
-                <span class="marquee-text"><i class="fas fa-crown"></i> تحديثات يومية <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i> مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
+                <span class="marquee-text"><i class="fas fa-crown"></i>مرحبًا بكم في منصة عبد الرحمن للتكنولوجيا <i class="fas fa-star-of-life"></i></span>
             </div>
         </div>
     </div>
@@ -1924,9 +1924,9 @@
 
     <script>
         // =================================================================
-        // 1. البيانات - قائمة الأقسام والأدوات (تم إزالة التكرارات)
+        // 1. البيانات - قائمة الأقسام والأدوات (تم إزالة التكرارات وإضافة الأدوات الجديدة)
         // =================================================================
-        const categories = (function removeDuplicates() {
+        const categories = (function removeDuplicatesAndAddNew() {
             const rawCategories = [
                 {
                     name: "مساعدات الذكاء الاصطناعي العامة",
@@ -1981,7 +1981,10 @@
                     tools: [
                         { name: "Bubble", desc: "إنشاء مواقع وأنظمة كاملة.", url: "https://bubble.io", icon: "fa-solid fa-bubble" },
                         { name: "Base44", desc: "إنشاء تطبيقات وأنظمة بسهولة.", url: "https://base44.com", icon: "fa-solid fa-layer-group" },
-                        { name: "Uizard", desc: "تحويل النص إلى واجهات رقمية.", url: "https://uizard.io", icon: "fa-solid fa-magic" }
+                        { name: "Uizard", desc: "تحويل النص إلى واجهات رقمية.", url: "https://uizard.io", icon: "fa-solid fa-magic" },
+                        { name: "Glide", desc: "تحويل Google Sheets إلى تطبيق كامل.", url: "https://www.glideapps.com", icon: "fa-brands fa-google" },
+                        { name: "Adalo", desc: "إنشاء تطبيقات موبايل بسهولة.", url: "https://www.adalo.com", icon: "fa-solid fa-mobile-alt" },
+                        { name: "Softr", desc: "بناء مواقع من Airtable بدون برمجة.", url: "https://www.softr.io", icon: "fa-solid fa-table" }
                     ]
                 },
                 {
@@ -1998,7 +2001,12 @@
                         { name: "Supabase", desc: "قواعد بيانات وتطبيقات مفتوحة المصدر (freemium).", url: "https://supabase.com", icon: "fa-solid fa-database" },
                         { name: "Retool", desc: "بناء أدوات داخلية بسرعة (freemium).", url: "https://retool.com", icon: "fa-solid fa-toolbox" },
                         { name: "LangSmith (LangChain)", desc: "إطار عمل لتطبيقات LLM (freemium).", url: "https://langchain.com", icon: "fa-solid fa-code-branch" },
-                        { name: "GitLab", desc: "منصة تطوير مع AI (freemium).", url: "https://gitlab.com", icon: "fa-brands fa-gitlab" }
+                        { name: "GitLab", desc: "منصة تطوير مع AI (freemium).", url: "https://gitlab.com", icon: "fa-brands fa-gitlab" },
+                        { name: "v0.dev", desc: "تصميم واجهات React تلقائيًا من وصفك النصي.", url: "https://v0.dev", icon: "fa-solid fa-code" },
+                        { name: "Tldraw AI", desc: "رسم وتحويله إلى كود برمجي.", url: "https://tldraw.com", icon: "fa-solid fa-draw-polygon" },
+                        { name: "Firebase", desc: "باك اند جاهز وخدمات خلفية من Google.", url: "https://firebase.google.com", icon: "fa-brands fa-google" },
+                        { name: "Vercel", desc: "نشر المواقع والتطبيقات بسهولة.", url: "https://vercel.com", icon: "fa-solid fa-cloud-upload-alt" },
+                        { name: "Netlify", desc: "استضافة مواقع مجانية ونشر تلقائي.", url: "https://www.netlify.com", icon: "fa-solid fa-globe" }
                     ]
                 },
                 {
@@ -2133,7 +2141,7 @@
                         { name: "AI Animation Generator", desc: "إنشاء أنيميشن", url: "https://designs.ai", icon: "fa-solid fa-film" },
                         { name: "AI Motion Graphics", desc: "إنشاء موشن جرافيك", url: "https://designs.ai", icon: "fa-solid fa-film" },
                         { name: "Sora", desc: "مولد فيديو نص إلى فيديو بخطة freemium.", url: "https://openai.com/sora", icon: "fa-solid fa-video" },
-                        { name: "CapCut", desc: "تحرير فيديو وصور مدعوم AI (freemium).", url: "https://capcut.com", icon: "fa-solid fa-scissors" },
+                        { name: "CapCut", desc: "مونتاج فيديو سهل وقوي.", url: "https://www.capcut.com", icon: "fa-solid fa-scissors" },
                         { name: "Kling AI", desc: "فيديو وصوت AI (freemium).", url: "https://klingai.com", icon: "fa-solid fa-video" }
                     ]
                 },
