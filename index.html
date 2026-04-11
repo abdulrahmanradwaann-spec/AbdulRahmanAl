@@ -598,7 +598,7 @@
             transform: translateY(-8px) scale(1.02) rotateX(2deg);
             box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary), 0 0 60px var(--accent);
             border-color: transparent;
-            background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .category-card-icon {
@@ -679,7 +679,7 @@
             transform: translateX(10px) scale(1.02);
             border-color: var(--primary);
             box-shadow: var(--shadow-hover);
-            background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .category-icon {
@@ -781,7 +781,7 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 0 20px var(--primary), 0 0 40px var(--secondary), 0 0 60px var(--accent);
             border-color: transparent;
-            background: color-mix(in srgb, var(--surface-light) 90%, var(--primary) 10%);
+            background: rgba(99, 102, 241, 0.05);
         }
 
         .card-icon {
@@ -1737,6 +1737,283 @@
                 font-weight: normal;
             }
         }
+
+        /* NEW IMPROVEMENTS START - تحسينات إضافية حديثة */
+        /* زر تغيير حجم الخط */
+        .font-control {
+            position: fixed;
+            bottom: 6rem;
+            left: 2rem;
+            background: var(--surface-light);
+            backdrop-filter: blur(16px);
+            border-radius: 3rem;
+            padding: 0.5rem 1rem;
+            display: flex;
+            gap: 0.8rem;
+            border: 1px solid var(--border-light);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+        .font-control button {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            padding: 0.3rem;
+        }
+        .font-control button:hover {
+            transform: scale(1.2);
+            color: var(--accent);
+        }
+        /* وضع القراءة */
+        body.read-mode {
+            --bg-light: #fef9e8;
+            --text-light: #2c2c2c;
+            --text-muted-light: #4a4a4a;
+            --surface-light: rgba(255, 248, 225, 0.95);
+        }
+        body.dark-mode.read-mode {
+            --bg-light: #1e1a1a;
+            --text-light: #f0e6d2;
+            --surface-light: rgba(30, 26, 26, 0.95);
+        }
+        /* شريط تنقل سفلي للأجهزة المحمولة */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--surface-light);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border-light);
+            padding: 0.75rem 1rem;
+            justify-content: space-around;
+            z-index: 100;
+        }
+        .bottom-nav a {
+            color: var(--text-muted-light);
+            font-size: 1.4rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .bottom-nav a.active, .bottom-nav a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        @media (max-width: 768px) {
+            .bottom-nav {
+                display: flex;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+            .font-control {
+                bottom: 5rem;
+                left: 1rem;
+            }
+        }
+        /* فلتر ترتيب الأقسام */
+        .sort-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+            gap: 0.5rem;
+        }
+        .sort-btn {
+            background: var(--surface-light);
+            border: 1px solid var(--border-light);
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: inherit;
+        }
+        .sort-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: transparent;
+        }
+        /* إحصائيات إضافية */
+        .visitor-stats {
+            text-align: center;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            color: var(--text-muted-light);
+        }
+        /* تحسين تأثير التحميل */
+        .skeleton-wave {
+            background: linear-gradient(90deg, var(--surface-light) 25%, rgba(128,128,128,0.2) 50%, var(--surface-light) 75%);
+            background-size: 200% 100%;
+            animation: wave 1.5s infinite;
+        }
+        @keyframes wave {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        /* NEW IMPROVEMENTS END */
+        
+        /* ============================================ */
+        /* ENHANCEMENTS: إضافات جديدة للغة والنماذج     */
+        /* ============================================ */
+        /* زر تبديل اللغة */
+        .lang-switch {
+            position: fixed;
+            top: 2rem;
+            left: 6rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-bounce);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            z-index: 999;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .lang-switch:hover {
+            transform: scale(1.2) rotate(360deg);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        @media (max-width: 768px) {
+            .lang-switch {
+                top: 1rem;
+                left: 5rem;
+                width: 3rem;
+                height: 3rem;
+                font-size: 0.8rem;
+            }
+        }
+        /* توجيه النص حسب اللغة */
+        body[dir="ltr"] {
+            direction: ltr;
+            text-align: left;
+        }
+        body[dir="rtl"] {
+            direction: rtl;
+            text-align: right;
+        }
+        /* نموذج إضافة أداة محسن */
+        #suggestToolForm input, #suggestToolForm textarea, #suggestToolForm select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-light);
+            background: var(--surface-light);
+            color: inherit;
+            font-family: inherit;
+            transition: 0.2s;
+        }
+        #suggestToolForm input:focus, #suggestToolForm textarea:focus, #suggestToolForm select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99,102,241,0.3);
+        }
+        .instagram-footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        .instagram-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        .instagram-footer a:hover {
+            color: var(--accent);
+            transform: scale(1.05);
+            display: inline-block;
+        }
+        /* تحسين الشريط الجانبي */
+        .new-sidebar .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
+            color: white;
+            padding: 0.6rem 1rem;
+            border-radius: 2rem;
+            margin-bottom: 1rem;
+            justify-content: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .new-sidebar .instagram-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        /* أيقونة إنستغرام في الهيدر (بجانب زر القائمة) */
+        .header-instagram {
+            position: fixed;
+            top: 2rem;
+            right: 6rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            background: linear-gradient(45deg, #f09433, #d62976, #962fbf);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-bounce);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            z-index: 999;
+        }
+        .header-instagram a {
+            color: white;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            text-decoration: none;
+        }
+        .header-instagram:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        @media (max-width: 768px) {
+            .header-instagram {
+                top: 1rem;
+                right: 5rem;
+                width: 3rem;
+                height: 3rem;
+            }
+            .header-instagram a {
+                font-size: 1.4rem;
+            }
+        }
+        /* تحسينات إضافية للواجهة (UI) */
+        .category-card, .tool-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .tool-link {
+            transition: all 0.25s ease;
+        }
+        .back-to-top, .theme-toggle, .lang-switch, .header-instagram {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        /* تأثير ظهور أبطأ قليلاً للعناصر */
+        .category-card, .tool-card {
+            animation-duration: 0.6s;
+        }
     </style>
 </head>
 <body>
@@ -1746,6 +2023,16 @@
     <!-- زر تبديل الوضع -->
     <div class="theme-toggle" id="themeToggle" title="تبديل الوضع">
         <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- ENHANCEMENT: زر تبديل اللغة -->
+    <div class="lang-switch" id="langSwitch" title="Language / اللغة">🌐</div>
+
+    <!-- ENHANCEMENT: أيقونة إنستغرام في الهيدر (أيقونة فقط) -->
+    <div class="header-instagram">
+        <a href="https://www.instagram.com/io95c" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram"></i>
+        </a>
     </div>
 
     <!-- خلفية الجسيمات -->
@@ -1766,7 +2053,7 @@
 
     <div class="container">
         <header class="header">
-            <h1>عبد الرحمن تكنولوجيا</h1>
+            <h1 id="mainTitle">عبد الرحمن تكنولوجيا</h1>
             <div class="typing-container">
                 <span id="typingText"></span>
                 <span class="cursor"></span>
@@ -1775,7 +2062,7 @@
 
         <!-- مسار التنقل -->
         <div class="breadcrumbs" id="breadcrumbs">
-            <a href="/">الرئيسية</a>
+            <a href="/" id="homeLink">الرئيسية</a>
         </div>
 
         <!-- شريط البحث -->
@@ -1788,11 +2075,18 @@
             </div>
         </div>
 
+        <!-- NEW IMPROVEMENTS: إضافة فلتر ترتيب الأقسام -->
+        <div class="sort-controls" id="sortControls" style="display: none;">
+            <button class="sort-btn active" data-sort="default" id="sortDefault">الترتيب الافتراضي</button>
+            <button class="sort-btn" data-sort="name" id="sortName">حسب الاسم</button>
+            <button class="sort-btn" data-sort="count" id="sortCount">حسب عدد الأدوات</button>
+        </div>
+
         <!-- حاوية المحتوى الديناميكي -->
         <div id="contentContainer"></div>
         <div id="noResults">
             <i class="fas fa-exclamation-circle"></i>
-            <div>لا توجد أدوات تطابق بحثك. جرب كلمة أخرى!</div>
+            <div id="noResultsMsg">لا توجد أدوات تطابق بحثك. جرب كلمة أخرى!</div>
         </div>
     </div>
 
@@ -1801,8 +2095,15 @@
     </div>
 
     <footer class="footer">
-        <p class="copyright">© 2026 Abdulrahman Radwan. جميع الحقوق محفوظة.</p>
-        <p>تصميم فاخر بتقنيات 2026 | دليل AI الشامل</p>
+        <p class="copyright" id="copyright">© 2026 Abdulrahman Radwan. جميع الحقوق محفوظة.</p>
+        <p id="footerDesc">تصميم فاخر بتقنيات 2026 | دليل AI الشامل</p>
+        <!-- ENHANCEMENT: رابط إنستغرام في التذييل (أيقونة فقط) -->
+        <div class="instagram-footer">
+            <a href="https://www.instagram.com/io95c" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-instagram fa-lg"></i>
+            </a>
+        </div>
+        <div class="visitor-stats" id="visitorStats"></div>
     </footer>
 
     <!-- الإضافات الجديدة (الشريط الجانبي، المودالات، الإشعارات) -->
@@ -1812,64 +2113,70 @@
 
     <div class="new-sidebar" id="newSidebar">
         <div class="new-sidebar-header">
-            <h3>القائمة الذكية</h3>
+            <h3 id="sidebarTitle">القائمة الذكية</h3>
             <i class="fas fa-times" id="newSidebarClose"></i>
         </div>
         <div class="new-sidebar-content">
+            <!-- ENHANCEMENT: رابط إنستغرام في الشريط الجانبي (أيقونة فقط) -->
+            <a href="https://www.instagram.com/io95c" target="_blank" rel="noopener noreferrer" class="instagram-link">
+                <i class="fab fa-instagram"></i> <span id="instagramText">تابع المطور @io95c</span>
+            </a>
             <div class="new-stats">
                 <div class="new-stat-item">
                     <i class="fas fa-folder"></i>
                     <span id="newStatCategories">0</span>
-                    <span>قسم</span>
+                    <span id="statCategoriesLabel">قسم</span>
                 </div>
                 <div class="new-stat-item">
                     <i class="fas fa-tools"></i>
                     <span id="newStatTools">0</span>
-                    <span>أداة</span>
+                    <span id="statToolsLabel">أداة</span>
                 </div>
                 <div class="new-stat-item">
                     <i class="fas fa-eye"></i>
                     <span id="newTotalClicks">0</span>
-                    <span>زيارة</span>
+                    <span id="statVisitsLabel">زيارة</span>
                 </div>
                 <div class="new-stat-item">
                     <i class="fas fa-star"></i>
                     <span id="newFavCount">0</span>
-                    <span>مفضلة</span>
+                    <span id="statFavLabel">مفضلة</span>
                 </div>
             </div>
             <div class="new-section">
-                <h4><i class="fas fa-fire"></i> الأكثر زيارة</h4>
+                <h4><i class="fas fa-fire"></i> <span id="topToolsTitle">الأكثر زيارة</span></h4>
                 <ul class="new-top-tools" id="newTopTools"></ul>
             </div>
             <div class="new-section">
-                <h4><i class="fas fa-star"></i> مفضلتي</h4>
+                <h4><i class="fas fa-star"></i> <span id="favoritesTitle">مفضلتي</span></h4>
                 <ul class="new-favorites" id="newFavoritesList"></ul>
             </div>
             <div class="new-section">
-                <h4><i class="fas fa-lock"></i> اشتراك مميز</h4>
-                <button class="new-subscribe-btn" id="newSubscribeBtn"><i class="fas fa-key"></i> افتح 3 مواقع حصرية</button>
-                <p class="new-subscribe-desc">أدخل الرمز للحصول على مواقع حصرية</p>
+                <h4><i class="fas fa-lock"></i> <span id="subscribeTitle">اشتراك مميز</span></h4>
+                <button class="new-subscribe-btn" id="newSubscribeBtn"><i class="fas fa-key"></i> <span id="subscribeBtnText">افتح 3 مواقع حصرية</span></button>
+                <p class="new-subscribe-desc" id="subscribeDesc">أدخل الرمز للحصول على مواقع حصرية</p>
             </div>
             <div class="new-section">
-                <h4><i class="fas fa-chart-pie"></i> توزيع الأدوات</h4>
+                <h4><i class="fas fa-chart-pie"></i> <span id="chartTitle">توزيع الأدوات</span></h4>
                 <div class="new-chart-container">
                     <canvas id="newCategoryChart" width="200" height="200"></canvas>
                 </div>
             </div>
             <div class="new-section">
-                <h4><i class="fab fa-telegram"></i> روابط هامة</h4>
+                <h4><i class="fab fa-telegram"></i> <span id="importantLinksTitle">روابط هامة</span></h4>
                 <a href="https://t.me/io95c" target="_blank" rel="noopener noreferrer" class="new-share-btn" style="background: #0088cc; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
-                    <i class="fab fa-telegram"></i> قناة المطور على تيليجرام
+                    <i class="fab fa-telegram"></i> <span id="telegramText">قناة المطور على تيليجرام</span>
                 </a>
             </div>
             <div class="new-section">
-                <button class="new-share-btn" id="newShareSiteBtn"><i class="fas fa-share-alt"></i> مشاركة الموقع</button>
-                <a href="mailto:?subject=اقتراح أداة جديدة&body=أود اقتراح إضافة أداة جديدة إلى الدليل:" class="new-suggest-btn"><i class="fas fa-plus-circle"></i> اقتراح أداة</a>
+                <button class="new-share-btn" id="newShareSiteBtn"><i class="fas fa-share-alt"></i> <span id="shareSiteText">مشاركة الموقع</span></button>
+                <!-- ENHANCEMENT: زر اقتراح أداة (إضافة أداة / بلاغ) -->
+                <button class="new-suggest-btn" id="suggestToolBtn"><i class="fas fa-plus-circle"></i> <span id="suggestToolText">اقتراح أداة / إبلاغ</span></button>
             </div>
         </div>
     </div>
 
+    <!-- مودال الاشتراك -->
     <div class="new-modal" id="newSubscribeModal">
         <div class="new-modal-content">
             <div class="new-modal-header">
@@ -1877,14 +2184,15 @@
             </div>
             <div class="new-modal-body">
                 <div class="new-modal-icon"><i class="fas fa-lock-open"></i></div>
-                <h3>فتح المواقع الحصرية</h3>
-                <p>أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة</p>
+                <h3 id="subscribeModalTitle">فتح المواقع الحصرية</h3>
+                <p id="subscribeModalDesc">أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة</p>
                 <input type="password" id="newSubscribeCode" placeholder="****" maxlength="4" style="width:100%; padding:1rem; text-align:center; font-size:2rem; border-radius:2rem; border:2px solid var(--primary); background:var(--surface-light); color:inherit; margin:1rem 0;">
-                <button id="newSubscribeConfirm" class="new-modal-btn" style="width:100%; justify-content:center;">تأكيد</button>
+                <button id="newSubscribeConfirmBtn" class="new-modal-btn" style="width:100%; justify-content:center;">تأكيد</button>
             </div>
         </div>
     </div>
 
+    <!-- مودال الأداة -->
     <div class="new-modal" id="newToolModal">
         <div class="new-modal-content">
             <div class="new-modal-header">
@@ -1895,11 +2203,34 @@
                 <h3 id="newModalTitle">اسم الأداة</h3>
                 <p id="newModalDesc">وصف الأداة</p>
                 <div class="new-modal-actions">
-                    <a href="#" id="newModalVisit" target="_blank" rel="noopener noreferrer" class="new-modal-btn new-visit-btn"><i class="fas fa-external-link-alt"></i> زيارة</a>
-                    <button id="newModalFavorite" class="new-modal-btn new-favorite-btn"><i class="fas fa-star"></i> أضف للمفضلة</button>
-                    <button id="newModalShare" class="new-modal-btn new-share-btn"><i class="fas fa-share"></i> مشاركة</button>
-                    <a href="#" id="newModalReport" class="new-modal-btn new-report-btn"><i class="fas fa-flag"></i> إبلاغ</a>
+                    <a href="#" id="newModalVisit" target="_blank" rel="noopener noreferrer" class="new-modal-btn new-visit-btn"><i class="fas fa-external-link-alt"></i> <span id="visitBtnText">زيارة</span></a>
+                    <button id="newModalFavorite" class="new-modal-btn new-favorite-btn"><i class="fas fa-star"></i> <span id="favBtnText">أضف للمفضلة</span></button>
+                    <button id="newModalShare" class="new-modal-btn new-share-btn"><i class="fas fa-share"></i> <span id="shareBtnText">مشاركة</span></button>
+                    <a href="#" id="newModalReport" class="new-modal-btn new-report-btn"><i class="fas fa-flag"></i> <span id="reportBtnText">إبلاغ</span></a>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENHANCEMENT: مودال اقتراح أداة / إبلاغ -->
+    <div class="new-modal" id="suggestToolModal">
+        <div class="new-modal-content">
+            <div class="new-modal-header">
+                <i class="fas fa-times" id="suggestModalClose"></i>
+            </div>
+            <div class="new-modal-body">
+                <div class="new-modal-icon"><i class="fas fa-paper-plane"></i></div>
+                <h3 id="suggestModalTitle">اقتراح أداة أو إبلاغ</h3>
+                <form id="suggestToolForm">
+                    <input type="text" id="suggestName" placeholder="الاسم" required>
+                    <input type="email" id="suggestEmail" placeholder="البريد الإلكتروني" required>
+                    <select id="suggestType">
+                        <option value="suggest">اقتراح أداة جديدة</option>
+                        <option value="report">الإبلاغ عن مشكلة أو رابط معطل</option>
+                    </select>
+                    <textarea id="suggestMessage" rows="4" placeholder="تفاصيل الاقتراح أو المشكلة..." required></textarea>
+                    <button type="submit" class="new-modal-btn" style="width:100%; justify-content:center;"><i class="fas fa-send"></i> إرسال</button>
+                </form>
             </div>
         </div>
     </div>
@@ -1921,6 +2252,19 @@
 
     <a href="#contentContainer" class="skip-to-content">تخطي إلى المحتوى</a>
     <div class="page-transition-loader" id="pageLoader"></div>
+
+    <!-- NEW IMPROVEMENTS: عناصر تحكم إضافية -->
+    <div class="font-control" id="fontControl">
+        <button id="fontDecrease" title="تصغير الخط">A-</button>
+        <button id="fontIncrease" title="تكبير الخط">A+</button>
+        <button id="readModeBtn" title="وضع القراءة"><i class="fas fa-book-open"></i></button>
+    </div>
+    <div class="bottom-nav" id="bottomNav">
+        <a href="#" id="bottomHome"><i class="fas fa-home"></i></a>
+        <a href="#" id="bottomSearch"><i class="fas fa-search"></i></a>
+        <a href="#" id="bottomFav"><i class="fas fa-star"></i></a>
+        <a href="#" id="bottomSidebar"><i class="fas fa-bars"></i></a>
+    </div>
 
     <script>
         // =================================================================
@@ -2607,6 +2951,22 @@
         // =================================================================
         let currentCategoryIndex = null;
         let searchTimeout;
+        let currentSort = 'default';
+        let currentLang = localStorage.getItem('appLang') || 'ar';
+
+        // تعريف showToast في النطاق العام
+        window.showToast = function(message, type = 'info') {
+            const container = document.getElementById('newToastContainer');
+            if (!container) return;
+            const toast = document.createElement('div');
+            toast.className = `new-toast ${type}`;
+            let icon = 'fa-info-circle';
+            if (type === 'success') icon = 'fa-check-circle';
+            if (type === 'error') icon = 'fa-exclamation-circle';
+            toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        };
 
         // =================================================================
         // 3. دوال العرض الأساسية
@@ -2614,10 +2974,16 @@
         function renderMainPage() {
             document.title = "عبد الرحمن تكنولوجيا | الدليل الشامل للذكاء الاصطناعي";
             const container = document.getElementById('contentContainer');
+            let catsToRender = [...categories];
+            if (currentSort === 'name') {
+                catsToRender.sort((a,b) => a.name.localeCompare(b.name));
+            } else if (currentSort === 'count') {
+                catsToRender.sort((a,b) => b.tools.length - a.tools.length);
+            }
             container.innerHTML = `
                 <div class="categories-grid">
-                    ${categories.map((cat, index) => `
-                        <a href="?index=${index}" class="category-card" style="--card-index: ${index + 1};">
+                    ${catsToRender.map((cat, index) => `
+                        <a href="?index=${categories.findIndex(c => c.name === cat.name)}" class="category-card" style="--card-index: ${index + 1};">
                             <div class="category-card-icon"><i class="${cat.icon}"></i></div>
                             <h3>${cat.name}</h3>
                             <p>${cat.tools.length} أداة متاحة</p>
@@ -2625,10 +2991,17 @@
                     `).join('')}
                 </div>
             `;
-            document.getElementById('noResults').style.display = 'none';
-            document.getElementById('searchInput').value = '';
-            document.getElementById('searchInput').placeholder = 'ابحث عن أداة ذكاء اصطناعي...';
+            const noResults = document.getElementById('noResults');
+            if (noResults) noResults.style.display = 'none';
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.placeholder = 'ابحث عن أداة ذكاء اصطناعي...';
+            }
             updateBreadcrumbs();
+            const sortControls = document.getElementById('sortControls');
+            if (sortControls) sortControls.style.display = 'flex';
+            applyTranslations();
         }
 
         function renderCategoryPage(index) {
@@ -2662,14 +3035,22 @@
                     `).join('')}
                 </div>
             `;
-            document.getElementById('searchInput').placeholder = `ابحث في ${cat.name}...`;
-            document.getElementById('searchInput').value = '';
-            document.getElementById('noResults').style.display = 'none';
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.placeholder = `ابحث في ${cat.name}...`;
+                searchInput.value = '';
+            }
+            const noResults = document.getElementById('noResults');
+            if (noResults) noResults.style.display = 'none';
             updateBreadcrumbs(cat.name);
+            const sortControls = document.getElementById('sortControls');
+            if (sortControls) sortControls.style.display = 'none';
+            applyTranslations();
         }
 
         function updateBreadcrumbs(categoryName = null) {
             const bread = document.getElementById('breadcrumbs');
+            if (!bread) return;
             if (categoryName) {
                 bread.innerHTML = `<a href="/">الرئيسية</a> <span class="separator">/</span> <span>${categoryName}</span>`;
             } else {
@@ -2688,7 +3069,9 @@
         }
 
         function filterTools() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+            const query = searchInput.value.toLowerCase().trim();
             const noResults = document.getElementById('noResults');
 
             if (currentCategoryIndex === null) {
@@ -2702,24 +3085,26 @@
                     cat.tools.some(tool => tool.name.toLowerCase().includes(query) || tool.desc.toLowerCase().includes(query))
                 );
                 if (filteredCategories.length === 0) {
-                    container.innerHTML = '';
-                    noResults.style.display = 'block';
+                    if (container) container.innerHTML = '';
+                    if (noResults) noResults.style.display = 'block';
                 } else {
-                    container.innerHTML = `
-                        <div class="categories-grid">
-                            ${filteredCategories.map((cat, index) => {
-                                const originalIndex = categories.findIndex(c => c.name === cat.name);
-                                return `
-                                    <a href="?index=${originalIndex}" class="category-card" style="--card-index: ${index + 1};">
-                                        <div class="category-card-icon"><i class="${cat.icon}"></i></div>
-                                        <h3>${cat.name}</h3>
-                                        <p>${cat.tools.length} أداة متاحة</p>
-                                    </a>
-                                `;
-                            }).join('')}
-                        </div>
-                    `;
-                    noResults.style.display = 'none';
+                    if (container) {
+                        container.innerHTML = `
+                            <div class="categories-grid">
+                                ${filteredCategories.map((cat, index) => {
+                                    const originalIndex = categories.findIndex(c => c.name === cat.name);
+                                    return `
+                                        <a href="?index=${originalIndex}" class="category-card" style="--card-index: ${index + 1};">
+                                            <div class="category-card-icon"><i class="${cat.icon}"></i></div>
+                                            <h3>${cat.name}</h3>
+                                            <p>${cat.tools.length} أداة متاحة</p>
+                                        </a>
+                                    `;
+                                }).join('')}
+                            </div>
+                        `;
+                    }
+                    if (noResults) noResults.style.display = 'none';
                 }
             } else {
                 const cat = categories[currentCategoryIndex];
@@ -2738,14 +3123,14 @@
                             </a>
                         </div>
                     `).join('');
-                    noResults.style.display = 'none';
+                    if (noResults) noResults.style.display = 'none';
                 } else {
                     const filtered = cat.tools.filter(tool =>
                         tool.name.toLowerCase().includes(query) || tool.desc.toLowerCase().includes(query)
                     );
                     if (filtered.length === 0) {
                         toolsGrid.innerHTML = '';
-                        noResults.style.display = 'block';
+                        if (noResults) noResults.style.display = 'block';
                     } else {
                         toolsGrid.innerHTML = filtered.map((tool, idx) => `
                             <div class="tool-card" style="--card-index: ${idx + 1};">
@@ -2758,10 +3143,11 @@
                                 </a>
                             </div>
                         `).join('');
-                        noResults.style.display = 'none';
+                        if (noResults) noResults.style.display = 'none';
                     }
                 }
             }
+            applyTranslations();
         }
 
         // =================================================================
@@ -2770,6 +3156,7 @@
         function setupAutocomplete() {
             const searchInput = document.getElementById('searchInput');
             const autocompleteBox = document.getElementById('autocompleteBox');
+            if (!searchInput || !autocompleteBox) return;
 
             searchInput.addEventListener('input', function() {
                 const query = this.value.toLowerCase().trim();
@@ -2803,7 +3190,7 @@
 
             autocompleteBox.addEventListener('click', function(e) {
                 const item = e.target.closest('.autocomplete-item');
-                if (item) {
+                if (item && searchInput) {
                     searchInput.value = item.dataset.value;
                     autocompleteBox.classList.remove('show');
                     filterTools();
@@ -2811,7 +3198,7 @@
             });
 
             document.addEventListener('click', function(e) {
-                if (!searchInput.contains(e.target) && !autocompleteBox.contains(e.target)) {
+                if (searchInput && autocompleteBox && !searchInput.contains(e.target) && !autocompleteBox.contains(e.target)) {
                     autocompleteBox.classList.remove('show');
                 }
             });
@@ -2820,41 +3207,47 @@
         // =================================================================
         // 6. تأثير الكتابة
         // =================================================================
-        const textElement = document.getElementById('typingText');
-        const phrases = ["دليل متكامل لأدوات الذكاء الاصطناعي", "اكتشف المستقبل اليوم", "أحدث تقنيات 2026", "أدوات AI احترافية"];
-        let phraseIndex = 0, charIndex = 0, isDeleting = false;
-
         function typeEffect() {
-            const currentPhrase = phrases[phraseIndex];
-            if (isDeleting) {
-                textElement.innerHTML = currentPhrase.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    setTimeout(typeEffect, 400);
-                    return;
+            const textElement = document.getElementById('typingText');
+            if (!textElement) return;
+            const phrases = ["دليل متكامل لأدوات الذكاء الاصطناعي", "اكتشف المستقبل اليوم", "أحدث تقنيات 2026", "أدوات AI احترافية"];
+            let phraseIndex = 0, charIndex = 0, isDeleting = false;
+            
+            function animate() {
+                const currentPhrase = phrases[phraseIndex];
+                if (isDeleting) {
+                    textElement.innerHTML = currentPhrase.substring(0, charIndex - 1);
+                    charIndex--;
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(animate, 400);
+                        return;
+                    }
+                } else {
+                    textElement.innerHTML = currentPhrase.substring(0, charIndex + 1);
+                    charIndex++;
+                    if (charIndex === currentPhrase.length) {
+                        isDeleting = true;
+                        setTimeout(animate, 2000);
+                        return;
+                    }
                 }
-            } else {
-                textElement.innerHTML = currentPhrase.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentPhrase.length) {
-                    isDeleting = true;
-                    setTimeout(typeEffect, 2000);
-                    return;
-                }
+                setTimeout(animate, isDeleting ? 60 : 120);
             }
-            setTimeout(typeEffect, isDeleting ? 60 : 120);
+            animate();
         }
 
         // =================================================================
         // 7. شريط التقدم
         // =================================================================
         function updateProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            if (!progressBar) return;
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
+            progressBar.style.width = scrolled + '%';
         }
 
         // =================================================================
@@ -2862,24 +3255,22 @@
         // =================================================================
         function initTheme() {
             const themeToggle = document.getElementById('themeToggle');
+            if (!themeToggle) return;
             const icon = themeToggle.querySelector('i');
             const savedTheme = localStorage.getItem('theme');
 
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
                 document.body.classList.remove('light-mode');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
+                if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
             } else if (savedTheme === 'light') {
                 document.body.classList.add('light-mode');
                 document.body.classList.remove('dark-mode');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
+                if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
             } else {
                 if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                     document.body.classList.add('dark-mode');
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
+                    if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
                 } else {
                     document.body.classList.add('light-mode');
                 }
@@ -2890,14 +3281,12 @@
                     document.body.classList.remove('dark-mode');
                     document.body.classList.add('light-mode');
                     localStorage.setItem('theme', 'light');
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
+                    if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
                 } else {
                     document.body.classList.remove('light-mode');
                     document.body.classList.add('dark-mode');
                     localStorage.setItem('theme', 'dark');
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
+                    if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
                 }
             });
         }
@@ -2907,6 +3296,7 @@
         // =================================================================
         function initParticles() {
             const canvas = document.getElementById('particle-canvas');
+            if (!canvas) return;
             const ctx = canvas.getContext('2d');
             let width, height;
             let particles = [];
@@ -2932,6 +3322,7 @@
             }
 
             function animate() {
+                if (!ctx) return;
                 ctx.clearRect(0, 0, width, height);
                 const isDark = document.body.classList.contains('dark-mode');
                 ctx.fillStyle = isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)';
@@ -2959,6 +3350,7 @@
         function setupClearSearch() {
             const clearBtn = document.getElementById('clearSearch');
             const searchInput = document.getElementById('searchInput');
+            if (!clearBtn || !searchInput) return;
             clearBtn.addEventListener('click', () => {
                 searchInput.value = '';
                 searchInput.focus();
@@ -2969,7 +3361,7 @@
         // =================================================================
         // 11. الإضافات الجديدة (الشريط الجانبي، المفضلة، الإحصائيات، الاشتراك)
         // =================================================================
-        (function initNewFeatures() {
+        function initNewFeatures() {
             let favorites = JSON.parse(localStorage.getItem('new_favorites')) || [];
             let clickStats = JSON.parse(localStorage.getItem('new_clickStats')) || {};
             const SECRET_CODE = "9080";
@@ -2989,29 +3381,23 @@
                 return all;
             }
 
-            function showToast(message, type = 'info') {
-                const container = document.getElementById('newToastContainer');
-                const toast = document.createElement('div');
-                toast.className = `new-toast ${type}`;
-                let icon = 'fa-info-circle';
-                if (type === 'success') icon = 'fa-check-circle';
-                if (type === 'error') icon = 'fa-exclamation-circle';
-                toast.innerHTML = `<i class="fas ${icon}"></i> ${message}`;
-                container.appendChild(toast);
-                setTimeout(() => toast.remove(), 3000);
-            }
-
             function updateSidebarStats() {
                 const totalCategories = categories.length;
                 const totalTools = getAllTools().length;
-                document.getElementById('newStatCategories').textContent = totalCategories;
-                document.getElementById('newStatTools').textContent = totalTools;
-                document.getElementById('newTotalClicks').textContent = Object.values(clickStats).reduce((a, b) => a + b, 0);
-                document.getElementById('newFavCount').textContent = favorites.length;
+                const catElem = document.getElementById('newStatCategories');
+                const toolsElem = document.getElementById('newStatTools');
+                const clicksElem = document.getElementById('newTotalClicks');
+                const favElem = document.getElementById('newFavCount');
+                if (catElem) catElem.textContent = totalCategories;
+                if (toolsElem) toolsElem.textContent = totalTools;
+                if (clicksElem) clicksElem.textContent = Object.values(clickStats).reduce((a, b) => a + b, 0);
+                if (favElem) favElem.textContent = favorites.length;
+                applyTranslations();
             }
 
             function updateTopTools() {
                 const topToolsList = document.getElementById('newTopTools');
+                if (!topToolsList) return;
                 const sorted = Object.entries(clickStats)
                     .sort((a, b) => b[1] - a[1])
                     .slice(0, 5)
@@ -3021,26 +3407,22 @@
                         return tool ? { name: tool.name, url, count } : null;
                     })
                     .filter(t => t);
-
                 topToolsList.innerHTML = sorted.length ? sorted.map(t => `
-                    <li>
-                        <span title="${t.url}">${t.name}</span>
-                        <span style="font-size:0.8rem; color:var(--primary);">${t.count}</span>
-                    </li>
+                    <li><span title="${t.url}">${t.name}</span><span style="font-size:0.8rem;color:var(--primary);">${t.count}</span></li>
                 `).join('') : '<li style="text-align:center;">لا توجد زيارات بعد</li>';
+                applyTranslations();
             }
 
             function updateFavorites() {
                 const favList = document.getElementById('newFavoritesList');
+                if (!favList) return;
                 if (favorites.length === 0) {
                     favList.innerHTML = '<li style="text-align:center;">لا توجد أدوات في المفضلة</li>';
+                    applyTranslations();
                     return;
                 }
                 favList.innerHTML = favorites.map(tool => `
-                    <li>
-                        <span>${tool.name}</span>
-                        <i class="fas fa-trash-alt new-fav-remove" data-url="${tool.url}" style="color:var(--accent);"></i>
-                    </li>
+                    <li><span>${tool.name}</span><i class="fas fa-trash-alt new-fav-remove" data-url="${tool.url}" style="color:var(--accent);cursor:pointer;"></i></li>
                 `).join('');
                 document.querySelectorAll('.new-fav-remove').forEach(btn => {
                     btn.addEventListener('click', (e) => {
@@ -3050,18 +3432,19 @@
                         localStorage.setItem('new_favorites', JSON.stringify(favorites));
                         updateFavorites();
                         updateSidebarStats();
-                        showToast('تمت الإزالة من المفضلة', 'success');
-                        const modalTitle = document.getElementById('newModalTitle').textContent;
-                        if (modalTitle) {
-                            const allTools = getAllTools();
-                            const currentTool = allTools.find(t => t.name === modalTitle);
+                        window.showToast('تمت الإزالة من المفضلة', 'success');
+                        const modalTitleElem = document.getElementById('newModalTitle');
+                        if (modalTitleElem) {
+                            const currentTool = getAllTools().find(t => t.name === modalTitleElem.textContent);
                             if (currentTool) {
                                 const isFav = favorites.some(f => f.url === currentTool.url);
-                                document.getElementById('newModalFavorite').innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
+                                const favBtn = document.getElementById('newModalFavorite');
+                                if (favBtn) favBtn.innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
                             }
                         }
                     });
                 });
+                applyTranslations();
             }
 
             function recordClick(url) {
@@ -3071,122 +3454,121 @@
                 updateSidebarStats();
             }
 
-            function showToolModal(tool) {
-                document.getElementById('newModalIcon').innerHTML = `<i class="${tool.icon}"></i>`;
-                document.getElementById('newModalTitle').textContent = tool.name;
-                document.getElementById('newModalDesc').textContent = tool.desc;
-                document.getElementById('newModalVisit').href = tool.url;
-
-                const isFav = favorites.some(f => f.url === tool.url);
-                const favBtn = document.getElementById('newModalFavorite');
-                favBtn.innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
-
-                favBtn.replaceWith(favBtn.cloneNode(true));
-                const newFavBtn = document.getElementById('newModalFavorite');
-                newFavBtn.addEventListener('click', () => {
-                    if (favorites.some(f => f.url === tool.url)) {
-                        favorites = favorites.filter(f => f.url !== tool.url);
-                        showToast('تمت الإزالة من المفضلة', 'success');
-                    } else {
-                        favorites.push(tool);
-                        showToast('تمت الإضافة إلى المفضلة', 'success');
-                    }
-                    localStorage.setItem('new_favorites', JSON.stringify(favorites));
-                    updateFavorites();
-                    updateSidebarStats();
-                    showToolModal(tool);
-                });
-
-                document.getElementById('newModalShare').onclick = () => showShareModal(tool.url);
-                document.getElementById('newModalReport').href = `mailto:?subject=الإبلاغ عن رابط معطل&body=الرابط: ${tool.url}`;
-
-                document.getElementById('newToolModal').classList.add('show');
-            }
-
             function showShareModal(url) {
                 const shareModal = document.getElementById('newShareModal');
-                document.getElementById('newShareLink').value = url;
-                document.getElementById('newShareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-                document.getElementById('newShareTwitter').href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
-                document.getElementById('newShareWhatsapp').href = `https://wa.me/?text=${encodeURIComponent(url)}`;
-                document.getElementById('newShareCopy').onclick = () => {
+                if (!shareModal) return;
+                const linkInput = document.getElementById('newShareLink');
+                if (linkInput) linkInput.value = url;
+                const fbLink = document.getElementById('newShareFacebook');
+                const twitterLink = document.getElementById('newShareTwitter');
+                const waLink = document.getElementById('newShareWhatsapp');
+                const copyBtn = document.getElementById('newShareCopy');
+                if (fbLink) fbLink.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+                if (twitterLink) twitterLink.href = `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}`;
+                if (waLink) waLink.href = `https://wa.me/?text=${encodeURIComponent(url)}`;
+                if (copyBtn) copyBtn.onclick = () => {
                     navigator.clipboard.writeText(url);
-                    showToast('تم نسخ الرابط', 'success');
+                    window.showToast('تم نسخ الرابط', 'success');
                 };
                 shareModal.classList.add('show');
             }
 
+            function showToolModal(tool) {
+                const iconElem = document.getElementById('newModalIcon');
+                const titleElem = document.getElementById('newModalTitle');
+                const descElem = document.getElementById('newModalDesc');
+                const visitLink = document.getElementById('newModalVisit');
+                const favBtn = document.getElementById('newModalFavorite');
+                const shareBtn = document.getElementById('newModalShare');
+                const reportLink = document.getElementById('newModalReport');
+                const modal = document.getElementById('newToolModal');
+                if (!modal) return;
+                if (iconElem) iconElem.innerHTML = `<i class="${tool.icon}"></i>`;
+                if (titleElem) titleElem.textContent = tool.name;
+                if (descElem) descElem.textContent = tool.desc;
+                if (visitLink) visitLink.href = tool.url;
+                const isFav = favorites.some(f => f.url === tool.url);
+                if (favBtn) favBtn.innerHTML = isFav ? '<i class="fas fa-star"></i> إزالة من المفضلة' : '<i class="fas fa-star"></i> أضف للمفضلة';
+                const newFavBtn = favBtn ? favBtn.cloneNode(true) : null;
+                if (favBtn && newFavBtn) {
+                    favBtn.parentNode.replaceChild(newFavBtn, favBtn);
+                    newFavBtn.addEventListener('click', () => {
+                        if (favorites.some(f => f.url === tool.url)) {
+                            favorites = favorites.filter(f => f.url !== tool.url);
+                            window.showToast('تمت الإزالة من المفضلة', 'success');
+                        } else {
+                            favorites.push(tool);
+                            window.showToast('تمت الإضافة إلى المفضلة', 'success');
+                        }
+                        localStorage.setItem('new_favorites', JSON.stringify(favorites));
+                        updateFavorites();
+                        updateSidebarStats();
+                        showToolModal(tool);
+                    });
+                }
+                if (shareBtn) shareBtn.onclick = () => showShareModal(tool.url);
+                if (reportLink) reportLink.href = `mailto:abdaalmamery@gmail.com?subject=الإبلاغ عن رابط معطل&body=الرابط: ${tool.url}`;
+                modal.classList.add('show');
+                applyTranslations();
+            }
+
             function attachNewToolEvents() {
                 document.querySelectorAll('.tool-link').forEach(link => {
-                    link.addEventListener('click', (e) => {
+                    const newLink = link.cloneNode(true);
+                    link.parentNode.replaceChild(newLink, link);
+                    newLink.addEventListener('click', (e) => {
                         e.preventDefault();
-                        const toolCard = link.closest('.tool-card');
+                        const toolCard = newLink.closest('.tool-card');
                         if (!toolCard) return;
-                        const name = toolCard.querySelector('.tool-name')?.textContent;
-                        const desc = toolCard.querySelector('.tool-desc')?.textContent;
+                        const nameElem = toolCard.querySelector('.tool-name');
+                        const descElem = toolCard.querySelector('.tool-desc');
                         const iconElem = toolCard.querySelector('.card-icon i');
+                        const name = nameElem ? nameElem.textContent : '';
+                        const desc = descElem ? descElem.textContent : '';
                         const icon = iconElem ? iconElem.className : 'fa-solid fa-robot';
-                        const url = link.href;
-
+                        const url = newLink.href;
                         const allTools = getAllTools();
-                        const tool = allTools.find(t => t.name === name && t.url === url);
-                        if (tool) {
-                            showToolModal(tool);
-                            recordClick(url);
-                        } else {
-                            showToolModal({ name, desc, icon, url });
-                            recordClick(url);
-                        }
+                        const tool = allTools.find(t => t.name === name && t.url === url) || { name, desc, icon, url };
+                        showToolModal(tool);
+                        recordClick(url);
                     });
                 });
-
+                
                 document.querySelectorAll('.tool-card').forEach(card => {
-                    if (card.querySelector('.new-fav-star')) return;
+                    const existingStar = card.querySelector('.new-fav-star');
+                    if (existingStar) existingStar.remove();
                     const starBtn = document.createElement('i');
                     starBtn.className = 'fas fa-star new-fav-star';
-                    starBtn.style.position = 'absolute';
-                    starBtn.style.top = '1rem';
-                    starBtn.style.left = '1rem';
-                    starBtn.style.fontSize = '1.2rem';
-                    starBtn.style.color = 'var(--accent)';
-                    starBtn.style.cursor = 'pointer';
-                    starBtn.style.zIndex = '10';
-                    starBtn.style.opacity = '0.7';
-                    starBtn.style.transition = 'all 0.3s';
+                    starBtn.style.cssText = 'position:absolute;top:1rem;left:1rem;font-size:1.2rem;color:var(--accent);cursor:pointer;z-index:10;opacity:0.7;transition:all 0.3s;';
                     starBtn.onmouseover = () => { starBtn.style.opacity = '1'; starBtn.style.transform = 'scale(1.2)'; };
                     starBtn.onmouseout = () => { starBtn.style.opacity = '0.7'; starBtn.style.transform = 'scale(1)'; };
-
-                    const toolName = card.querySelector('.tool-name')?.textContent;
-                    const toolDesc = card.querySelector('.tool-desc')?.textContent;
+                    const toolNameElem = card.querySelector('.tool-name');
+                    const toolDescElem = card.querySelector('.tool-desc');
                     const toolIconElem = card.querySelector('.card-icon i');
+                    const toolLinkElem = card.querySelector('.tool-link');
+                    const toolName = toolNameElem ? toolNameElem.textContent : '';
+                    const toolDesc = toolDescElem ? toolDescElem.textContent : '';
                     const toolIcon = toolIconElem ? toolIconElem.className : 'fa-solid fa-robot';
-                    const toolLink = card.querySelector('.tool-link');
-                    const toolUrl = toolLink ? toolLink.href : '#';
-
+                    const toolUrl = toolLinkElem ? toolLinkElem.href : '#';
                     const allTools = getAllTools();
                     const tool = allTools.find(t => t.name === toolName && t.url === toolUrl) || { name: toolName, desc: toolDesc, icon: toolIcon, url: toolUrl };
-
+                    if (favorites.some(f => f.url === tool.url)) starBtn.style.color = 'gold';
                     starBtn.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
                         if (favorites.some(f => f.url === tool.url)) {
                             favorites = favorites.filter(f => f.url !== tool.url);
                             starBtn.style.color = 'var(--accent)';
-                            showToast('تمت الإزالة من المفضلة', 'success');
+                            window.showToast('تمت الإزالة من المفضلة', 'success');
                         } else {
                             favorites.push(tool);
                             starBtn.style.color = 'gold';
-                            showToast('تمت الإضافة إلى المفضلة', 'success');
+                            window.showToast('تمت الإضافة إلى المفضلة', 'success');
                         }
                         localStorage.setItem('new_favorites', JSON.stringify(favorites));
                         updateFavorites();
                         updateSidebarStats();
                     });
-
-                    if (favorites.some(f => f.url === tool.url)) {
-                        starBtn.style.color = 'gold';
-                    }
-
                     card.style.position = 'relative';
                     card.appendChild(starBtn);
                 });
@@ -3196,12 +3578,13 @@
                 const canvas = document.getElementById('newCategoryChart');
                 if (!canvas) return;
                 const ctx = canvas.getContext('2d');
+                if (!ctx) return;
                 const total = categories.reduce((acc, cat) => acc + cat.tools.length, 0);
                 if (total === 0) return;
-
+                canvas.width = 200;
+                canvas.height = 200;
                 let startAngle = 0;
                 const centerX = 100, centerY = 100, radius = 80;
-
                 categories.forEach((cat, index) => {
                     const percentage = cat.tools.length / total;
                     const endAngle = startAngle + (percentage * 2 * Math.PI);
@@ -3222,91 +3605,402 @@
                 updateFavorites();
                 attachNewToolEvents();
                 drawCategoryChart();
+                applyTranslations();
             }
 
-            // ربط أحداث الشريط الجانبي
-            document.getElementById('newSidebarToggle').addEventListener('click', () => {
-                document.getElementById('newSidebar').classList.add('open');
+            // ربط الأحداث
+            const toggleBtn = document.getElementById('newSidebarToggle');
+            const sidebar = document.getElementById('newSidebar');
+            const closeSidebar = document.getElementById('newSidebarClose');
+            if (toggleBtn && sidebar) {
+                toggleBtn.addEventListener('click', () => sidebar.classList.add('open'));
+                if (closeSidebar) closeSidebar.addEventListener('click', () => sidebar.classList.remove('open'));
+                document.addEventListener('click', (e) => {
+                    if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains('open')) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            }
+            
+            const subscribeBtn = document.getElementById('newSubscribeBtn');
+            const subscribeModal = document.getElementById('newSubscribeModal');
+            const subscribeClose = document.getElementById('newSubscribeClose');
+            const subscribeConfirm = document.getElementById('newSubscribeConfirmBtn');
+            if (subscribeBtn && subscribeModal) {
+                subscribeBtn.addEventListener('click', () => subscribeModal.classList.add('show'));
+                if (subscribeClose) subscribeClose.addEventListener('click', () => subscribeModal.classList.remove('show'));
+                subscribeModal.addEventListener('click', (e) => {
+                    if (e.target === subscribeModal) subscribeModal.classList.remove('show');
+                });
+                if (subscribeConfirm) {
+                    subscribeConfirm.addEventListener('click', () => {
+                        const codeInput = document.getElementById('newSubscribeCode');
+                        const code = codeInput ? codeInput.value.trim() : '';
+                        if (code === SECRET_CODE) {
+                            window.showToast('✅ تم فتح المواقع بنجاح!', 'success');
+                            EXCLUSIVE_SITES.forEach(site => window.open(site, '_blank'));
+                            subscribeModal.classList.remove('show');
+                            localStorage.setItem('exclusive_unlocked', 'true');
+                        } else {
+                            window.showToast('❌ رمز خاطئ، حاول مرة أخرى', 'error');
+                        }
+                    });
+                }
+            }
+            
+            const modalClose = document.getElementById('newModalClose');
+            const toolModal = document.getElementById('newToolModal');
+            if (modalClose && toolModal) {
+                modalClose.addEventListener('click', () => toolModal.classList.remove('show'));
+                toolModal.addEventListener('click', (e) => {
+                    if (e.target === toolModal) toolModal.classList.remove('show');
+                });
+            }
+            
+            const shareModal = document.getElementById('newShareModal');
+            if (shareModal) {
+                shareModal.addEventListener('click', (e) => {
+                    if (e.target === shareModal) shareModal.classList.remove('show');
+                });
+            }
+            
+            const shareSiteBtn = document.getElementById('newShareSiteBtn');
+            if (shareSiteBtn) {
+                shareSiteBtn.addEventListener('click', () => showShareModal(window.location.href));
+            }
+            
+            refreshNewUI();
+            window.addEventListener('load', refreshNewUI);
+        }
+
+        // =================================================================
+        // NEW IMPROVEMENTS: دوال إضافية حديثة
+        // =================================================================
+        function initFontControl() {
+            let fontSize = parseInt(localStorage.getItem('fontSize')) || 100;
+            document.documentElement.style.fontSize = fontSize + '%';
+            const increaseBtn = document.getElementById('fontIncrease');
+            const decreaseBtn = document.getElementById('fontDecrease');
+            if (increaseBtn) {
+                increaseBtn.addEventListener('click', () => {
+                    if (fontSize < 150) fontSize += 10;
+                    document.documentElement.style.fontSize = fontSize + '%';
+                    localStorage.setItem('fontSize', fontSize);
+                });
+            }
+            if (decreaseBtn) {
+                decreaseBtn.addEventListener('click', () => {
+                    if (fontSize > 70) fontSize -= 10;
+                    document.documentElement.style.fontSize = fontSize + '%';
+                    localStorage.setItem('fontSize', fontSize);
+                });
+            }
+        }
+
+        function initReadMode() {
+            const btn = document.getElementById('readModeBtn');
+            if (!btn) return;
+            btn.addEventListener('click', () => {
+                document.body.classList.toggle('read-mode');
+                const isRead = document.body.classList.contains('read-mode');
+                localStorage.setItem('readMode', isRead);
+                btn.style.color = isRead ? 'var(--accent)' : '';
             });
-            document.getElementById('newSidebarClose').addEventListener('click', () => {
-                document.getElementById('newSidebar').classList.remove('open');
+            if (localStorage.getItem('readMode') === 'true') {
+                document.body.classList.add('read-mode');
+                btn.style.color = 'var(--accent)';
+            }
+        }
+
+        function initSortControls() {
+            const btns = document.querySelectorAll('.sort-btn');
+            btns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    btns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentSort = btn.dataset.sort;
+                    if (currentCategoryIndex === null) {
+                        renderMainPage();
+                    } else {
+                        renderCategoryPage(currentCategoryIndex);
+                    }
+                });
             });
-            document.addEventListener('click', (e) => {
-                const sidebar = document.getElementById('newSidebar');
+        }
+
+        function initVisitorStats() {
+            const today = new Date().toDateString();
+            let visits = JSON.parse(localStorage.getItem('visits')) || {};
+            if (visits[today]) {
+                visits[today]++;
+            } else {
+                visits[today] = 1;
+            }
+            localStorage.setItem('visits', JSON.stringify(visits));
+            const totalVisits = Object.values(visits).reduce((a,b)=>a+b,0);
+            const statsDiv = document.getElementById('visitorStats');
+            if (statsDiv) statsDiv.innerHTML = `📊 زوار اليوم: ${visits[today]} | إجمالي الزيارات: ${totalVisits}`;
+        }
+
+        function initBottomNav() {
+            const bottomHome = document.getElementById('bottomHome');
+            const bottomSearch = document.getElementById('bottomSearch');
+            const bottomFav = document.getElementById('bottomFav');
+            const bottomSidebar = document.getElementById('bottomSidebar');
+            if (bottomHome) bottomHome.addEventListener('click', (e) => { e.preventDefault(); window.location.href = window.location.pathname; });
+            if (bottomSearch) bottomSearch.addEventListener('click', (e) => { e.preventDefault(); const inp = document.getElementById('searchInput'); if (inp) inp.focus(); });
+            if (bottomFav) bottomFav.addEventListener('click', (e) => {
+                e.preventDefault();
                 const toggle = document.getElementById('newSidebarToggle');
-                if (!sidebar.contains(e.target) && !toggle.contains(e.target) && sidebar.classList.contains('open')) {
-                    sidebar.classList.remove('open');
-                }
+                if (toggle) toggle.click();
+                setTimeout(() => {
+                    const favSection = document.querySelector('.new-section:nth-child(3)');
+                    if (favSection) favSection.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
             });
+            if (bottomSidebar) bottomSidebar.addEventListener('click', (e) => { e.preventDefault(); const toggle = document.getElementById('newSidebarToggle'); if (toggle) toggle.click(); });
+        }
 
-            // الاشتراك
-            document.getElementById('newSubscribeBtn').addEventListener('click', () => {
-                document.getElementById('newSubscribeModal').classList.add('show');
+        // =================================================================
+        // ENHANCEMENTS: الترجمة واللغة (i18n) ونموذج الإضافة
+        // =================================================================
+        const translations = {
+            ar: {
+                mainTitle: "عبد الرحمن تكنولوجيا",
+                homeLink: "الرئيسية",
+                searchPlaceholder: "ابحث عن أداة ذكاء اصطناعي...",
+                noResultsMsg: "لا توجد أدوات تطابق بحثك. جرب كلمة أخرى!",
+                backLink: "العودة إلى جميع الأقسام",
+                visitBtn: "زيارة",
+                favBtn: "أضف للمفضلة",
+                shareBtn: "مشاركة",
+                reportBtn: "إبلاغ",
+                sidebarTitle: "القائمة الذكية",
+                instagramText: "تابع المطور @io95c",
+                statCategories: "قسم",
+                statTools: "أداة",
+                statVisits: "زيارة",
+                statFav: "مفضلة",
+                topToolsTitle: "الأكثر زيارة",
+                favoritesTitle: "مفضلتي",
+                subscribeTitle: "اشتراك مميز",
+                subscribeBtnText: "افتح 3 مواقع حصرية",
+                subscribeDesc: "أدخل الرمز للحصول على مواقع حصرية",
+                chartTitle: "توزيع الأدوات",
+                importantLinksTitle: "روابط هامة",
+                telegramText: "قناة المطور على تيليجرام",
+                shareSiteText: "مشاركة الموقع",
+                suggestToolText: "اقتراح أداة / إبلاغ",
+                subscribeModalTitle: "فتح المواقع الحصرية",
+                subscribeModalDesc: "أدخل الرمز السري للوصول إلى ثلاثة مواقع مميزة",
+                confirmBtn: "تأكيد",
+                visitBtnText: "زيارة",
+                favBtnText: "أضف للمفضلة",
+                shareBtnText: "مشاركة",
+                reportBtnText: "إبلاغ",
+                suggestModalTitle: "اقتراح أداة أو إبلاغ",
+                suggestNamePlaceholder: "الاسم",
+                suggestEmailPlaceholder: "البريد الإلكتروني",
+                suggestTypeOption1: "اقتراح أداة جديدة",
+                suggestTypeOption2: "الإبلاغ عن مشكلة أو رابط معطل",
+                suggestMessagePlaceholder: "تفاصيل الاقتراح أو المشكلة...",
+                suggestSubmit: "إرسال",
+                copyright: "© 2026 Abdulrahman Radwan. جميع الحقوق محفوظة.",
+                footerDesc: "تصميم فاخر بتقنيات 2026 | دليل AI الشامل",
+                sortDefault: "الترتيب الافتراضي",
+                sortName: "حسب الاسم",
+                sortCount: "حسب عدد الأدوات"
+            },
+            en: {
+                mainTitle: "Abdulrahman Tech | AI Directory",
+                homeLink: "Home",
+                searchPlaceholder: "Search for AI tool...",
+                noResultsMsg: "No tools match your search. Try another keyword!",
+                backLink: "Back to all categories",
+                visitBtn: "Visit",
+                favBtn: "Add to favorites",
+                shareBtn: "Share",
+                reportBtn: "Report",
+                sidebarTitle: "Smart Menu",
+                instagramText: "Follow developer @io95c",
+                statCategories: "Category",
+                statTools: "Tools",
+                statVisits: "Visits",
+                statFav: "Favorites",
+                topToolsTitle: "Most Visited",
+                favoritesTitle: "My Favorites",
+                subscribeTitle: "Premium Subscription",
+                subscribeBtnText: "Unlock 3 exclusive sites",
+                subscribeDesc: "Enter the code to get exclusive sites",
+                chartTitle: "Tools Distribution",
+                importantLinksTitle: "Important Links",
+                telegramText: "Developer's Telegram channel",
+                shareSiteText: "Share site",
+                suggestToolText: "Suggest tool / Report",
+                subscribeModalTitle: "Unlock exclusive sites",
+                subscribeModalDesc: "Enter the secret code to access three exclusive sites",
+                confirmBtn: "Confirm",
+                visitBtnText: "Visit",
+                favBtnText: "Add to favorites",
+                shareBtnText: "Share",
+                reportBtnText: "Report",
+                suggestModalTitle: "Suggest tool or Report",
+                suggestNamePlaceholder: "Name",
+                suggestEmailPlaceholder: "Email",
+                suggestTypeOption1: "Suggest a new tool",
+                suggestTypeOption2: "Report a problem or broken link",
+                suggestMessagePlaceholder: "Details of suggestion or problem...",
+                suggestSubmit: "Send",
+                copyright: "© 2026 Abdulrahman Radwan. All rights reserved.",
+                footerDesc: "Luxury design with 2026 tech | Complete AI Directory",
+                sortDefault: "Default order",
+                sortName: "By name",
+                sortCount: "By tool count"
+            }
+        };
+
+        function applyTranslations() {
+            const lang = currentLang;
+            const titleElem = document.getElementById('mainTitle');
+            if (titleElem) titleElem.innerText = translations[lang].mainTitle;
+            const homeLink = document.getElementById('homeLink');
+            if (homeLink) homeLink.innerText = translations[lang].homeLink;
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) searchInput.placeholder = translations[lang].searchPlaceholder;
+            const noResultsMsg = document.getElementById('noResultsMsg');
+            if (noResultsMsg) noResultsMsg.innerText = translations[lang].noResultsMsg;
+            const backLinks = document.querySelectorAll('.back-link');
+            backLinks.forEach(link => {
+                const textNode = link.childNodes[link.childNodes.length - 1];
+                if (textNode && textNode.nodeType === Node.TEXT_NODE) textNode.textContent = translations[lang].backLink;
             });
-            document.getElementById('newSubscribeClose').addEventListener('click', () => {
-                document.getElementById('newSubscribeModal').classList.remove('show');
-            });
-            document.getElementById('newSubscribeModal').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('newSubscribeModal')) {
-                    document.getElementById('newSubscribeModal').classList.remove('show');
-                }
-            });
-            document.getElementById('newSubscribeConfirm').addEventListener('click', () => {
-                const code = document.getElementById('newSubscribeCode').value.trim();
-                if (code === SECRET_CODE) {
-                    showToast('✅ تم فتح المواقع بنجاح!', 'success');
-                    EXCLUSIVE_SITES.forEach(site => window.open(site, '_blank'));
-                    document.getElementById('newSubscribeModal').classList.remove('show');
-                    localStorage.setItem('exclusive_unlocked', 'true');
+            const toolLinkSpans = document.querySelectorAll('.tool-link span');
+            toolLinkSpans.forEach(span => span.innerText = translations[lang].visitBtn);
+            const sidebarTitle = document.getElementById('sidebarTitle');
+            if (sidebarTitle) sidebarTitle.innerText = translations[lang].sidebarTitle;
+            const instagramTextSpan = document.getElementById('instagramText');
+            if (instagramTextSpan) instagramTextSpan.innerText = translations[lang].instagramText;
+            const statCategoriesLabel = document.getElementById('statCategoriesLabel');
+            if (statCategoriesLabel) statCategoriesLabel.innerText = translations[lang].statCategories;
+            const statToolsLabel = document.getElementById('statToolsLabel');
+            if (statToolsLabel) statToolsLabel.innerText = translations[lang].statTools;
+            const statVisitsLabel = document.getElementById('statVisitsLabel');
+            if (statVisitsLabel) statVisitsLabel.innerText = translations[lang].statVisits;
+            const statFavLabel = document.getElementById('statFavLabel');
+            if (statFavLabel) statFavLabel.innerText = translations[lang].statFav;
+            const topToolsTitle = document.getElementById('topToolsTitle');
+            if (topToolsTitle) topToolsTitle.innerHTML = `<i class="fas fa-fire"></i> ${translations[lang].topToolsTitle}`;
+            const favoritesTitle = document.getElementById('favoritesTitle');
+            if (favoritesTitle) favoritesTitle.innerHTML = `<i class="fas fa-star"></i> ${translations[lang].favoritesTitle}`;
+            const subscribeTitle = document.getElementById('subscribeTitle');
+            if (subscribeTitle) subscribeTitle.innerHTML = `<i class="fas fa-lock"></i> ${translations[lang].subscribeTitle}`;
+            const subscribeBtnText = document.getElementById('subscribeBtnText');
+            if (subscribeBtnText) subscribeBtnText.innerText = translations[lang].subscribeBtnText;
+            const subscribeDesc = document.getElementById('subscribeDesc');
+            if (subscribeDesc) subscribeDesc.innerText = translations[lang].subscribeDesc;
+            const chartTitle = document.getElementById('chartTitle');
+            if (chartTitle) chartTitle.innerHTML = `<i class="fas fa-chart-pie"></i> ${translations[lang].chartTitle}`;
+            const importantLinksTitle = document.getElementById('importantLinksTitle');
+            if (importantLinksTitle) importantLinksTitle.innerHTML = `<i class="fab fa-telegram"></i> ${translations[lang].importantLinksTitle}`;
+            const telegramSpan = document.querySelector('#importantLinksTitle + a span');
+            if (telegramSpan) telegramSpan.innerText = translations[lang].telegramText;
+            const shareSiteText = document.getElementById('shareSiteText');
+            if (shareSiteText) shareSiteText.innerText = translations[lang].shareSiteText;
+            const suggestToolText = document.getElementById('suggestToolText');
+            if (suggestToolText) suggestToolText.innerText = translations[lang].suggestToolText;
+            const subscribeModalTitle = document.getElementById('subscribeModalTitle');
+            if (subscribeModalTitle) subscribeModalTitle.innerText = translations[lang].subscribeModalTitle;
+            const subscribeModalDesc = document.getElementById('subscribeModalDesc');
+            if (subscribeModalDesc) subscribeModalDesc.innerText = translations[lang].subscribeModalDesc;
+            const subscribeConfirmBtn = document.getElementById('newSubscribeConfirmBtn');
+            if (subscribeConfirmBtn) subscribeConfirmBtn.innerText = translations[lang].confirmBtn;
+            const visitBtnText = document.getElementById('visitBtnText');
+            if (visitBtnText) visitBtnText.innerText = translations[lang].visitBtnText;
+            const favBtnText = document.getElementById('favBtnText');
+            if (favBtnText) favBtnText.innerText = translations[lang].favBtnText;
+            const shareBtnText = document.getElementById('shareBtnText');
+            if (shareBtnText) shareBtnText.innerText = translations[lang].shareBtnText;
+            const reportBtnText = document.getElementById('reportBtnText');
+            if (reportBtnText) reportBtnText.innerText = translations[lang].reportBtnText;
+            const suggestModalTitle = document.getElementById('suggestModalTitle');
+            if (suggestModalTitle) suggestModalTitle.innerText = translations[lang].suggestModalTitle;
+            const suggestName = document.getElementById('suggestName');
+            if (suggestName) suggestName.placeholder = translations[lang].suggestNamePlaceholder;
+            const suggestEmail = document.getElementById('suggestEmail');
+            if (suggestEmail) suggestEmail.placeholder = translations[lang].suggestEmailPlaceholder;
+            const suggestType = document.getElementById('suggestType');
+            if (suggestType) {
+                suggestType.options[0].text = translations[lang].suggestTypeOption1;
+                suggestType.options[1].text = translations[lang].suggestTypeOption2;
+            }
+            const suggestMessage = document.getElementById('suggestMessage');
+            if (suggestMessage) suggestMessage.placeholder = translations[lang].suggestMessagePlaceholder;
+            const submitBtn = document.querySelector('#suggestToolForm button');
+            if (submitBtn) submitBtn.innerHTML = `<i class="fas fa-send"></i> ${translations[lang].suggestSubmit}`;
+            const copyright = document.getElementById('copyright');
+            if (copyright) copyright.innerText = translations[lang].copyright;
+            const footerDesc = document.getElementById('footerDesc');
+            if (footerDesc) footerDesc.innerText = translations[lang].footerDesc;
+            const sortDefault = document.getElementById('sortDefault');
+            if (sortDefault) sortDefault.innerText = translations[lang].sortDefault;
+            const sortName = document.getElementById('sortName');
+            if (sortName) sortName.innerText = translations[lang].sortName;
+            const sortCount = document.getElementById('sortCount');
+            if (sortCount) sortCount.innerText = translations[lang].sortCount;
+            
+            if (lang === 'en') {
+                document.body.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.lang = 'en';
+            } else {
+                document.body.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.lang = 'ar';
+            }
+        }
+
+        function initLanguageSwitcher() {
+            const langBtn = document.getElementById('langSwitch');
+            if (!langBtn) return;
+            langBtn.addEventListener('click', () => {
+                currentLang = currentLang === 'ar' ? 'en' : 'ar';
+                localStorage.setItem('appLang', currentLang);
+                applyTranslations();
+                if (currentCategoryIndex !== null) {
+                    renderCategoryPage(currentCategoryIndex);
                 } else {
-                    showToast('❌ رمز خاطئ، حاول مرة أخرى', 'error');
+                    renderMainPage();
                 }
+                const sidebar = document.getElementById('newSidebar');
+                if (sidebar) applyTranslations();
             });
+        }
 
-            // إغلاق مودال الأداة
-            document.getElementById('newModalClose').addEventListener('click', () => {
-                document.getElementById('newToolModal').classList.remove('show');
-            });
-            document.getElementById('newToolModal').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('newToolModal')) {
-                    document.getElementById('newToolModal').classList.remove('show');
-                }
-            });
+        function initSuggestTool() {
+            const suggestBtn = document.getElementById('suggestToolBtn');
+            const modal = document.getElementById('suggestToolModal');
+            const closeBtn = document.getElementById('suggestModalClose');
+            const form = document.getElementById('suggestToolForm');
+            if (!suggestBtn || !modal || !closeBtn || !form) return;
 
-            // إغلاق مودال المشاركة
-            document.getElementById('newShareModal').addEventListener('click', (e) => {
-                if (e.target === document.getElementById('newShareModal')) {
-                    document.getElementById('newShareModal').classList.remove('show');
-                }
-            });
+            suggestBtn.addEventListener('click', () => modal.classList.add('show'));
+            closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
 
-            // مشاركة الموقع
-            document.getElementById('newShareSiteBtn').addEventListener('click', () => {
-                showShareModal(window.location.href);
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('suggestName').value;
+                const email = document.getElementById('suggestEmail').value;
+                const type = document.getElementById('suggestType').value;
+                const message = document.getElementById('suggestMessage').value;
+                const subject = type === 'suggest' ? 'اقتراح أداة جديدة' : 'إبلاغ عن مشكلة';
+                const body = `الاسم: ${name}\nالبريد الإلكتروني: ${email}\nنوع الطلب: ${type === 'suggest' ? 'اقتراح أداة' : 'إبلاغ'}\nالرسالة:\n${message}`;
+                window.location.href = `mailto:abdaalmamery@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                window.showToast('تم فتح بريدك الإلكتروني لإرسال الرسالة', 'success');
+                modal.classList.remove('show');
+                form.reset();
             });
-
-            // تعديل الدوال الأصلية لإعادة ربط الأحداث
-            const originalRenderMainPage = renderMainPage;
-            window.renderMainPage = function() {
-                originalRenderMainPage();
-                refreshNewUI();
-            };
-            const originalRenderCategoryPage = renderCategoryPage;
-            window.renderCategoryPage = function(index) {
-                originalRenderCategoryPage(index);
-                refreshNewUI();
-            };
-            const originalFilterTools = filterTools;
-            window.filterTools = function() {
-                originalFilterTools();
-                refreshNewUI();
-            };
-
-            // تحديث عند التحميل
-            window.addEventListener('load', () => {
-                refreshNewUI();
-            });
-        })();
+        }
 
         // =================================================================
         // 12. التهيئة عند تحميل الصفحة
@@ -3323,7 +4017,7 @@
             }
 
             const searchInput = document.getElementById('searchInput');
-            searchInput.addEventListener('input', debounceFilter);
+            if (searchInput) searchInput.addEventListener('input', debounceFilter);
 
             setupAutocomplete();
             setupClearSearch();
@@ -3331,9 +4025,19 @@
             initParticles();
             typeEffect();
             window.addEventListener('scroll', updateProgressBar);
+
+            initFontControl();
+            initReadMode();
+            initSortControls();
+            initVisitorStats();
+            initBottomNav();
+            initLanguageSwitcher();
+            initSuggestTool();
+            initNewFeatures();
+            applyTranslations();
         };
 
-        // منع النسخ وأدوات المطور (اختياري)
+        // منع النسخ وأدوات المطور
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 's' || e.key === 'p')) {
                 e.preventDefault();
@@ -3348,75 +4052,64 @@
             e.preventDefault();
             alert("النقر بالزر الأيمن غير متاح.");
         });
-    </script>
 
-    <!-- تسجيل Service Worker (اختياري) -->
-    <script>
+        // Service Worker اختياري
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js').catch(err => console.log('ServiceWorker registration failed: ', err));
         }
-    </script>
 
-    <!-- مراقبة الاتصال بالإنترنت -->
-    <script>
+        // مراقبة الاتصال بالإنترنت
         window.addEventListener('online', () => {
-            if (typeof showToast === 'function') showToast('تم استعادة الاتصال بالإنترنت', 'success');
+            if (window.showToast) window.showToast('تم استعادة الاتصال بالإنترنت', 'success');
         });
         window.addEventListener('offline', () => {
-            if (typeof showToast === 'function') showToast('فقد الاتصال بالإنترنت. بعض الميزات قد لا تعمل.', 'error');
+            if (window.showToast) window.showToast('فقد الاتصال بالإنترنت. بعض الميزات قد لا تعمل.', 'error');
         });
-    </script>
 
-    <!-- مؤشر التحميل عند الانتقال بين الصفحات -->
-    <script>
+        // مؤشر التحميل عند الانتقال بين الصفحات
         document.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (link && link.href && link.href.startsWith(window.location.origin) && !link.hasAttribute('target') && link.href !== window.location.href) {
                 const loader = document.getElementById('pageLoader');
-                loader.style.transform = 'scaleX(1)';
-                setTimeout(() => {
-                    loader.style.transform = 'scaleX(0)';
-                }, 500);
+                if (loader) {
+                    loader.style.transform = 'scaleX(1)';
+                    setTimeout(() => { loader.style.transform = 'scaleX(0)'; }, 500);
+                }
             }
         });
         window.addEventListener('load', () => {
             const loader = document.getElementById('pageLoader');
-            loader.style.transform = 'scaleX(0)';
+            if (loader) loader.style.transform = 'scaleX(0)';
         });
-    </script>
 
-    <!-- مراقبة تفضيل الوضع الداكن في النظام -->
-    <script>
+        // مراقبة تفضيل الوضع الداكن في النظام
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
             const savedTheme = localStorage.getItem('theme');
             if (!savedTheme) {
+                const icon = document.querySelector('#themeToggle i');
                 if (e.matches) {
                     document.body.classList.add('dark-mode');
                     document.body.classList.remove('light-mode');
-                    const icon = document.querySelector('#themeToggle i');
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
+                    if (icon) { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); }
                 } else {
                     document.body.classList.add('light-mode');
                     document.body.classList.remove('dark-mode');
-                    const icon = document.querySelector('#themeToggle i');
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
+                    if (icon) { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
                 }
             }
         });
-    </script>
 
-    <!-- تخطي إلى المحتوى -->
-    <script>
-        document.querySelector('.skip-to-content')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('contentContainer').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
+        // تخطي إلى المحتوى
+        const skipLink = document.querySelector('.skip-to-content');
+        if (skipLink) {
+            skipLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                const content = document.getElementById('contentContainer');
+                if (content) content.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
 
-    <!-- إحصائيات بسيطة (زيارات) -->
-    <script>
+        // إحصائيات بسيطة (زيارات)
         if (!localStorage.getItem('visitCount')) {
             localStorage.setItem('visitCount', '1');
         } else {
